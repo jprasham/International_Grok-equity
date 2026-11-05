@@ -6,23 +6,36 @@ import DOMPurify from "dompurify";
 import { ExternalLink } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode, SyntheticEvent } from "react";
+import { GrokAttribution } from "@/components/grok-attribution";
 import { StatusChip } from "@/components/status-chip";
+import { StructuredReportView } from "@/components/structured-report";
 import { PageBody, PageHero, Section } from "@/components/terminal";
 import { Card, CardContent } from "@/components/ui/card";
 import type { Report } from "@/lib/reports";
+import { parseStructuredReport } from "@/lib/report-schema";
 import { ReportActions } from "./report-actions";
 
 export function ReportView({ report }: { report: Report }) {
+  const inFlight = report.status === "pending" || report.status === "researching";
+
   return (
     <>
-      <PageHero ticker title={report.ticker} sub={`${report.exchange} · Research report`}>
-        <dl className="flex flex-wrap gap-x-7 gap-y-3">
-          <Stat label="Status">
-            <StatusChip status={report.status} />
-          </Stat>
-          <Stat label="Requested">{formatTime(report.requested_at)}</Stat>
-          {report.completed_at && <Stat label="Completed">{formatTime(report.completed_at)}</Stat>}
-        </dl>
+      <PageHero
+        eyebrow="Research report"
+        ticker
+        title={report.ticker}
+        sub={`${report.exchange} · Market Pulse`}
+      >
+        <div className="flex flex-col items-start gap-4 md:items-end">
+          <GrokAttribution tone={inFlight ? "working" : report.status === "done" ? "done" : "inline"} />
+          <dl className="flex flex-wrap gap-x-7 gap-y-3">
+            <Stat label="Status">
+              <StatusChip status={report.status} />
+            </Stat>
+            <Stat label="Requested">{formatTime(report.requested_at)}</Stat>
+            {report.completed_at && <Stat label="Completed">{formatTime(report.completed_at)}</Stat>}
+          </dl>
+        </div>
       </PageHero>
       <PageBody>
         <Section code="01" name="Report">
@@ -56,18 +69,50 @@ const STEPS = ["Queued", "Researching", "Report ready"];
 
 function Progress({ report }: { report: Report }) {
   const current = report.status === "pending" ? 0 : 1;
+  const fill = report.status === "pending" ? "18%" : "62%";
+
   return (
-    <Card>
-      <CardContent className="flex flex-col gap-4">
-        <p role="status" className="text-[15px] font-semibold">
-          {STEPS[current]} {report.ticker}
-        </p>
-        <ol className="flex flex-col gap-2 font-mono sm:flex-row sm:gap-6">
+    <Card className="overflow-hidden border-border-soft">
+      <CardContent className="flex flex-col gap-5">
+        <div className="flex items-start gap-3">
+          <span
+            aria-hidden
+            className="mt-1.5 size-2 shrink-0 rounded-full bg-live motion-safe:animate-signal-pulse"
+          />
+          <div className="min-w-0">
+            <p role="status" className="text-[15px] font-semibold tracking-tight">
+              {STEPS[current]}{" "}
+              <span className="font-mono text-primary">{report.ticker}</span>
+            </p>
+            <p className="mt-1 font-mono text-xs tracking-[0.08em] text-muted-foreground uppercase">
+              Step 0{current + 1} / 03 · polling every 10s
+            </p>
+          </div>
+        </div>
+
+        <div
+          className="relative h-1.5 overflow-hidden rounded-full bg-secondary"
+          aria-hidden
+        >
+          <div
+            className="absolute inset-y-0 left-0 rounded-full bg-live/35 transition-[width] duration-700 ease-out"
+            style={{ width: fill }}
+          />
+          <div className="absolute inset-y-0 w-1/3 rounded-full bg-linear-to-r from-transparent via-live to-transparent motion-safe:animate-pulse-bar" />
+        </div>
+
+        <ol className="flex flex-col gap-2 font-mono text-xs tracking-[0.06em] sm:flex-row sm:gap-8">
           {STEPS.map((step, index) => (
             <li
               key={step}
               aria-current={index === current ? "step" : undefined}
-              className={`flex items-center gap-2 ${index === current ? "text-foreground" : "text-muted-foreground"}`}
+              className={`flex items-center gap-2 ${
+                index === current
+                  ? "text-foreground"
+                  : index < current
+                    ? "text-live"
+                    : "text-muted-foreground"
+              }`}
             >
               <span
                 aria-hidden
@@ -75,7 +120,7 @@ function Progress({ report }: { report: Report }) {
                   index < current
                     ? "bg-live"
                     : index === current
-                      ? "bg-beta motion-safe:animate-pulse"
+                      ? "bg-live motion-safe:animate-pulse"
                       : "bg-input"
                 }`}
               />
@@ -83,9 +128,6 @@ function Progress({ report }: { report: Report }) {
             </li>
           ))}
         </ol>
-        <p className="text-muted-foreground">
-          This page checks for the finished report every 10 seconds.
-        </p>
       </CardContent>
     </Card>
   );
@@ -113,62 +155,76 @@ function ReportBody({ report }: { report: Report }) {
     );
   }
 
-  if (report.report_html) {
-    // FORCE_BODY: a leading <style> would otherwise parse into <head> and be dropped.
-    const html = DOMPurify.sanitize(report.report_html, {
-      FORCE_BODY: true,
-      FORBID_TAGS: ["form"],
-    });
-    const title = `${report.ticker} research report`;
-    return (
-      <>
-        <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-2 print:hidden">
-          <ReportActions
-            // The file leaves the app and its footer, so it carries the disclaimer itself.
-            html={htmlDocument(title, `${html}<p><small>${DISCLAIMER}</small></p>`)}
-            filename={`${report.ticker}-${report.exchange}-${report.completed_at?.slice(0, 10)}.html`}
-          />
-          {report.report_url && <ReportLink url={report.report_url} />}
-        </div>
-        {/* Isolates the report's CSS from the app. Nothing inside can run: no allow-scripts.
-            allow-same-origin only lets fitToContent read the height, as the frame can't post it.
-            Stays white in both themes: the report brings its own light styles. */}
-        <div className="overflow-hidden rounded-lg border bg-white">
-          <iframe
-            srcDoc={htmlDocument(title, html)}
-            title={title}
-            sandbox="allow-same-origin allow-popups allow-popups-to-escape-sandbox"
-            onLoad={fitToContent}
-            className="block w-full"
-          />
-        </div>
-      </>
-    );
-  }
-
-  if (report.report_url) {
-    return (
-      <>
-        <div className="mb-4 print:hidden">
-          <ReportLink url={report.report_url} />
-        </div>
-        {/* No allow-same-origin, so framed scripts can't reach this app. */}
-        <div className="overflow-hidden rounded-lg border bg-white">
-          <iframe
-            src={report.report_url}
-            title={`${report.ticker} research report`}
-            sandbox="allow-scripts allow-popups"
-            className="block h-[75vh] w-full"
-          />
-        </div>
-      </>
-    );
-  }
+  const structured = parseStructuredReport(report.report_json);
 
   return (
-    <pre className="overflow-x-auto rounded-lg border bg-card p-4 font-mono text-xs">
-      {JSON.stringify(report.report_json, null, 2)}
-    </pre>
+    <div className="flex flex-col gap-4">
+      <GrokAttribution tone="done" />
+      {structured && <StructuredReportView report={structured} />}
+
+      {report.report_html ? (
+        <HtmlReport report={report} />
+      ) : report.report_url ? (
+        <UrlReport report={report} />
+      ) : !structured ? (
+        <pre className="overflow-x-auto rounded-lg border border-border-soft bg-card p-4 font-mono text-xs">
+          {JSON.stringify(report.report_json, null, 2)}
+        </pre>
+      ) : null}
+    </div>
+  );
+}
+
+function HtmlReport({ report }: { report: Report }) {
+  // FORCE_BODY: a leading <style> would otherwise parse into <head> and be dropped.
+  const html = DOMPurify.sanitize(report.report_html!, {
+    FORCE_BODY: true,
+    FORBID_TAGS: ["form"],
+  });
+  const title = `${report.ticker} research report`;
+
+  return (
+    <>
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 print:hidden">
+        <ReportActions
+          // The file leaves the app and its footer, so it carries the disclaimer itself.
+          html={htmlDocument(title, `${html}<p><small>${DISCLAIMER}</small></p>`)}
+          filename={`${report.ticker}-${report.exchange}-${report.completed_at?.slice(0, 10)}.html`}
+        />
+        {report.report_url && <ReportLink url={report.report_url} />}
+      </div>
+      {/* Isolates the report's CSS from the app. Nothing inside can run: no allow-scripts.
+          allow-same-origin only lets fitToContent read the height, as the frame can't post it.
+          Stays white in both themes: the report brings its own light styles. */}
+      <div className="overflow-hidden rounded-lg border border-border-soft bg-white">
+        <iframe
+          srcDoc={htmlDocument(title, html)}
+          title={title}
+          sandbox="allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+          onLoad={fitToContent}
+          className="block w-full"
+        />
+      </div>
+    </>
+  );
+}
+
+function UrlReport({ report }: { report: Report }) {
+  return (
+    <>
+      <div className="print:hidden">
+        <ReportLink url={report.report_url!} />
+      </div>
+      {/* No allow-same-origin, so framed scripts can't reach this app. */}
+      <div className="overflow-hidden rounded-lg border border-border-soft bg-white">
+        <iframe
+          src={report.report_url!}
+          title={`${report.ticker} research report`}
+          sandbox="allow-scripts allow-popups"
+          className="block h-[75vh] w-full"
+        />
+      </div>
+    </>
   );
 }
 

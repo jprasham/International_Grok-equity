@@ -67,12 +67,42 @@ The app sends each webhook once and doesn't retry. A callback still applies afte
 | `status` | string, required | `researching`, `done` or `failed`. `pending` isn't accepted. |
 | `report_html` | string | Shown on the report page after sanitizing. Takes priority over `report_url`. |
 | `report_url` | string | Must be `http` or `https`. Shown as a link, and also in an iframe if there's no `report_html`. |
-| `report_json` | any JSON | Stored as is. Shown as raw JSON only if there's no HTML or URL. |
+| `report_json` | any JSON | Stored as is. When it matches the optional structured schema below, the app renders a Market Pulse report view. Otherwise shown as raw JSON only if there's no HTML or URL. HTML (when present) remains the download/print artifact alongside the structured view. |
 | `error` | string | Shown when `status` is `failed`. |
 | `ticker` | string | Echo the webhook value. Used if the callback reaches an instance that doesn't hold the report; otherwise it shows as `Unknown`. An invalid value is ignored. |
 | `exchange` | string | `NSE` or `BSE`. Echo the webhook value. Same fallback, defaulting to `NSE`. |
 
 `done` must include at least one of `report_html`, `report_url` or `report_json`.
+
+### Optional structured `report_json` (v2 additive)
+
+The app owns this shape. Send it in addition to `report_html` when you want the in-app Market Pulse layout. Unknown fields are ignored. Partial objects still render whatever fields parse; if nothing usable is present, the UI falls back as before.
+
+```json
+{
+  "rating": "buy",
+  "summary": "HFCL remains a hold on execution risk despite order-book strength.",
+  "metrics": [
+    { "label": "Target", "value": "₹118" },
+    { "label": "Upside", "value": "12%" }
+  ],
+  "sections": [
+    { "title": "Thesis", "body": "…" },
+    { "title": "Fundamentals", "body": "…" }
+  ],
+  "risks": ["Customer concentration", "Working-capital stretch"]
+}
+```
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `rating` | string | Commonly `buy`, `hold`, or `sell`; any string is shown. |
+| `summary` | string | Lead paragraph above metrics. |
+| `metrics` | `{ label, value }[]` | Short key figures; both fields required per item. |
+| `sections` | `{ title, body }[]` | Plain text; escaped on render (not HTML). |
+| `risks` | `string[]` | Bullet list under a Risks heading. |
+
+v1 bots that only send `report_html` keep working unchanged.
 
 ### Update rules
 

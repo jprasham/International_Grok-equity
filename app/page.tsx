@@ -1,49 +1,42 @@
+import { GrokAttribution } from "@/components/grok-attribution";
 import { PageBody, PageHero, Section } from "@/components/terminal";
-import { Card } from "@/components/ui/card";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 import { ResearchForm } from "./research-form";
 
 const SYNTAX = [
   ["RELIANCE", "NSE symbol"],
-  ["BAJAJ-AUTO", "hyphens are valid"],
-  ["M&M", "so are ampersands"],
-  ["500325", "BSE scrip code"],
+  ["BAJAJ-AUTO", "hyphens"],
+  ["M&M", "ampersands"],
+  ["500325", "BSE code"],
 ];
 
 export default function Home() {
   return (
     <>
-      <PageHero title="Research a ticker." sub="Indian equities · NSE & BSE" />
-      <PageBody className="grid items-start gap-8 lg:grid-cols-[3fr_2fr]">
+      <PageHero
+        eyebrow="Market desk"
+        title="Find the next signal."
+        sub="Indian equities · NSE & BSE"
+      >
+        <GrokAttribution />
+      </PageHero>
+      <PageBody className="flex flex-col gap-8">
         <Section code="01" name="New research" desc="Opens the report when you run it">
           <ResearchForm />
         </Section>
         <Section code="02" name="Accepted formats">
-          <Card className="py-0">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead scope="col">Example</TableHead>
-                  <TableHead scope="col">Format</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {SYNTAX.map(([ticker, note]) => (
-                  <TableRow key={ticker}>
-                    <TableCell className="font-mono">{ticker}</TableCell>
-                    <TableCell className="text-muted-foreground">{note}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </Card>
+          <ul className="flex flex-wrap gap-2">
+            {SYNTAX.map(([ticker, note]) => (
+              <li
+                key={ticker}
+                className="flex items-baseline gap-2 rounded-lg border border-border-soft bg-card px-3 py-2"
+              >
+                <span className="font-mono text-sm font-medium">{ticker}</span>
+                <span className="font-mono text-xs tracking-[0.04em] text-muted-foreground">
+                  {note}
+                </span>
+              </li>
+            ))}
+          </ul>
         </Section>
       </PageBody>
     </>

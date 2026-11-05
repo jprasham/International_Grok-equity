@@ -4,12 +4,12 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Tokens and their source: docs/DESIGN.md */
+/* Tokens and their source: docs/DESIGN.md — Market Pulse */
 @theme inline {
-  --font-sans: var(--font-inter), -apple-system, sans-serif;
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), monospace;
-  --font-heading: var(--font-inter), -apple-system, sans-serif;
-  --font-display: var(--font-playfair), Georgia, serif;
+  --font-heading: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
 
   --text-xs: 0.6875rem;
   --text-xs--line-height: 1.5;
@@ -46,59 +46,115 @@
   --radius-2xl: var(--radius);
   --radius-3xl: var(--radius);
   --radius-4xl: var(--radius);
+
+  --animate-pulse-bar: pulse-bar 1.8s ease-in-out infinite;
+  --animate-signal-pulse: signal-pulse 2s ease-in-out infinite;
+  --animate-grok-shimmer: grok-shimmer 2.4s linear infinite;
+  --animate-grok-orbit: grok-orbit 2.8s linear infinite;
+  --animate-grok-breathe: grok-breathe 2.2s ease-in-out infinite;
 }
 
-/* The terminal has no light theme: this one is derived, keeping its hue and hierarchy. */
+@keyframes pulse-bar {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(250%);
+  }
+}
+
+@keyframes signal-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes grok-shimmer {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+@keyframes grok-orbit {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes grok-breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--primary) 0%, transparent);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 18px 2px color-mix(in oklab, var(--primary) 35%, transparent);
+  }
+}
+
+/* Light theme derived from Market Pulse dark: same hierarchy, darkened emerald. */
 :root {
   --radius: 4px;
-  --background: #f7f8fa;
-  --foreground: #111418;
+  --background: #f4f7f5;
+  --foreground: #101214;
   --card: #ffffff;
-  --card-foreground: #111418;
+  --card-foreground: #101214;
   --popover: #ffffff;
-  --popover-foreground: #111418;
-  --primary: #2f6190;
+  --popover-foreground: #101214;
+  --primary: #047857;
   --primary-foreground: #ffffff;
-  --secondary: #eceef2;
-  --secondary-foreground: #111418;
-  --muted: #eceef2;
-  --muted-foreground: #59616d;
-  --accent: rgba(47, 97, 144, 0.08);
-  --accent-foreground: #111418;
+  --secondary: #e6efe9;
+  --secondary-foreground: #101214;
+  --muted: #e6efe9;
+  --muted-foreground: #4a5c52;
+  --accent: rgba(4, 120, 87, 0.08);
+  --accent-foreground: #101214;
   --destructive: #b91c1c;
-  --border: #d5d9df;
-  --border-soft: #e5e7eb;
-  --input: #868d97;
-  --ring: #2f6190;
-  --dim: #3d4550;
-  --live: #166534;
-  --beta: #1d4ed8;
+  --border: #c9d5ce;
+  --border-soft: #dfe8e2;
+  --input: #6b7c72;
+  --ring: #047857;
+  --dim: #2f3d35;
+  --live: #047857;
+  --beta: #0f766e;
 }
 
 .dark {
-  --background: #0a0a0a;
-  --foreground: #ffffff;
-  --card: #1a1a1a;
-  --card-foreground: #ffffff;
-  --popover: #1a1a1a;
-  --popover-foreground: #ffffff;
-  --primary: #5b8dbf;
-  --primary-foreground: #0a0a0a;
-  --secondary: #242424;
-  --secondary-foreground: #ffffff;
-  --muted: #242424;
-  --muted-foreground: #9ca3af;
-  --accent: rgba(91, 141, 191, 0.06);
-  --accent-foreground: #ffffff;
+  --background: #101214;
+  --foreground: #f2f4f6;
+  --card: #15181c;
+  --card-foreground: #f2f4f6;
+  --popover: #15181c;
+  --popover-foreground: #f2f4f6;
+  --primary: #34d399;
+  --primary-foreground: #052e1a;
+  --secondary: #1a1f1c;
+  --secondary-foreground: #f2f4f6;
+  --muted: #1a1f1c;
+  --muted-foreground: #86a0a8;
+  --accent: rgba(52, 211, 153, 0.08);
+  --accent-foreground: #f2f4f6;
   --destructive: #e05252;
-  --border: #333333;
-  --border-soft: #2a2a2a;
-  /* Terminal uses #555555, which is under 3:1 against its surfaces. */
-  --input: #6f6f6f;
-  --ring: #5b8dbf;
-  --dim: #cccccc;
-  --live: #4ade80;
-  --beta: #60a5fa;
+  --border: #2a3530;
+  --border-soft: #1f2823;
+  --input: #5a6b62;
+  --ring: #34d399;
+  --dim: #c5d0cb;
+  --live: #34d399;
+  --beta: #2dd4bf;
 }
 
 @layer base {
@@ -120,6 +176,45 @@
 
 @utility term-label {
   @apply font-mono text-xs tracking-[0.1em] text-muted-foreground uppercase;
+}
+
+@utility pulse-wash {
+  background:
+    radial-gradient(90% 70% at 85% -10%, color-mix(in oklab, var(--primary) 22%, transparent), transparent 55%),
+    linear-gradient(180deg, var(--card), var(--background));
+}
+
+@utility animate-pulse-bar {
+  animation: var(--animate-pulse-bar);
+}
+
+@utility animate-signal-pulse {
+  animation: var(--animate-signal-pulse);
+}
+
+@utility animate-grok-shimmer {
+  background-size: 200% auto;
+  animation: var(--animate-grok-shimmer);
+}
+
+@utility animate-grok-orbit {
+  animation: var(--animate-grok-orbit);
+}
+
+@utility animate-grok-breathe {
+  animation: var(--animate-grok-breathe);
+}
+
+@utility grok-mark-text {
+  background-image: linear-gradient(
+    90deg,
+    var(--primary) 0%,
+    color-mix(in oklab, var(--foreground) 85%, var(--primary)) 35%,
+    var(--primary) 70%,
+    color-mix(in oklab, var(--foreground) 85%, var(--primary)) 100%
+  );
+  background-clip: text;
+  color: transparent;
 }
 
 /* Paper is always light, whichever theme is on screen. */

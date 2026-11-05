@@ -4,28 +4,35 @@ import { cn } from "@/lib/utils";
 export function PageHero({
   title,
   sub,
+  eyebrow,
   ticker = false,
   children,
 }: {
   title: string;
   sub: string;
-  /** Capitals in the display italic are hard to read, so tickers use the data face. */
+  eyebrow?: string;
+  /** Capitals in display faces are harder to scan, so tickers use the data face. */
   ticker?: boolean;
   children?: ReactNode;
 }) {
   return (
-    <div className="border-b bg-linear-to-b from-card to-background">
-      <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-5 sm:px-8 sm:pt-7 md:flex-row md:items-end md:justify-between md:gap-10">
+    <div className="pulse-wash border-b">
+      <div className="mx-auto flex max-w-6xl flex-col gap-5 px-4 py-6 sm:px-8 sm:pt-9 sm:pb-8 md:flex-row md:items-end md:justify-between md:gap-10">
         <div className="min-w-0">
+          {eyebrow && (
+            <p className="mb-2 font-mono text-xs tracking-[0.16em] text-primary uppercase">
+              {eyebrow}
+            </p>
+          )}
           <h1
             className={cn(
-              "text-[28px] leading-[1.2] font-semibold tracking-[-0.015em] wrap-break-word",
-              ticker ? "font-mono" : "font-display italic",
+              "text-[28px] leading-[1.1] font-bold tracking-[-0.03em] wrap-break-word sm:text-[34px]",
+              ticker ? "font-mono font-semibold tracking-[-0.02em]" : "font-display",
             )}
           >
             {title}
           </h1>
-          <p className="mt-1 font-mono text-xs tracking-[0.06em] text-muted-foreground">{sub}</p>
+          <p className="mt-2 font-mono text-xs tracking-[0.06em] text-muted-foreground">{sub}</p>
         </div>
         {children}
       </div>
@@ -35,7 +42,7 @@ export function PageHero({
 
 export function PageBody({ className, children }: { className?: string; children: ReactNode }) {
   return (
-    <div className={cn("mx-auto w-full max-w-6xl px-4 py-5 sm:px-8 sm:py-6", className)}>
+    <div className={cn("mx-auto w-full max-w-6xl px-4 py-5 sm:px-8 sm:py-7", className)}>
       {children}
     </div>
   );

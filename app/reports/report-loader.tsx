@@ -42,12 +42,17 @@ export function ReportLoader({ latest = false }: { latest?: boolean }) {
   return (
     <>
       <PageHero
+        eyebrow="Market desk"
         title={latest ? "Latest report." : "Report."}
         sub="Only the latest completed report is kept"
       />
       <PageBody>
-        <Card>
-          <CardContent>
+        <Card className="border-border-soft">
+          <CardContent className="flex items-start gap-3">
+            <span
+              aria-hidden
+              className="mt-1.5 size-2 shrink-0 rounded-full bg-live/70 motion-safe:animate-signal-pulse"
+            />
             <p role="status" className="text-muted-foreground">
               {!checked
                 ? "Loading report…"
