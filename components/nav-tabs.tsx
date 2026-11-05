@@ -10,7 +10,7 @@ const TABS = [
 
 export function Tabs({ pathname }: { pathname?: string }) {
   return (
-    <nav aria-label="Primary" className="flex h-full items-stretch">
+    <nav aria-label="Primary" className="-ml-2.5 flex h-10 items-stretch sm:ml-0 sm:h-full">
       {TABS.map(({ href, label }) => {
         const active = href === "/" ? pathname === "/" : pathname?.startsWith(href);
         return (

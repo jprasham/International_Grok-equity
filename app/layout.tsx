@@ -37,16 +37,20 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           >
             Skip to content
           </a>
-          <header className="sticky top-0 z-50 flex h-14 items-center gap-3 border-b bg-card px-3 sm:gap-6 sm:px-4 print:hidden">
+          {/* Below sm the brand takes the first row: it and the tabs don't fit together at 320px. */}
+          <header className="sticky top-0 z-50 flex items-center gap-x-3 border-b bg-card px-3 max-sm:flex-wrap sm:h-14 sm:gap-x-6 sm:px-4 print:hidden">
             <Link
               href="/"
-              className="flex h-full items-center gap-2 border-r pr-3 text-[15px] font-bold tracking-[0.01em] focus-visible:-outline-offset-2 sm:pr-5"
+              className="grid h-12 grid-cols-[auto_auto] content-center items-baseline justify-start gap-x-2 focus-visible:-outline-offset-2 max-sm:basis-full sm:h-full sm:border-r sm:pr-5"
             >
               <span aria-hidden className="text-[11px] text-primary">
                 ◆
               </span>
-              <span>
-                Ticker <span className="max-sm:sr-only">Research</span>
+              <span className="text-[15px] leading-tight font-bold tracking-[0.01em]">
+                DeLorean Partners
+              </span>
+              <span className="col-start-2 font-mono text-xs leading-tight tracking-[0.06em] text-muted-foreground">
+                Ticker Research
               </span>
             </Link>
             {/* The pathname is unknown while prerendering /reports/[id], so it suspends here. */}

@@ -48,6 +48,7 @@ Terminal stack, self-hosted through `next/font`.
 | Page title | 28px / 1.2, 600, -0.015em | terminal |
 | Section and card title | 15px, 600, -0.005em | terminal |
 | Brand | 15px, 700, 0.01em, `◆` in the accent colour | terminal |
+| App name, below the brand | 11px mono, 0.06em, muted | derived from the hero sub |
 | Label (`term-label`) | 11px mono, uppercase, 0.1em | terminal uses 9px, raised |
 | Hero sub and footer strip | 11px mono, 0.06em | terminal |
 | Section code | 11px mono, 600, 0.14em, accent colour | terminal |
@@ -62,7 +63,7 @@ to read. This is a deliberate change from the terminal.
 | Radius: cards, inputs, buttons | 4px (`--radius`) | terminal |
 | Radius: chips | 2px (`rounded-sm`) | terminal |
 | Radius: pills | full | terminal |
-| Header height | 56px | terminal |
+| Header height | 56px; two rows, 88px, below `sm` so the brand fits at 320px | terminal; rows derived |
 | Hero padding | 28 / 32 / 20px, 16 to 20px on phones | terminal |
 | Section head | 16px below, 10px inner, soft bottom border | terminal |
 | Content width | 1152px (`max-w-6xl`) | derived: the terminal is full-bleed beside a sidebar |

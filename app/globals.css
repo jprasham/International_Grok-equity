@@ -106,9 +106,8 @@
     @apply border-border outline-ring;
   }
   html {
-    @apply font-sans;
-    /* Keeps focused elements clear of the sticky header. */
-    scroll-padding-top: 4.5rem;
+    /* Scroll padding keeps focused elements clear of the sticky header, which has two rows below sm. */
+    @apply scroll-pt-18 font-sans max-sm:scroll-pt-26;
     scrollbar-color: var(--input) var(--background);
   }
   body {
