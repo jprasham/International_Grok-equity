@@ -1,3 +1,13 @@
+import { PageBody, PageHero, Section } from "@/components/terminal";
+import { Card } from "@/components/ui/card";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { ResearchForm } from "./research-form";
 
 const SYNTAX = [
@@ -9,34 +19,33 @@ const SYNTAX = [
 
 export default function Home() {
   return (
-    <main className="mx-auto flex w-full max-w-4xl flex-1 flex-col justify-center gap-10 px-4 py-12 sm:px-8">
-      <div>
-        <p className="mb-3 text-sm text-muted-foreground">
-          {"// indian equities desk"}
-        </p>
-        <h1 className="text-5xl leading-none font-bold tracking-tight text-primary sm:text-7xl">
-          Name a ticker
-          <span aria-hidden className="cursor-blink">
-            _
-          </span>
-        </h1>
-      </div>
-
-      <ResearchForm />
-
-      <section aria-labelledby="syntax-heading" className="text-sm">
-        <h2 id="syntax-heading" className="mb-2 text-muted-foreground">
-          --help
-        </h2>
-        <dl className="grid grid-cols-[max-content_1fr] gap-x-8 gap-y-1">
-          {SYNTAX.map(([ticker, note]) => (
-            <div key={ticker} className="contents">
-              <dt className="text-primary">{ticker}</dt>
-              <dd className="text-muted-foreground">{note}</dd>
-            </div>
-          ))}
-        </dl>
-      </section>
-    </main>
+    <>
+      <PageHero title="Research a ticker." sub="Indian equities · NSE & BSE" />
+      <PageBody className="grid items-start gap-8 lg:grid-cols-[3fr_2fr]">
+        <Section code="01" name="New research" desc="Opens the report when you run it">
+          <ResearchForm />
+        </Section>
+        <Section code="02" name="Accepted formats">
+          <Card className="py-0">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead scope="col">Example</TableHead>
+                  <TableHead scope="col">Format</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {SYNTAX.map(([ticker, note]) => (
+                  <TableRow key={ticker}>
+                    <TableCell className="font-mono">{ticker}</TableCell>
+                    <TableCell className="text-muted-foreground">{note}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </Card>
+        </Section>
+      </PageBody>
+    </>
   );
 }

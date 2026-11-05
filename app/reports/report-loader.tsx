@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { PageBody, PageHero } from "@/components/terminal";
+import { Card, CardContent } from "@/components/ui/card";
 import type { Report } from "@/lib/reports";
 import { ReportView } from "./report-view";
 
@@ -37,12 +39,25 @@ export function ReportLoader({ latest = false }: { latest?: boolean }) {
   }, [latest]);
 
   if (report) return <ReportView report={report} />;
-  if (!checked) return <p className="text-muted-foreground">Loading report…</p>;
   return (
-    <p role="status" className="text-muted-foreground">
-      {latest
-        ? "No report yet. This page checks again every 10 seconds."
-        : "Report not available yet. This page checks again every 10 seconds. Only the latest completed report is kept, so an older one won't come back."}
-    </p>
+    <>
+      <PageHero
+        title={latest ? "Latest report." : "Report."}
+        sub="Only the latest completed report is kept"
+      />
+      <PageBody>
+        <Card>
+          <CardContent>
+            <p role="status" className="text-muted-foreground">
+              {!checked
+                ? "Loading report…"
+                : latest
+                  ? "No report yet. This page checks again every 10 seconds."
+                  : "Report not available yet. This page checks again every 10 seconds. Only the latest completed report is kept, so an older one won't come back."}
+            </p>
+          </CardContent>
+        </Card>
+      </PageBody>
+    </>
   );
 }

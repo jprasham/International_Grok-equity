@@ -1,5 +1,6 @@
 "use client";
 
+import { Download, Printer } from "lucide-react";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 
@@ -18,11 +19,13 @@ export function ReportActions({ html, filename }: { html: string; filename: stri
   }
 
   return (
-    <div className="mb-4 flex flex-wrap gap-2 print:hidden">
-      <Button onClick={download} className="font-bold">
+    <div className="flex flex-wrap gap-2">
+      <Button onClick={download}>
+        <Download aria-hidden />
         Download HTML
       </Button>
       <Button variant="outline" onClick={() => printable.current?.contentWindow?.print()}>
+        <Printer aria-hidden />
         Print
       </Button>
       {/* window.print() would clip the on-screen frame: its height is fitted to screen width,
