@@ -1,7 +1,10 @@
-import DOMPurify from "isomorphic-dompurify";
+"use client";
+
+// Browser-only: without a DOM, DOMPurify returns its input unsanitized. Render this
+// through ReportLoader, never on the server. (jsdom on the server crashes on Vercel.)
+import DOMPurify from "dompurify";
 import { StatusChip } from "@/components/status-chip";
 import type { Report } from "@/lib/reports";
-import { AutoRefresh } from "./[id]/auto-refresh";
 import { ReportActions } from "./report-actions";
 
 export function ReportView({ report }: { report: Report }) {
@@ -30,7 +33,6 @@ function ReportBody({ report }: { report: Report }) {
         <span className="mt-2 block text-sm text-muted-foreground">
           This page checks for the finished report every 10 seconds.
         </span>
-        <AutoRefresh />
       </p>
     );
   }

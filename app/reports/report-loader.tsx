@@ -1,0 +1,48 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import type { Report } from "@/lib/reports";
+import { ReportView } from "./report-view";
+
+// Fetches in the browser only: the prerendered shell has no dynamic hole to strand, and
+// ReportView (DOMPurify needs a real DOM) never renders on the server, as report starts null.
+export function ReportLoader({ latest = false }: { latest?: boolean }) {
+  const [report, setReport] = useState<Report | null>(null);
+  const [checked, setChecked] = useState(false);
+
+  useEffect(() => {
+    // ponytail: read from the URL, because useParams would suspend and put a hole back.
+    const url = latest ? "/api/reports" : `/api/reports/${location.pathname.split("/").pop()}`;
+    let active = true;
+
+    async function load() {
+      // A 404 or network error keeps the last status: another instance may hold this report.
+      const next: Report | undefined = await fetch(url, { cache: "no-store" })
+        .then((res) => (res.ok ? res.json() : undefined))
+        .then((data) => (latest ? data?.[0] : data))
+        .catch(() => undefined);
+      if (!active) return;
+      if (next) setReport(next);
+      setChecked(true);
+      if (next?.status === "done" || next?.status === "failed") stop();
+    }
+
+    const timer = setInterval(load, 10_000);
+    function stop() {
+      active = false;
+      clearInterval(timer);
+    }
+    load();
+    return stop;
+  }, [latest]);
+
+  if (report) return <ReportView report={report} />;
+  if (!checked) return <p className="text-muted-foreground">Loading report…</p>;
+  return (
+    <p role="status" className="text-muted-foreground">
+      {latest
+        ? "No report yet. This page checks again every 10 seconds."
+        : "Report not available yet. This page checks again every 10 seconds. Only the latest completed report is kept, so an older one won't come back."}
+    </p>
+  );
+}
