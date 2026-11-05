@@ -100,11 +100,11 @@ An authenticated callback never gets a 404: if the id is unknown, the report is 
 
 - Scripts, event handlers and `javascript:` URLs
 - `<iframe>` and `<object>` elements
-- `<style>` and `<form>` elements. The text inside a `<form>` stays.
+- `<form>` elements. The text inside a `<form>` stays.
 
-The Download HTML file gets the same sanitizing, except that `<style>` is kept.
+`<style>` is kept. The report renders in a sandboxed iframe that blocks scripts and sizes itself to the content, so its CSS applies exactly as sent and can't affect the app, and the app's CSS doesn't reach the report. Send a fragment: a `<style>` scoped under `.rpt`, then `<article class='rpt'>`. Links open in a new tab, so in-page `#anchor` links don't scroll within the report. DOMPurify removes a whole `<style>` block if its text looks like a tag, so keep `<b>` and the like out of CSS comments and `content` values.
 
-Send semantic HTML (`h1`-`h3`, `p`, `ul`, `ol`, `table`, `a`). The app styles those to match its theme. Inline `style` attributes are allowed.
+The Download HTML file wraps the same sanitized fragment in a full HTML document and adds the disclaimer.
 
 Reports in an iframe (`report_url` without `report_html`) run sandboxed with `allow-scripts allow-popups`. The host must allow framing through `X-Frame-Options` and `frame-ancestors`. If it doesn't, readers can still use the link above the frame.
 

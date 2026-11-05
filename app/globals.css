@@ -142,42 +142,6 @@
   animation: cursor-blink 1.1s steps(1) infinite;
 }
 
-/* Preflight strips element styles, and bot-supplied report HTML can't carry utilities. */
-.report-html > * + * {
-  margin-top: 1rem;
-}
-.report-html :is(h1, h2, h3) {
-  margin-top: 1.5rem;
-  color: var(--primary);
-  font-weight: 700;
-}
-.report-html h1 {
-  font-size: 1.875rem;
-}
-.report-html h2 {
-  font-size: 1.5rem;
-}
-.report-html h3 {
-  font-size: 1.25rem;
-}
-.report-html a {
-  color: var(--primary);
-  text-decoration: underline;
-}
-.report-html ul {
-  padding-left: 1.5rem;
-  list-style: disc;
-}
-.report-html ol {
-  padding-left: 1.5rem;
-  list-style: decimal;
-}
-.report-html :is(th, td) {
-  border: 1px solid var(--border);
-  padding: 0.25rem 0.5rem;
-  text-align: left;
-}
-
 /* Amber on dark is unreadable on paper. */
 @media print {
   .dark {

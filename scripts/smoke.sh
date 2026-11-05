@@ -62,13 +62,6 @@ for bad in 'onerror=' 'alert(2)'; do
     *) echo "PASS sanitized: no '$bad'" ;;
   esac
 done
-# The download copy keeps <style>, so this one only applies to the rendered article.
-article=${page#*<article}
-article=${article%%</article>*}
-case "$article" in
-  *'display:none}'*) echo "FAIL sanitized: <style> in article"; fails=$((fails + 1)) ;;
-  *) echo "PASS sanitized: no <style> in article" ;;
-esac
 
 # Retention: a new completed report replaces the old one; a failed one doesn't.
 second=$(post "$BASE/api/research" "" '{"ticker":"TCS","exchange":"NSE"}' | sed -E 's/.*"id":"([^"]+)".*/\1/')
