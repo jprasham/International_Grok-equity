@@ -15,6 +15,8 @@ There is no application database. In-flight rows live in an in-memory map (`lib/
 
 ## Docs
 
+Index: [docs/README.md](docs/README.md).
+
 | Doc | Purpose |
 | --- | --- |
 | [docs/BOT_CONTRACT.md](docs/BOT_CONTRACT.md) | Webhook + callback payload contract for the research bot |
@@ -53,6 +55,7 @@ Copy from [`.env.local.example`](.env.local.example). Do not commit `.env` / `.e
 | Start | `npm start` | Serve the production build |
 | Lint | `npm run lint` | ESLint |
 | Symbols | `npm run symbols:build` | Regenerate `lib/symbols-data.json` from CSVs in `data/` (see [data/README.md](data/README.md)) |
+| Smoke | `bash scripts/smoke.sh [base-url] [secret]` | Optional API/flow checks against a running server |
 
 Raw exchange CSVs under `data/` are gitignored; the shipped JSON is what the app uses at runtime. Do not delete `lib/symbols-data.json`.
 
@@ -77,9 +80,12 @@ Raw exchange CSVs under `data/` are gitignored; the shipped JSON is what the app
 ```
 app/           Next.js App Router pages + API routes
 components/    UI (Market Pulse shell, report views, shadcn primitives)
-docs/          Bot contract + design tokens
+docs/          Bot contract + design tokens (see docs/README.md)
 lib/           Reports store, ticker helpers, symbols JSON
-scripts/       symbols:build (+ optional smoke)
+scripts/       symbols:build (+ optional smoke.sh)
 data/          Symbol CSV dumps (gitignored) + README
-public/        Static assets (favicon lives under app/)
+public/        Static assets placeholder (favicon lives under app/)
+AGENTS.md      Next.js agent guidance — kept; `next dev` regenerates it
 ```
+
+Local-only / gitignored: `.env.local`, `.data/`, `.next/`, `.superpowers/`, `data/*.csv`, `node_modules/`.
