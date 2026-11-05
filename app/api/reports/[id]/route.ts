@@ -1,6 +1,8 @@
 import { createHash, timingSafeEqual } from "node:crypto";
-import { getReport, updateReport } from "@/lib/reports";
+import { getReport, upsertReport } from "@/lib/reports";
+import { TICKER_PATTERN } from "@/lib/ticker";
 
+const TICKER = new RegExp(`^${TICKER_PATTERN}$`);
 const NOT_FOUND = () => Response.json({ error: "Report not found." }, { status: 404 });
 const sha256 = (text: string) => createHash("sha256").update(text).digest();
 const isOptionalString = (value: unknown) => value == null || typeof value === "string";
@@ -50,12 +52,18 @@ export async function POST(request: Request, ctx: RouteContext<"/api/reports/[id
     return invalid("status done needs report_url, report_html or report_json.");
   }
 
+  // Labels only: a bad one falls back to the stored value rather than losing a report.
+  const ticker = typeof body?.ticker === "string" ? body.ticker.trim().toUpperCase() : "";
+  const exchange = body?.exchange === "NSE" || body?.exchange === "BSE" ? body.exchange : undefined;
+
   const { id } = await ctx.params;
-  const report =
-    updateReport(
+  try {
+    const report = await upsertReport(
       id,
       {
         status,
+        ticker: TICKER.test(ticker) ? ticker : undefined,
+        exchange,
         report_url: report_url || null,
         report_html: report_html || null,
         report_json: report_json ?? null,
@@ -63,7 +71,10 @@ export async function POST(request: Request, ctx: RouteContext<"/api/reports/[id
       },
       // A late or retried progress ping must not reopen a finished report.
       status === "researching" ? ["pending", "researching"] : undefined,
-    ) ?? (await getReport(id));
-
-  return report ? Response.json(report) : NOT_FOUND();
+    );
+    return Response.json(report);
+  } catch (failure) {
+    console.error("Saving the report to Blob failed", failure);
+    return Response.json({ error: "Report could not be saved. Retry." }, { status: 503 });
+  }
 }

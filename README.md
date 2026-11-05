@@ -22,9 +22,13 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 ## Report storage
 
-There is no database. In-flight reports and the last completed report live in an in-memory `Map` (`lib/reports.ts`). A newly completed report replaces the previous one, and up to 20 entries are tracked. After a report finishes, its page gives the browser a sanitized copy to download as HTML, and that copy doesn't depend on the server once loaded.
+There is no database. In-flight reports live in an in-memory `Map` (`lib/reports.ts`), one per server instance. On a `done` callback, the report is also written to Vercel Blob at `ticker-research/last-report.json`, replacing the previous one, and every instance can read it from there. Callbacks upsert, so one landing on an instance that never saw the request creates the row instead of failing. Have the bot echo `ticker` and `exchange`, or the row shows `Unknown`/`NSE`.
 
-**Multi-instance caveat:** the `Map` belongs to one server process. On Vercel or any other multi-instance host, a restart, a cold start, or a request routed to a different instance won't see the report. The bot's callback then gets a 404 and the report is lost, and a browser polling the report page sees a 404. Research that runs for minutes is the most exposed. Run a single long-lived instance, or add a shared store, if this matters.
+**One-time setup:** create a free Blob store with **private** access and connect it to this project, so that `BLOB_READ_WRITE_TOKEN` is set, then redeploy. Use Dashboard > Storage > Create > Blob.
+
+**Without the token** the app still runs, but reports stay per-instance: a callback gets a 200, but the report can only be seen on the instance that received it, and only until that instance goes away.
+
+After a report finishes, its page gives the browser a sanitized copy to download as HTML, and that copy doesn't depend on the server once loaded.
 
 See [docs/BOT_CONTRACT.md](docs/BOT_CONTRACT.md) for the webhook flow.
 

@@ -34,7 +34,12 @@ check "wrong secret -> 401" HTTP_401 "$(post "$url" "wrong-secret" "$done")"
 check "wrong secret left row alone" '"status":"failed"' "$(curl -s "$url")"
 check "javascript: url rejected" HTTP_400 "$(post "$url" "$SECRET" '{"status":"done","report_url":"javascript:alert(1)"}')"
 check "done without content rejected" HTTP_400 "$(post "$url" "$SECRET" '{"status":"done"}')"
-check "unknown id -> 404" HTTP_404 "$(post "$BASE/api/reports/00000000-0000-4000-8000-000000000000" "$SECRET" "$done")"
+unknown="$BASE/api/reports/00000000-0000-4000-8000-000000000000"
+check "unknown id, no secret -> 401" HTTP_401 "$(post "$unknown" "" "$done")"
+upserted=$(post "$unknown" "$SECRET" '{"status":"researching"}')
+check "unknown id upserts" HTTP_200 "$upserted"
+check "upsert defaults" '"ticker":"Unknown","exchange":"NSE"' "$upserted"
+check "upsert takes labels" '"ticker":"TCS","exchange":"BSE"' "$(post "$unknown" "$SECRET" '{"status":"researching","ticker":"tcs","exchange":"BSE"}')"
 check "traversal id -> 404" HTTP_404 "$(curl -s -w ' HTTP_%{http_code}' "$BASE/api/reports/..%2F..%2Fpackage")"
 check "right secret -> 200" HTTP_200 "$(post "$url" "$SECRET" "$done")"
 

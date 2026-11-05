@@ -69,6 +69,8 @@ The app sends each webhook once and doesn't retry. A callback still applies afte
 | `report_url` | string | Must be `http` or `https`. Shown as a link, and also in an iframe if there's no `report_html`. |
 | `report_json` | any JSON | Stored as is. Shown as raw JSON only if there's no HTML or URL. |
 | `error` | string | Shown when `status` is `failed`. |
+| `ticker` | string | Echo the webhook value. Used if the callback reaches an instance that doesn't hold the report; otherwise it shows as `Unknown`. An invalid value is ignored. |
+| `exchange` | string | `NSE` or `BSE`. Echo the webhook value. Same fallback, defaulting to `NSE`. |
 
 `done` must include at least one of `report_html`, `report_url` or `report_json`.
 
@@ -87,10 +89,10 @@ The app sends each webhook once and doesn't retry. A callback still applies afte
 | 200 | Full report row | Accepted. |
 | 400 | `{"error": "..."}` | Invalid body. Fix it before retrying. |
 | 401 | `{"error": "Unauthorized."}` | Wrong or missing secret, or `REPORT_CALLBACK_SECRET` isn't set on the app. |
-| 404 | `{"error": "Report not found."}` | Unknown or malformed id, or the report is no longer in memory. Reports live in one server process, so a restart or another instance loses them, and a newer completed report replaces an older one. Retrying won't help unless the request reaches the original instance. |
+| 503 | `{"error": "Report could not be saved. Retry."}` | Blob write failed on a `done` callback. Retry with backoff. |
 | 5xx | Varies | Server error. Retry with backoff. |
 
-The secret is checked first, so a request without it can't find out whether a report exists.
+An authenticated callback never gets a 404: if the id is unknown, the report is created from the callback. The secret is checked first, so a request without it can't change anything.
 
 ### HTML sanitizing
 
@@ -108,7 +110,7 @@ Reports in an iframe (`report_url` without `report_html`) run sandboxed with `al
 
 ## 3. Reading reports
 
-`GET /api/reports` returns an array holding only the latest report: the last completed one, or the newest request if none has completed. It's empty if there are no reports. `GET /api/reports/{id}` returns one report, or 404. Neither needs authentication.
+`GET /api/reports` returns an array holding only the latest report: the last completed one, or the newest request if none has completed. It's empty if there are no reports. `GET /api/reports/{id}` returns one report, or 404. Neither needs authentication. With Blob configured, the last completed report is readable from every instance; in-flight reports are visible only on the instance that holds them.
 
 ```json
 {
