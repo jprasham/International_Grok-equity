@@ -178,6 +178,21 @@
   text-align: left;
 }
 
+/* Amber on dark is unreadable on paper. */
+@media print {
+  .dark {
+    --background: #fff;
+    --foreground: #000;
+    --primary: #000;
+    --primary-foreground: #fff;
+    --muted-foreground: #444;
+    --border: #999;
+  }
+  body {
+    background-image: none;
+  }
+}
+
 @keyframes cursor-blink {
   50% {
     opacity: 0;

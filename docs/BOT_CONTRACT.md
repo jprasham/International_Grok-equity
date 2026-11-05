@@ -87,7 +87,7 @@ The app sends each webhook once and doesn't retry. A callback still applies afte
 | 200 | Full report row | Accepted. |
 | 400 | `{"error": "..."}` | Invalid body. Fix it before retrying. |
 | 401 | `{"error": "Unauthorized."}` | Wrong or missing secret, or `REPORT_CALLBACK_SECRET` isn't set on the app. |
-| 404 | `{"error": "Report not found."}` | Unknown or malformed id. |
+| 404 | `{"error": "Report not found."}` | Unknown or malformed id, or the report is no longer in memory. Reports live in one server process, so a restart or another instance loses them, and a newer completed report replaces an older one. Retrying won't help unless the request reaches the original instance. |
 | 5xx | Varies | Server error. Retry with backoff. |
 
 The secret is checked first, so a request without it can't find out whether a report exists.
@@ -100,13 +100,15 @@ The secret is checked first, so a request without it can't find out whether a re
 - `<iframe>` and `<object>` elements
 - `<style>` and `<form>` elements. The text inside a `<form>` stays.
 
+The Download HTML file gets the same sanitizing, except that `<style>` is kept.
+
 Send semantic HTML (`h1`-`h3`, `p`, `ul`, `ol`, `table`, `a`). The app styles those to match its theme. Inline `style` attributes are allowed.
 
 Reports in an iframe (`report_url` without `report_html`) run sandboxed with `allow-scripts allow-popups`. The host must allow framing through `X-Frame-Options` and `frame-ancestors`. If it doesn't, readers can still use the link above the frame.
 
 ## 3. Reading reports
 
-`GET /api/reports` returns every report as an array, newest first. `GET /api/reports/{id}` returns one report, or 404. Neither needs authentication.
+`GET /api/reports` returns an array holding only the latest report: the last completed one, or the newest request if none has completed. It's empty if there are no reports. `GET /api/reports/{id}` returns one report, or 404. Neither needs authentication.
 
 ```json
 {

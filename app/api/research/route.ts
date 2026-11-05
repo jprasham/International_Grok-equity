@@ -16,16 +16,16 @@ export async function POST(request: Request) {
     );
   }
 
-  const { id } = await createReport(ticker, exchange);
+  const { id } = createReport(ticker, exchange);
   const failure = await sendToBot(id, ticker, exchange);
 
   // onlyFrom pending: a fast bot may already have called back, and that result wins.
   const report =
-    (await updateReport(
+    updateReport(
       id,
       failure ? { status: "failed", error: failure } : { status: "researching" },
       ["pending"],
-    )) ?? (await getReport(id));
+    ) ?? (await getReport(id));
 
   return Response.json(
     { id, status: report?.status, error: report?.error ?? null },

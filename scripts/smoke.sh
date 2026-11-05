@@ -43,18 +43,34 @@ check "row is done" '"status":"done"' "$row"
 check "completed_at set" '"completed_at":"2' "$row"
 check "error cleared by done" '"error":null' "$row"
 check "late researching can't reopen" '"status":"done"' "$(post "$url" "$SECRET" '{"status":"researching"}')"
-check "listed" "$id" "$(curl -s "$BASE/api/reports")"
+check "latest is this report" "$id" "$(curl -s "$BASE/api/reports")"
 
 page=$(curl -s "$BASE/reports/$id")
 check "page shows report" SAFE_TEXT "$page"
 check "page has disclaimer" 'Paper analysis only, not investment advice.' "$page"
+check "page has download" 'Download HTML' "$page"
+check "/reports shows latest" SAFE_TEXT "$(curl -s "$BASE/reports")"
 # Only the report markup counts: Next's own <script> tags are always in the page.
-for bad in 'onerror=' 'alert(2)' 'display:none}'; do
+for bad in 'onerror=' 'alert(2)'; do
   case "$page" in
     *"$bad"*) echo "FAIL sanitized: found '$bad'"; fails=$((fails + 1)) ;;
     *) echo "PASS sanitized: no '$bad'" ;;
   esac
 done
+# The download copy keeps <style>, so this one only applies to the rendered article.
+article=${page#*<article}
+article=${article%%</article>*}
+case "$article" in
+  *'display:none}'*) echo "FAIL sanitized: <style> in article"; fails=$((fails + 1)) ;;
+  *) echo "PASS sanitized: no <style> in article" ;;
+esac
+
+# Retention: a new completed report replaces the old one; a failed one doesn't.
+second=$(post "$BASE/api/research" "" '{"ticker":"TCS","exchange":"NSE"}' | sed -E 's/.*"id":"([^"]+)".*/\1/')
+check "failed run keeps last done as latest" "$id" "$(curl -s "$BASE/api/reports")"
+post "$BASE/api/reports/$second" "$SECRET" '{"status":"done","report_html":"<p>SECOND</p>"}' > /dev/null
+check "new done becomes latest" "$second" "$(curl -s "$BASE/api/reports")"
+check "old done replaced" HTTP_404 "$(curl -s -w ' HTTP_%{http_code}' "$url")"
 
 echo "failures: $fails"
 exit "$fails"

@@ -1,5 +1,6 @@
-import { listReports } from "@/lib/reports";
+import { getLatestReport } from "@/lib/reports";
 
 export async function GET() {
-  return Response.json(await listReports());
+  const latest = await getLatestReport();
+  return Response.json(latest ? [latest] : []);
 }

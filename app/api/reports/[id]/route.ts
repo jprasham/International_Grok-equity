@@ -52,7 +52,7 @@ export async function POST(request: Request, ctx: RouteContext<"/api/reports/[id
 
   const { id } = await ctx.params;
   const report =
-    (await updateReport(
+    updateReport(
       id,
       {
         status,
@@ -63,7 +63,7 @@ export async function POST(request: Request, ctx: RouteContext<"/api/reports/[id
       },
       // A late or retried progress ping must not reopen a finished report.
       status === "researching" ? ["pending", "researching"] : undefined,
-    )) ?? (await getReport(id));
+    ) ?? (await getReport(id));
 
   return report ? Response.json(report) : NOT_FOUND();
 }

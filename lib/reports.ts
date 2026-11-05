@@ -1,6 +1,3 @@
-import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
-import path from "node:path";
-import { neon } from "@neondatabase/serverless";
 import { connection } from "next/server";
 
 export type ReportStatus = "pending" | "researching" | "done" | "failed";
@@ -10,8 +7,8 @@ export type Report = {
   ticker: string;
   exchange: string;
   status: ReportStatus;
-  requested_at: string | Date; // Date from Postgres, ISO string from the file store
-  completed_at: string | Date | null;
+  requested_at: string;
+  completed_at: string | null;
   report_url: string | null;
   report_html: string | null;
   report_json: unknown;
@@ -22,26 +19,17 @@ type Patch = { status: ReportStatus } & Partial<
   Pick<Report, "report_url" | "report_html" | "report_json" | "error">
 >;
 
-const sql = process.env.DATABASE_URL ? neon(process.env.DATABASE_URL) : null;
+// Pages and route handlers can load separate copies of this module, so the Map
+// lives on globalThis to give them one store per process.
+// ponytail: per-process memory, lost on restart and not shared between instances
+// (see README). Move to a shared store if callbacks start returning 404.
+const globals = globalThis as typeof globalThis & { tickerReports?: Map<string, Report> };
+const reports = (globals.tickerReports ??= new Map<string, Report>());
 
-// ponytail: one JSON file per report so writes to different reports can't clobber
-// each other. Dev only: list is O(n) reads, and it fails loudly on Vercel's read-only disk.
-const DATA_DIR = path.join(/*turbopackIgnore: true*/ process.cwd(), ".data");
-const dataFile = (id: string) => path.join(DATA_DIR, `${id}.json`);
+// Bots that never call back would otherwise leak entries forever.
+const MAX_TRACKED = 20;
 
-// Guards every id lookup: Postgres would throw on a bad uuid, and the file store
-// must never build a path from anything else.
-const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-
-async function readFromFile(id: string): Promise<Report | null> {
-  const text = await readFile(dataFile(id), "utf8").catch((error) => {
-    if (error.code === "ENOENT") return null;
-    throw error;
-  });
-  return text === null ? null : JSON.parse(text);
-}
-
-export async function createReport(ticker: string, exchange: string) {
+export function createReport(ticker: string, exchange: string) {
   const report: Report = {
     id: crypto.randomUUID(),
     ticker,
@@ -54,82 +42,35 @@ export async function createReport(ticker: string, exchange: string) {
     report_json: null,
     error: null,
   };
-  if (sql) {
-    await sql.query(
-      "INSERT INTO reports (id, ticker, exchange, status, requested_at) VALUES ($1, $2, $3, $4, $5)",
-      [report.id, ticker, exchange, report.status, report.requested_at],
-    );
-  } else {
-    await mkdir(DATA_DIR, { recursive: true });
-    await writeFile(dataFile(report.id), JSON.stringify(report));
+  reports.set(report.id, report);
+  if (reports.size > MAX_TRACKED) {
+    // Map iterates oldest first. The last done report is never the one evicted.
+    const oldest = [...reports.values()].find((row) => row.status !== "done");
+    if (oldest) reports.delete(oldest.id);
   }
   return report;
 }
 
 export async function getReport(id: string): Promise<Report | null> {
   await connection();
-  if (!UUID.test(id)) return null;
-  if (!sql) return readFromFile(id);
-  const rows = await sql.query("SELECT * FROM reports WHERE id = $1", [id]);
-  return (rows[0] as Report | undefined) ?? null;
+  return reports.get(id) ?? null;
 }
 
-// ponytail: no pagination, add LIMIT/cursor when the table outgrows one response.
-export async function listReports(): Promise<Report[]> {
+// The last completed report, or the newest request if nothing has completed yet.
+export async function getLatestReport(): Promise<Report | null> {
   await connection();
-  if (sql) {
-    const rows = await sql.query("SELECT * FROM reports ORDER BY requested_at DESC");
-    return rows as Report[];
-  }
-  const names = await readdir(DATA_DIR).catch(() => []);
-  const rows = await Promise.all(
-    names
-      .map((name) => name.replace(/\.json$/, ""))
-      .filter((id) => UUID.test(id))
-      .map(readFromFile),
-  );
-  return (rows.filter(Boolean) as Report[]).sort(
-    (a, b) => +new Date(b.requested_at) - +new Date(a.requested_at),
-  );
+  const rows = [...reports.values()];
+  return rows.find((row) => row.status === "done") ?? rows.at(-1) ?? null;
 }
 
 // Returns the updated row, or null if the id is unknown or the current status
 // isn't in onlyFrom. Omitted report fields keep their value; error always resets.
-export async function updateReport(
+export function updateReport(
   id: string,
   { status, report_url = null, report_html = null, report_json = null, error = null }: Patch,
   onlyFrom?: ReportStatus[],
-): Promise<Report | null> {
-  if (!UUID.test(id)) return null;
-  const completed_at =
-    status === "done" || status === "failed" ? new Date().toISOString() : null;
-
-  if (sql) {
-    const rows = await sql.query(
-      `UPDATE reports SET
-         status = $2,
-         report_url = COALESCE($3, report_url),
-         report_html = COALESCE($4, report_html),
-         report_json = COALESCE($5::jsonb, report_json),
-         error = $6,
-         completed_at = $7
-       WHERE id = $1 AND ($8::text[] IS NULL OR status = ANY($8::text[]))
-       RETURNING *`,
-      [
-        id,
-        status,
-        report_url,
-        report_html,
-        report_json === null ? null : JSON.stringify(report_json),
-        error,
-        completed_at,
-        onlyFrom ?? null,
-      ],
-    );
-    return (rows[0] as Report | undefined) ?? null;
-  }
-
-  const row = await readFromFile(id);
+): Report | null {
+  const row = reports.get(id);
   if (!row || (onlyFrom && !onlyFrom.includes(row.status))) return null;
   const updated: Report = {
     ...row,
@@ -138,8 +79,14 @@ export async function updateReport(
     report_html: report_html ?? row.report_html,
     report_json: report_json ?? row.report_json,
     error,
-    completed_at,
+    completed_at: status === "done" || status === "failed" ? new Date().toISOString() : null,
   };
-  await writeFile(dataFile(id), JSON.stringify(updated));
+  // Only one completed report is kept: a new one replaces the previous one.
+  if (status === "done") {
+    for (const other of reports.values()) {
+      if (other.status === "done") reports.delete(other.id);
+    }
+  }
+  reports.set(id, updated);
   return updated;
 }

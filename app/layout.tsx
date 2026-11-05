@@ -18,7 +18,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${plexMono.variable} dark h-full antialiased`}>
       <body className="min-h-full flex flex-col">
-        <header className="flex items-center justify-between border-b px-4 py-2 text-sm sm:px-8">
+        <header className="flex items-center justify-between border-b px-4 py-2 text-sm sm:px-8 print:hidden">
           <Link href="/" className="font-bold text-primary hover:underline">
             TICKER_RESEARCH
           </Link>
