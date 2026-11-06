@@ -28,9 +28,9 @@ const screenText = (html: string, panel: string) => (html.split('data-panel="').
 describe("legacy v1 is untouched", () => {
   // View hashes re-taken after the reference restyle; export hashes are from before v1.1 existed: [view markup, export document].
   it.each([
-    ["olectra-v1", "64233a29b44db767d4380df755df768a9ac4923c5e18a7643a97946fe1ac02c4", "fc4f9d9903529d11770393308dd5eec920a4bf53596ef802570e0976b0961704"],
-    ["hfcl-v1", "e09ae1f88aa91c21f09bd9cded94d6ea2621053e000eb2806f5f8e454190f21f", "a293a217d00c341c2b414c9eeb5335d42d009a2ba1f5e1bf7296746979beba0c"],
-    ["xss-probe-v1", "297aff9b356175b9879e8b62d75386a772c94ffc359a0daf6221657eb8a0cc72", "fb906f14b2eba60b678e2ac4e83be1c6bc4abc66d092bb031a089636a5cc3ac3"],
+    ["olectra-v1", "1aea2699689a3d41fcd75af34a5f6af1e3576447fa83181d6cf566998f8c7792", "fc4f9d9903529d11770393308dd5eec920a4bf53596ef802570e0976b0961704"],
+    ["hfcl-v1", "c24d8db569d2b54ab7417c339483c3cb8c3c91b522cec374306c5263317f8185", "a293a217d00c341c2b414c9eeb5335d42d009a2ba1f5e1bf7296746979beba0c"],
+    ["xss-probe-v1", "a497de4d4710c10f2943e8ca3858ef6d6c7ccdda5f1963f4c057af605e12e08a", "fb906f14b2eba60b678e2ac4e83be1c6bc4abc66d092bb031a089636a5cc3ac3"],
   ])("%s renders byte-identically on screen and in the export", (name, screen, exported) => {
     const report = parsed(raw(name));
     expect(sha(view(report))).toBe(screen);

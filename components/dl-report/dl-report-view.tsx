@@ -1,5 +1,5 @@
 // React text children only: report strings are bot-supplied, so never dangerouslySetInnerHTML here.
-import { Fragment } from "react";
+import { Fragment, type ReactNode } from "react";
 import { ReportActions } from "@/app/reports/report-actions";
 import { DL_HEADINGS, type DlTable } from "@/lib/dl-equity-report-v1";
 import type { DlEquityReport } from "@/lib/dl-equity-report-v1.1";
@@ -95,6 +95,128 @@ function List({ items, ordered }: { items: string[]; ordered?: boolean }) {
   );
 }
 
+const rupees = (value: string) => {
+  const match = value.match(/₹\s*(\d[\d,]*(?:\.\d+)?)/);
+  return match ? Number(match[1].replaceAll(",", "")) : null;
+};
+
+/** Reference F10: each rung is a bar scaled to the highest price, with a line at the current price. */
+function Ladder({ title, rungs }: { title: string; rungs: { label: string; value: string }[] }) {
+  const prices = rungs.map((rung) => rupees(rung.value));
+  const current = prices[rungs.findIndex((rung) => rung.label === DL_HEADINGS.f10CurrentPrice)];
+  const max = Math.max(...prices.map((price) => price ?? 0));
+  const barred = prices.every((price) => price !== null) && current != null && max > 0;
+  return (
+    <div className="rounded-md border border-border-soft bg-card p-3.5">
+      <Label>{title}</Label>
+      <ol>
+        {rungs.map((rung, i) => {
+          const price = prices[i];
+          const isCurrent = rung.label === DL_HEADINGS.f10CurrentPrice;
+          const up = price != null && current != null && price >= current;
+          return (
+            <li key={i} className={cn("grid items-center gap-2 py-0.5", barred ? "grid-cols-[minmax(140px,32%)_1fr_110px]" : "grid-cols-[1fr_auto]", isCurrent && "font-semibold text-primary")}>
+              <span className="text-xs">
+                <Marked text={rung.label} />
+              </span>
+              {barred && price != null && current != null && (
+                <div className="relative h-3.5 rounded-[3px] bg-secondary">
+                  <div className={cn("h-full rounded-[3px]", isCurrent ? "bg-primary" : up ? "bg-live/70" : "bg-destructive/70")} style={{ width: `${(price / max) * 100}%` }} />
+                  <div className="absolute -top-0.5 -bottom-0.5 w-0.5 bg-primary" style={{ left: `${(current / max) * 100}%` }} />
+                </div>
+              )}
+              <span className={cn("text-right font-mono text-xs", !isCurrent && barred && (up ? "text-live" : "text-destructive"))}>{rung.value}</span>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  );
+}
+
+const STANCE_TOP = { BUY: "border-t-live", WATCHLIST: "border-t-beta", PASS: "border-t-destructive" } as Record<string, string>;
+const MARK_TONE = { "✓": "text-live", "◐": "text-beta", "✗": "text-destructive" } as Record<string, string>;
+const isInvestor = (block: DlBlock) => block.kind === "group" && block.badge !== undefined && Object.hasOwn(STANCE_TOP, block.badge);
+
+/** Reference F13: one card per investor, coloured by stance, criteria as ruled lines. */
+function InvestorCard({ block }: { block: Extract<DlBlock, { kind: "group" }> }) {
+  return (
+    <section className={cn("rounded-md border border-t-[3px] border-border-soft bg-card p-3 text-[13px] leading-snug", STANCE_TOP[block.badge!])}>
+      <div className="flex items-baseline justify-between gap-1.5">
+        <span className="text-sm font-bold">{block.title}</span>
+        <span className={cn("font-mono text-xs font-bold", STANCE_TOP[block.badge!].replace("border-t-", "text-"))}>{block.badge}</span>
+      </div>
+      <div className="mt-1.5 flex flex-col gap-1.5">
+        {block.blocks.map((inner, i) =>
+          inner.kind === "table" && !inner.table.columns.some(Boolean) ? (
+            <div key={i}>
+              {inner.table.rows.map((row, r) => (
+                <div key={r} className="grid grid-cols-[14px_1fr] gap-1.5 border-t border-border-soft py-1 text-xs">
+                  <span className={cn("font-mono font-bold", MARK_TONE[row[0]])}>{row[0]}</span>
+                  <span>
+                    <span className="font-bold">{row[1]}</span>: <Marked text={row[2]} />
+                  </span>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <Block key={i} block={inner} />
+          ),
+        )}
+      </div>
+    </section>
+  );
+}
+
+/** Reference F2: a ruled row per category: status dot, name, R/A/G/U counts, one-line read, then its checks. */
+function CategoryRow({ block }: { block: Extract<DlBlock, { kind: "group" }> }) {
+  const [r, a, g, u] = (block.meta?.match(/\d+/g) ?? []).map(Number);
+  const dot = r > 0 ? "bg-destructive" : a > 0 ? "bg-beta" : g > 0 ? "bg-live" : "bg-muted-foreground";
+  const [summary, ...rest] = block.blocks;
+  return (
+    <details className="group border-b border-border-soft">
+      <summary className="grid cursor-pointer grid-cols-[14px_minmax(150px,1.2fr)_auto_minmax(180px,2fr)_16px] items-center gap-2.5 px-0.5 py-2 max-md:grid-cols-[14px_1fr_auto]">
+        <span className={cn("size-3 rounded-full", dot)} />
+        <span className="text-[13px] font-bold">{block.title}</span>
+        <span className="font-mono text-[11px] whitespace-nowrap">
+          <span className="mr-1.5 font-bold text-destructive">{r}R</span>
+          <span className="mr-1.5 font-bold text-beta">{a}A</span>
+          <span className="mr-1.5 font-bold text-live">{g}G</span>
+          <span className="font-bold text-muted-foreground">{u}U</span>
+        </span>
+        <span className="text-xs text-muted-foreground max-md:hidden">{summary.kind === "text" && <Marked text={summary.text} />}</span>
+        <span className="text-primary transition-transform group-open:rotate-180">▾</span>
+      </summary>
+      <div className="flex flex-col gap-2.5 pb-2.5 pl-6">
+        {summary.kind === "text" && <p className="text-xs text-muted-foreground md:hidden">{summary.text}</p>}
+        {rest.map((inner, i) => (
+          <Block key={i} block={inner} />
+        ))}
+      </div>
+    </details>
+  );
+}
+
+/** Investor cards sit side by side; everything else stacks. */
+function Blocks({ blocks }: { blocks: DlBlock[] }) {
+  const out: ReactNode[] = [];
+  for (let i = 0; i < blocks.length; i++) {
+    if (isInvestor(blocks[i])) {
+      const run: DlBlock[] = [];
+      while (i < blocks.length && isInvestor(blocks[i])) run.push(blocks[i++]);
+      i--;
+      out.push(
+        <div key={i} className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-2.5">
+          {run.map((card, c) => (
+            <InvestorCard key={c} block={card as Extract<DlBlock, { kind: "group" }>} />
+          ))}
+        </div>,
+      );
+    } else out.push(<Block key={i} block={blocks[i]} />);
+  }
+  return out;
+}
+
 function Block({ block }: { block: DlBlock }) {
   switch (block.kind) {
     case "heading":
@@ -127,25 +249,9 @@ function Block({ block }: { block: DlBlock }) {
     case "table":
       return <Table table={block.table} hideTitle={block.hideTitle} rowMeta={block.rowMeta} />;
     case "ladder":
-      return (
-        <div>
-          <Label>{block.title}</Label>
-          <ol className="overflow-hidden rounded-sm border border-border-soft">
-            {block.rungs.map((rung, i) => {
-              const current = rung.label === DL_HEADINGS.f10CurrentPrice;
-              return (
-                <li key={i} className={cn("flex flex-wrap justify-between gap-x-4 border-t border-border-soft px-2.5 py-1.5 first:border-t-0", current && "bg-primary/10 font-semibold text-primary")}>
-                  <span>
-                    <Marked text={rung.label} />
-                  </span>
-                  <span className="font-mono">{rung.value}</span>
-                </li>
-              );
-            })}
-          </ol>
-        </div>
-      );
+      return <Ladder title={block.title} rungs={block.rungs} />;
     case "group": {
+      if (block.collapsible && block.meta) return <CategoryRow block={block} />;
       const head = (
         <>
           <span className="font-semibold">{block.title}</span>
@@ -159,9 +265,7 @@ function Block({ block }: { block: DlBlock }) {
       );
       const body = (
         <div className="mt-2.5 flex flex-col gap-2.5">
-          {block.blocks.map((inner, i) => (
-            <Block key={i} block={inner} />
-          ))}
+          <Blocks blocks={block.blocks} />
         </div>
       );
       const box = "rounded-md border border-border-soft bg-card p-3";
@@ -238,9 +342,7 @@ export function DlReportView({ report }: { report: DlEquityReport }) {
                     <Marked text={panel.leadTitle} />
                   </h3>
                 )}
-                {panel.blocks.map((block, b) => (
-                  <Block key={b} block={block} />
-                ))}
+                <Blocks blocks={panel.blocks} />
               </div>
             </section>
           </Fragment>
