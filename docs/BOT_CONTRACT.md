@@ -112,6 +112,16 @@ v1 bots that only send `report_html` keep working unchanged.
 - `researching` only applies while the report is `pending` or `researching`. On a finished report it changes nothing and still returns 200 with the stored row.
 - `done` and `failed` always apply, so retrying them is safe and the last one wins. The bot can also call back before the webhook reply arrives, and that result is kept.
 
+### Cancelling
+
+When a user presses Stop, the report becomes `failed` ("Stopped by user.") and, if `RESEARCH_CANCEL_URL` is set, the app sends one best-effort `POST` there (same `Authorization` header as the webhook, 5 second timeout, no retry):
+
+```json
+{ "action": "cancel", "requestId": "3f0c1a9e-...", "ticker": "HFCL", "exchange": "NSE" }
+```
+
+The bot should abort that run. Without a cancel URL, the bot can poll `GET {callbackUrl}` and stop when `status` is `failed`. A callback that arrives anyway still applies (`done` always wins), so the bot should not post after a cancel.
+
 ### Responses
 
 | Status | Body | Meaning |
