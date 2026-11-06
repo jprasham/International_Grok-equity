@@ -55,3 +55,5 @@ next-env.d.ts
 # local OLECTRA/HFCL capture (not for GitHub)
 _reference/
 
+
+secret.txt
