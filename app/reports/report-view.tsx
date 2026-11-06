@@ -13,7 +13,7 @@ import { StructuredReportView } from "@/components/structured-report";
 import { PageBody, PageHero, Section } from "@/components/terminal";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { DL_EQUITY_REPORT_SCHEMA, parseDlEquityReportV1 } from "@/lib/dl-equity-report-v1";
+import { isDlEquityReportPayload, parseDlEquityReport } from "@/lib/dl-equity-report-v1.1";
 import type { Report } from "@/lib/reports";
 import { parseStructuredReport } from "@/lib/report-schema";
 import { ReportActions } from "./report-actions";
@@ -31,7 +31,7 @@ export function ReportView({
       ? `${report.exchange} · ${report.ticker} is queued`
       : report.status === "researching"
         ? `${report.exchange} · Research in process`
-        : `${report.exchange} · ${isDlPayload(report.report_json) ? "Equity research" : "Market Pulse"}`;
+        : `${report.exchange} · ${isDlEquityReportPayload(report.report_json) ? "Equity research" : "Market Pulse"}`;
 
   return (
     <>
@@ -55,8 +55,6 @@ export function ReportView({
     </>
   );
 }
-
-const isDlPayload = (json: unknown) => (json as { schema?: unknown } | null)?.schema === DL_EQUITY_REPORT_SCHEMA;
 
 function Stat({ label, children }: { label: string; children: ReactNode }) {
   return (
@@ -239,11 +237,12 @@ function ReportBody({
     );
   }
 
-  const dl = isDlPayload(report.report_json) ? parseDlEquityReportV1(report.report_json) : null;
+  const dl = isDlEquityReportPayload(report.report_json) ? parseDlEquityReport(report.report_json) : null;
   if (dl?.ok) {
     return (
       <div className="flex flex-col gap-4">
         <GrokAttribution tone="done" />
+        {dl.warnings.length > 0 && <DlSemanticWarnings warnings={dl.warnings} />}
         <DlReportView report={dl.data} />
       </div>
     );
@@ -254,7 +253,7 @@ function ReportBody({
   return (
     <div className="flex flex-col gap-4">
       <GrokAttribution tone="done" />
-      {dl && <DlValidationErrors errors={dl.errors} />}
+      {dl && <DlValidationErrors schema={String((report.report_json as { schema: unknown }).schema)} errors={dl.errors} />}
       {structured && <StructuredReportView report={structured} />}
 
       {report.report_html ? (
@@ -270,12 +269,29 @@ function ReportBody({
   );
 }
 
-function DlValidationErrors({ errors }: { errors: string[] }) {
+function DlSemanticWarnings({ warnings }: { warnings: string[] }) {
+  return (
+    <Card className="border-beta/40 print:hidden">
+      <CardContent className="flex flex-col gap-2">
+        <p role="status" className="text-beta">
+          This report&apos;s figures disagree with each other in {warnings.length} place{warnings.length === 1 ? "" : "s"}. It is shown as delivered.
+        </p>
+        <ul className="max-h-64 list-disc overflow-y-auto pl-5 font-mono text-xs text-dim">
+          {warnings.map((warning, i) => (
+            <li key={i}>{warning}</li>
+          ))}
+        </ul>
+      </CardContent>
+    </Card>
+  );
+}
+
+function DlValidationErrors({ schema, errors }: { schema: string; errors: string[] }) {
   return (
     <Card className="border-destructive/40">
       <CardContent className="flex flex-col gap-2">
         <p role="alert" className="text-destructive">
-          This report claims {DL_EQUITY_REPORT_SCHEMA} but failed validation ({errors.length}), so it is not shown as one.
+          This report claims {schema} but failed validation ({errors.length}), so it is not shown as one.
         </p>
         <ul className="max-h-64 list-disc overflow-y-auto pl-5 font-mono text-xs text-dim">
           {errors.map((error, i) => (

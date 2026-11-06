@@ -2,7 +2,8 @@
 import { Fragment } from "react";
 import { ReportActions } from "@/app/reports/report-actions";
 import { Card, CardContent } from "@/components/ui/card";
-import { DL_HEADINGS, type DlEquityReportV1, type DlTable } from "@/lib/dl-equity-report-v1";
+import { DL_HEADINGS, type DlTable } from "@/lib/dl-equity-report-v1";
+import type { DlEquityReport } from "@/lib/dl-equity-report-v1.1";
 import { dlPanels, dlSplitMarkers, dlTone, type DlBlock } from "@/lib/dl-report-blocks";
 import { dlReportHtml } from "@/lib/dl-report-html";
 import { cn } from "@/lib/utils";
@@ -37,7 +38,7 @@ function Marked({ text }: { text: string }) {
 
 const Label = ({ children }: { children: string }) => <h4 className="term-label mb-1.5">{children}</h4>;
 
-function Table({ table, hideTitle }: { table: DlTable; hideTitle?: boolean }) {
+function Table({ table, hideTitle, rowMeta }: { table: DlTable; hideTitle?: boolean; rowMeta?: { note?: string }[] }) {
   const { title, columns, rows } = table;
   return (
     <div>
@@ -61,6 +62,11 @@ function Table({ table, hideTitle }: { table: DlTable; hideTitle?: boolean }) {
                 {row.map((cell, c) => (
                   <td key={c} className="min-w-16 px-2.5 py-1.5">
                     {dlTone(cell) ? <Chip value={cell} /> : <Marked text={cell} />}
+                    {c === row.length - 1 && rowMeta?.[r]?.note && (
+                      <small className="mt-1 block text-muted-foreground">
+                        <Marked text={rowMeta[r].note} />
+                      </small>
+                    )}
                   </td>
                 ))}
               </tr>
@@ -106,7 +112,7 @@ function Block({ block }: { block: DlBlock }) {
         </div>
       );
     case "table":
-      return <Table table={block.table} hideTitle={block.hideTitle} />;
+      return <Table table={block.table} hideTitle={block.hideTitle} rowMeta={block.rowMeta} />;
     case "ladder":
       return (
         <div>
@@ -176,7 +182,7 @@ function Block({ block }: { block: DlBlock }) {
   }
 }
 
-export function DlReportView({ report }: { report: DlEquityReportV1 }) {
+export function DlReportView({ report }: { report: DlEquityReport }) {
   const { chrome, footer } = report;
   const ticker = /\(NSE: ([^\s)]+)\)$/.exec(chrome.companyLine)?.[1] ?? "report";
 

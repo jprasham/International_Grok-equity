@@ -1,4 +1,16 @@
-import { DL_HEADINGS as H, DL_TAB_LABELS, type DlEquityReportV1, type DlSourcesAndGaps, type DlTable } from "./dl-equity-report-v1";
+import { DL_HEADINGS as H, DL_TAB_LABELS, type DlSourcesAndGaps, type DlTable } from "./dl-equity-report-v1";
+import {
+  DL_EQUITY_REPORT_SCHEMA_V1_1,
+  DL_FIXED_BLOCKS,
+  F13_CRITERIA_COLUMNS,
+  F13_CRITERIA_TITLE,
+  F2_SUB_TABS_LABEL,
+  type DlEquityReport,
+  type DlEquityReportV11,
+  type DlExtraBlock,
+  type DlFixedBlocks,
+  type DlLayoutPanel,
+} from "./dl-equity-report-v1.1";
 
 /** One description of each panel, walked by both the React view and the escaped HTML export so they can't drift. */
 export type DlBlock =
@@ -6,7 +18,7 @@ export type DlBlock =
   | { kind: "text"; text: string; label?: string; tone?: "lead" | "note" | "quote" }
   | { kind: "numbered"; items: string[] }
   | { kind: "bullets"; items: string[]; title?: string }
-  | { kind: "table"; table: DlTable; hideTitle?: boolean }
+  | { kind: "table"; table: DlTable; hideTitle?: boolean; rowMeta?: { note?: string }[] }
   | { kind: "ladder"; title: string; rungs: { label: string; value: string }[] }
   | { kind: "group"; title: string; badge?: string; meta?: string; collapsible?: boolean; blocks: DlBlock[] }
   | { kind: "sources"; value: DlSourcesAndGaps };
@@ -18,22 +30,55 @@ const text = (value: string, label?: string, tone?: "lead" | "note" | "quote"): 
 const table = (value: DlTable, hideTitle?: boolean): DlBlock => ({ kind: "table", table: value, hideTitle });
 const bullets = (items: string[], title?: string): DlBlock => ({ kind: "bullets", items, title });
 
-export function dlPanels({ panels: p }: DlEquityReportV1): DlPanel[] {
-  type Base = { leadTitle: string; takeaways: string[]; sourcesAndGaps: DlSourcesAndGaps };
-  const panel = (base: Base, blocks: DlBlock[], before: DlBlock[] = []) => ({
-    leadTitle: base.leadTitle,
-    blocks: [...before, { kind: "numbered", items: base.takeaways } as const, ...blocks, { kind: "sources", value: base.sourcesAndGaps } as const],
-  });
+/** Extras reuse the fixed block kinds, so they pass through the same escaping on screen and in the export. */
+function extraBlocks(extra: DlExtraBlock): DlBlock[] {
+  switch (extra.type) {
+    case "table":
+      return [{ kind: "table", table: { title: extra.title, columns: extra.columns, rows: extra.rows }, rowMeta: extra.rowMeta }];
+    case "keyValue":
+      return [table({ title: extra.title, columns: ["", ""], rows: extra.items.map((item) => [item.label, item.value]) })];
+    case "text":
+      return [...(extra.title ? [heading(extra.title)] : []), ...extra.paragraphs.map((paragraph) => text(paragraph))];
+    case "bullets":
+      return [bullets(extra.items, extra.title)];
+  }
+}
+
+export function dlPanels(report: DlEquityReport): DlPanel[] {
+  // v1 panels are a structural subset of v1.1: every addition is optional or a wider union.
+  const p: DlEquityReportV11["panels"] = report.panels;
+  const isV11 = report.schema === DL_EQUITY_REPORT_SCHEMA_V1_1;
+
+  type Base = { leadTitle: string; takeaways: string[]; sourcesAndGaps: DlSourcesAndGaps; layout?: ({ ref: string } | DlExtraBlock)[] };
+  const panel = <P extends DlLayoutPanel>(id: P, base: Base, body: Record<Exclude<DlFixedBlocks[P][number], "takeaways">, DlBlock[]>) => {
+    const fixed: Record<string, DlBlock[]> = { ...body, takeaways: [{ kind: "numbered", items: base.takeaways }] };
+    const layout = base.layout ?? DL_FIXED_BLOCKS[id].map((ref) => ({ ref }));
+    return {
+      leadTitle: base.leadTitle,
+      blocks: [...layout.flatMap((entry) => ("ref" in entry ? fixed[entry.ref] : extraBlocks(entry))), { kind: "sources", value: base.sourcesAndGaps } as const],
+    };
+  };
+
+  const f17Blocks: DlBlock[] = [
+    ...(p.f17.takeaways ? [{ kind: "numbered", items: p.f17.takeaways } as const] : []),
+    ...(p.f17.slotTitle ? [heading(p.f17.slotTitle)] : []),
+    ...(p.f17.prose ? p.f17.prose.map((paragraph) => text(paragraph)) : [text("Upload slot. No research has been uploaded.", undefined, "note")]),
+    ...(p.f17.sourcesAndGaps ? [{ kind: "sources", value: p.f17.sourcesAndGaps } as const] : []),
+  ];
 
   const bodies = [
-    panel(p.f1, [bullets(p.f1.topInsights, H.f1TopInsights)]),
-    panel(
-      p.f2,
-      [
-        heading(p.f2.stress.headline),
-        text(p.f2.stress.why, "Why"),
-        text(p.f2.stress.tally, undefined, "note"),
+    panel("f1", p.f1, { topInsights: [bullets(p.f1.topInsights, H.f1TopInsights)] }),
+    panel("f2", p.f2, {
+      banner: [
+        heading(H.f2Banner),
+        text(p.f2.combinedVerdict),
+        text(p.f2.deduplicationNote, undefined, "note"),
+        ...(p.f2.subTabsProse ? [text(p.f2.subTabsProse, F2_SUB_TABS_LABEL, "note")] : []),
+      ],
+      stress: [heading(p.f2.stress.headline), text(p.f2.stress.why, "Why"), text(p.f2.stress.tally, undefined, "note")],
+      categories: [
         heading(H.f2CategoryScorecard),
+        ...(p.f2.categoryScorecardProse ? [text(p.f2.categoryScorecardProse, undefined, "note")] : []),
         ...p.f2.categories.map((c): DlBlock => ({
           kind: "group",
           title: c.name,
@@ -41,116 +86,106 @@ export function dlPanels({ panels: p }: DlEquityReportV1): DlPanel[] {
           collapsible: true,
           blocks: [text(c.summary), table(c.checks, true)],
         })),
-        table(p.f2.dataGaps),
       ],
-      [heading(H.f2Banner), text(p.f2.combinedVerdict), text(p.f2.deduplicationNote, undefined, "note")],
-    ),
-    panel(p.f3, [table(p.f3.scorecard)]),
-    panel(p.f4, [
-      table(p.f4.ownership),
-      heading(p.f4.managementChange.banner),
-      text(p.f4.managementChange.summary),
-      table(p.f4.changeLog),
-      table(p.f4.signalStrip),
-      table(p.f4.cultureStrip),
-      bullets(p.f4.literature, H.f4Literature),
-    ]),
-    panel(p.f5, [
-      heading(p.f5.themeBanner),
-      text(p.f5.themeMood, "Theme mood", "lead"),
-      text(p.f5.plainRead, "Plain read"),
-      table(p.f5.themeStrip),
-      bullets(p.f5.narratives, H.f5Narratives),
-      text(p.f5.methodNote, undefined, "note"),
-      table(p.f5.stockMood),
-    ]),
-    panel(p.f6, [table(p.f6.bottomUp), table(p.f6.orderBook), table(p.f6.structure)]),
-    panel(p.f7, [table(p.f7.pl)]),
-    panel(p.f8, [table(p.f8.returns)]),
-    panel(p.f9, [
-      heading(p.f9.guidance.title),
-      text(p.f9.keyTakeawaysNote, undefined, "note"),
-      table(p.f9.guidance, true),
-      heading(H.f9Delta),
-      bullets(p.f9.delta.new, H.f9DeltaNew),
-      bullets(p.f9.delta.droppedOrGoneQuiet, H.f9DeltaDropped),
-      bullets(p.f9.delta.guidanceRaisedCut, H.f9DeltaGuidance),
-      heading(H.f9Language),
-      text(p.f9.language.confidenceScore, undefined, "lead"),
-      text(p.f9.language.confidenceNote),
-      text(p.f9.language.hedgingVsCertainty, H.f9Hedging),
-      bullets(p.f9.language.evasiveAnswers, H.f9Evasive),
-      bullets(p.f9.language.analystPushbackTopics, H.f9Pushback),
-      heading(H.f9Scorecard),
-      text(p.f9.callLanguageScorecard.reading, undefined, "lead"),
-      text(p.f9.callLanguageScorecard.note),
-      heading(H.f9Actionable),
-      table(p.f9.whatToWatch),
-      table(p.f9.thesisImpact),
-    ]),
-    panel(p.f10, [
-      text(p.f10.rewardRisk.strip, undefined, "lead"),
-      text(p.f10.rewardRisk.detail, undefined, "note"),
-      table(p.f10.scenarios),
-      { kind: "ladder", title: H.f10PriceLadder, rungs: p.f10.priceLadder },
-      bullets(p.f10.whatWouldNeedToHappen, H.f10WhatWouldNeedToHappen),
-      text(p.f10.weightedTarget, undefined, "lead"),
-      text(p.f10.methodDetail, H.f10MethodDetail, "note"),
-    ]),
-    panel(p.f11, [table(p.f11.grid)]),
-    panel(p.f12, [table(p.f12.costSplit), table(p.f12.revenueScenarios), table(p.f12.marginShock)]),
-    panel(p.f13, [
-      heading(H.f13Consensus),
-      text(`${p.f13.consensus.wouldBuy} Would buy · ${p.f13.consensus.watchlist} Watchlist · ${p.f13.consensus.pass} Pass`, undefined, "lead"),
-      text(p.f13.consensus.note, undefined, "note"),
-      text(p.f13.keyDisagreement, "Key disagreement"),
-      text(p.f13.tieBreaker, "Tie-breaker"),
-      ...p.f13.investors.map((i): DlBlock => ({
-        kind: "group",
-        title: i.name,
-        badge: i.stance,
-        blocks: [
-          text(i.criteriaLine, undefined, "note"),
-          // Headerless: OLECTRA stores no column names for criteria, and none are frozen.
-          table({ title: i.name, columns: ["", "", ""], rows: i.criteria.map((c) => [c.mark, c.label, c.evidence]) }, true),
-          text(i.quote, undefined, "quote"),
-        ],
-      })),
-      text(p.f13.methodologyNote, undefined, "note"),
-    ]),
-    panel(p.f14, [
-      text(p.f14.state, undefined, "lead"),
-      text(p.f14.priceLine, undefined, "note"),
-      text(p.f14.todaysAction),
-      table(p.f14.extensionMeter),
-      table(p.f14.stagedEntry),
-      text(p.f14.size, "Size"),
-      heading(H.f14Rules),
-      ...p.f14.rules.map((r) => text(r.text, r.label)),
-      text(p.f14.frameworkNote, undefined, "note"),
-    ]),
-    panel(p.f15, [
-      table(p.f15.consensusStrip),
-      table(p.f15.calls),
-      table(p.f15.trend),
-      table(p.f15.streetVsOurs),
-      table(p.f15.whatTheyMayKnow),
-      text(p.f15.searchNote, undefined, "note"),
-    ]),
-    panel(p.f16, [
-      heading(p.f16.stripBanner),
-      text(p.f16.adjustedMultiple),
-      bullets(p.f16.topHiddenRisks, "TOP HIDDEN RISKS"),
-      ...p.f16.lenses.map((l): DlBlock => ({
+      dataGaps: [table(p.f2.dataGaps)],
+    }),
+    panel("f3", p.f3, { scorecard: [table(p.f3.scorecard)] }),
+    panel("f4", p.f4, {
+      ownership: [table(p.f4.ownership)],
+      managementChange: [heading(p.f4.managementChange.banner), text(p.f4.managementChange.summary)],
+      changeLog: [table(p.f4.changeLog)],
+      signalStrip: [table(p.f4.signalStrip)],
+      cultureStrip: [table(p.f4.cultureStrip)],
+      literature: [bullets(p.f4.literature, H.f4Literature)],
+    }),
+    panel("f5", p.f5, {
+      theme: [heading(p.f5.themeBanner), text(p.f5.themeMood, "Theme mood", "lead"), text(p.f5.plainRead, "Plain read")],
+      themeStrip: [table(p.f5.themeStrip)],
+      narratives: [bullets(p.f5.narratives, H.f5Narratives)],
+      methodNote: [text(p.f5.methodNote, undefined, "note")],
+      stockMood: [table(p.f5.stockMood)],
+    }),
+    panel("f6", p.f6, { bottomUp: [table(p.f6.bottomUp)], orderBook: [table(p.f6.orderBook)], structure: [table(p.f6.structure)] }),
+    panel("f7", p.f7, { pl: [table(p.f7.pl)] }),
+    panel("f8", p.f8, { returns: [table(p.f8.returns)] }),
+    panel("f9", p.f9, {
+      guidance: [heading(p.f9.guidance.title), text(p.f9.keyTakeawaysNote, undefined, "note"), table(p.f9.guidance, true)],
+      delta: [heading(H.f9Delta), bullets(p.f9.delta.new, H.f9DeltaNew), bullets(p.f9.delta.droppedOrGoneQuiet, H.f9DeltaDropped), bullets(p.f9.delta.guidanceRaisedCut, H.f9DeltaGuidance)],
+      language: [
+        heading(H.f9Language),
+        text(p.f9.language.confidenceScore, undefined, "lead"),
+        text(p.f9.language.confidenceNote),
+        text(p.f9.language.hedgingVsCertainty, H.f9Hedging),
+        bullets(p.f9.language.evasiveAnswers, H.f9Evasive),
+        bullets(p.f9.language.analystPushbackTopics, H.f9Pushback),
+      ],
+      callLanguageScorecard: [heading(H.f9Scorecard), text(p.f9.callLanguageScorecard.reading, undefined, "lead"), text(p.f9.callLanguageScorecard.note)],
+      whatToWatch: [heading(H.f9Actionable), table(p.f9.whatToWatch)],
+      thesisImpact: [table(p.f9.thesisImpact)],
+    }),
+    panel("f10", p.f10, {
+      rewardRisk: [text(p.f10.rewardRisk.strip, undefined, "lead"), text(p.f10.rewardRisk.detail, undefined, "note")],
+      scenarios: [table(p.f10.scenarios)],
+      priceLadder: [{ kind: "ladder", title: H.f10PriceLadder, rungs: p.f10.priceLadder }],
+      whatWouldNeedToHappen: [bullets(p.f10.whatWouldNeedToHappen, H.f10WhatWouldNeedToHappen)],
+      weightedTarget: [text(p.f10.weightedTarget, undefined, "lead")],
+      methodDetail: [text(p.f10.methodDetail, H.f10MethodDetail, "note")],
+    }),
+    panel("f11", p.f11, { grid: [table(p.f11.grid)] }),
+    panel("f12", p.f12, { costSplit: [table(p.f12.costSplit)], revenueScenarios: [table(p.f12.revenueScenarios)], marginShock: [table(p.f12.marginShock)] }),
+    panel("f13", p.f13, {
+      consensus: [
+        heading(H.f13Consensus),
+        text(`${p.f13.consensus.wouldBuy} Would buy · ${p.f13.consensus.watchlist} Watchlist · ${p.f13.consensus.pass} Pass`, undefined, "lead"),
+        text(p.f13.consensus.note, undefined, "note"),
+        text(p.f13.keyDisagreement, "Key disagreement"),
+        text(p.f13.tieBreaker, "Tie-breaker"),
+      ],
+      investors: p.f13.investors.map((i): DlBlock => {
+        const rows = i.criteria.map((c) => [c.mark, c.label, c.evidence]);
+        return {
+          kind: "group",
+          title: i.name,
+          badge: i.stance,
+          blocks: [
+            text(i.criteriaLine, undefined, "note"),
+            // v1 is headerless: OLECTRA stores no column names for criteria, and none are frozen. v1.1's are renderer-owned.
+            isV11 ? table({ title: F13_CRITERIA_TITLE, columns: F13_CRITERIA_COLUMNS, rows }) : table({ title: i.name, columns: ["", "", ""], rows }, true),
+            text(i.quote, undefined, "quote"),
+          ],
+        };
+      }),
+      methodologyNote: [text(p.f13.methodologyNote, undefined, "note")],
+    }),
+    panel("f14", p.f14, {
+      status: [text(p.f14.state, undefined, "lead"), text(p.f14.priceLine, undefined, "note"), text(p.f14.todaysAction)],
+      extensionMeter: [table(p.f14.extensionMeter)],
+      stagedEntry: [table(p.f14.stagedEntry)],
+      size: [text(p.f14.size, "Size")],
+      rules: [heading(H.f14Rules), ...p.f14.rules.map((r) => text(r.text, r.label))],
+      frameworkNote: [text(p.f14.frameworkNote, undefined, "note")],
+    }),
+    panel("f15", p.f15, {
+      consensusStrip: [table(p.f15.consensusStrip)],
+      calls: [table(p.f15.calls)],
+      trend: [table(p.f15.trend)],
+      streetVsOurs: [table(p.f15.streetVsOurs)],
+      whatTheyMayKnow: [table(p.f15.whatTheyMayKnow)],
+      searchNote: [text(p.f15.searchNote, undefined, "note")],
+    }),
+    panel("f16", p.f16, {
+      strip: [heading(p.f16.stripBanner), text(p.f16.adjustedMultiple)],
+      topHiddenRisks: [bullets(p.f16.topHiddenRisks, "TOP HIDDEN RISKS")],
+      lenses: p.f16.lenses.map((l): DlBlock => ({
         kind: "group",
         title: l.name,
         badge: l.flag,
         meta: l.multiple,
         blocks: [text(l.who, "Who"), text(l.evidence, "Evidence"), text(l.hiddenRisk, "Hidden risk")],
       })),
-      text(p.f16.wantsNote, undefined, "note"),
-    ]),
-    { blocks: [text("Upload slot. No research has been uploaded.", undefined, "note")] },
+      wantsNote: [text(p.f16.wantsNote, undefined, "note")],
+    }),
+    { leadTitle: p.f17.leadTitle, blocks: f17Blocks },
   ];
 
   return DL_TAB_LABELS.map((label, i) => ({ id: `f${i + 1}`, label, ...bodies[i] }));

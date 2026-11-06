@@ -1,4 +1,5 @@
-import { DL_HEADINGS, type DlEquityReportV1 } from "./dl-equity-report-v1";
+import { DL_HEADINGS } from "./dl-equity-report-v1";
+import type { DlEquityReport } from "./dl-equity-report-v1.1";
 import { dlPanels, type DlBlock } from "./dl-report-blocks";
 
 const ENTITIES: Record<string, string> = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
@@ -22,7 +23,12 @@ function blockHtml(block: DlBlock): string {
     case "table": {
       const { title, columns, rows } = block.table;
       const head = columns.some(Boolean) ? `<thead><tr>${columns.map((c) => `<th>${escapeHtml(c)}</th>`).join("")}</tr></thead>` : "";
-      const body = rows.map((row) => `<tr>${row.map((c) => `<td>${escapeHtml(c)}</td>`).join("")}</tr>`).join("");
+      const body = rows
+        .map((row, r) => {
+          const note = block.rowMeta?.[r]?.note;
+          return `<tr>${row.map((c, i) => `<td>${escapeHtml(c)}${note && i === row.length - 1 ? `<br><small>${escapeHtml(note)}</small>` : ""}</td>`).join("")}</tr>`;
+        })
+        .join("");
       return `${block.hideTitle ? "" : h(4, title)}<table>${head}<tbody>${body}</tbody></table>`;
     }
     case "ladder":
@@ -42,7 +48,7 @@ const STYLE =
   "body{font:13px/1.5 system-ui,sans-serif;color:#111;margin:24px;max-width:1000px}h1{font-size:22px;margin:4px 0}h2{font-size:17px;margin:28px 0 4px;border-top:1px solid #999;padding-top:12px}h3{font-size:13px;margin:16px 0 4px}h4{font-size:12px;margin:12px 0 4px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #bbb;padding:3px 6px;text-align:left;vertical-align:top}";
 
 /** A complete, script-free document of all tabs for Download and Print. */
-export function dlReportHtml(report: DlEquityReportV1) {
+export function dlReportHtml(report: DlEquityReport) {
   const { chrome, footer } = report;
   const panels = dlPanels(report)
     .map((p) => `<section>${h(2, p.label)}${p.leadTitle ? `<p><b>${escapeHtml(p.leadTitle)}</b></p>` : ""}${p.blocks.map(blockHtml).join("")}</section>`)
