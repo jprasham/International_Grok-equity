@@ -42,6 +42,44 @@ for (const fixture of ["olectra", "hfcl"]) {
   }
 }
 
+// v1.1: the panels the fit audit flagged, with every F2 category open so the U rows show.
+{
+  const name = "hfcl-v1.1";
+  const context = await browser.newContext({ viewport: { width: 1280, height: 900 }, colorScheme: "light" });
+  await context.addInitScript(() => localStorage.setItem("theme", "light"));
+  const page = await context.newPage();
+  page.on("console", (message) => message.type() === "error" && failures.push(`${name} console: ${message.text().slice(0, 300)}`));
+  page.on("pageerror", (error) => failures.push(`${name} page error: ${error.message.slice(0, 300)}`));
+  await page.goto(`${base}/dev/dl-report/${name}`, { waitUntil: "networkidle" });
+  const expected = {
+    f1: "LIVE PRICE SNAPSHOT",
+    f2: "Verified empty UI shell",
+    f3: "MODEL INPUTS & UNCERTAINTY",
+    f7: "PERIODS, DEFINITIONS & EARNINGS BRIDGE",
+    f11: "METHOD",
+    f12: "RECONCILIATION",
+    f13: "CRITERIA APPLIED",
+    f14: "Price band",
+    f17: "UPLOAD SLOT · NOT ENABLED",
+  };
+  for (const [tab, marker] of Object.entries(expected)) {
+    await page.click(`label[for="dl-tab-${tab}"]`);
+    const panel = page.locator(`section[data-panel="${tab}"]`);
+    if (tab === "f2") for (const summary of await panel.locator("details summary").all()) await summary.click();
+    if (!(await panel.getByText(marker).first().isVisible())) failures.push(`${name} ${tab} does not show "${marker}"`);
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await page.screenshot({ path: join(outDir, `${name}-light-${tab}.png`), fullPage: true });
+  }
+  const [download] = await Promise.all([page.waitForEvent("download"), page.getByRole("button", { name: "Download HTML" }).click()]);
+  const file = join(outDir, `${name}-${download.suggestedFilename()}`);
+  await download.saveAs(file);
+  const exported = readFileSync(file, "utf8");
+  for (const marker of ["LIVE PRICE SNAPSHOT", "UPLOAD SLOT · NOT ENABLED", "CRITERIA APPLIED"]) if (!exported.includes(marker)) failures.push(`${name} download lacks ${marker}`);
+  const printable = page.frameLocator('iframe[title="Printable report"]');
+  if ((await printable.locator("h2").count()) !== 17) failures.push(`${name} print document lacks 17 tabs`);
+  await context.close();
+}
+
 // CSS-only tabs must switch with scripting off.
 const noJs = await browser.newContext({ javaScriptEnabled: false });
 const plain = await noJs.newPage();
