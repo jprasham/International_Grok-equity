@@ -8,10 +8,12 @@ import Link from "next/link";
 import { useState, type ReactNode, type SyntheticEvent } from "react";
 import { GrokAttribution } from "@/components/grok-attribution";
 import { StatusChip } from "@/components/status-chip";
+import { DlReportView } from "@/components/dl-report/dl-report-view";
 import { StructuredReportView } from "@/components/structured-report";
 import { PageBody, PageHero, Section } from "@/components/terminal";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { DL_EQUITY_REPORT_SCHEMA, parseDlEquityReportV1 } from "@/lib/dl-equity-report-v1";
 import type { Report } from "@/lib/reports";
 import { parseStructuredReport } from "@/lib/report-schema";
 import { ReportActions } from "./report-actions";
@@ -29,7 +31,7 @@ export function ReportView({
       ? `${report.exchange} · ${report.ticker} is queued`
       : report.status === "researching"
         ? `${report.exchange} · Research in process`
-        : `${report.exchange} · Market Pulse`;
+        : `${report.exchange} · ${isDlPayload(report.report_json) ? "Equity research" : "Market Pulse"}`;
 
   return (
     <>
@@ -53,6 +55,8 @@ export function ReportView({
     </>
   );
 }
+
+const isDlPayload = (json: unknown) => (json as { schema?: unknown } | null)?.schema === DL_EQUITY_REPORT_SCHEMA;
 
 function Stat({ label, children }: { label: string; children: ReactNode }) {
   return (
@@ -235,11 +239,22 @@ function ReportBody({
     );
   }
 
+  const dl = isDlPayload(report.report_json) ? parseDlEquityReportV1(report.report_json) : null;
+  if (dl?.ok) {
+    return (
+      <div className="flex flex-col gap-4">
+        <GrokAttribution tone="done" />
+        <DlReportView report={dl.data} />
+      </div>
+    );
+  }
+
   const structured = parseStructuredReport(report.report_json);
 
   return (
     <div className="flex flex-col gap-4">
       <GrokAttribution tone="done" />
+      {dl && <DlValidationErrors errors={dl.errors} />}
       {structured && <StructuredReportView report={structured} />}
 
       {report.report_html ? (
@@ -252,6 +267,23 @@ function ReportBody({
         </pre>
       ) : null}
     </div>
+  );
+}
+
+function DlValidationErrors({ errors }: { errors: string[] }) {
+  return (
+    <Card className="border-destructive/40">
+      <CardContent className="flex flex-col gap-2">
+        <p role="alert" className="text-destructive">
+          This report claims {DL_EQUITY_REPORT_SCHEMA} but failed validation ({errors.length}), so it is not shown as one.
+        </p>
+        <ul className="max-h-64 list-disc overflow-y-auto pl-5 font-mono text-xs text-dim">
+          {errors.map((error, i) => (
+            <li key={i}>{error}</li>
+          ))}
+        </ul>
+      </CardContent>
+    </Card>
   );
 }
 
