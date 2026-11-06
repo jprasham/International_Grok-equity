@@ -51,3 +51,7 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+
+# local OLECTRA/HFCL capture (not for GitHub)
+_reference/
+
