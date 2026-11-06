@@ -3,29 +3,37 @@
 // Browser-only: without a DOM, DOMPurify returns its input unsanitized. Render this
 // through ReportLoader, never on the server. (jsdom on the server crashes on Vercel.)
 import DOMPurify from "dompurify";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Square } from "lucide-react";
 import Link from "next/link";
-import type { ReactNode, SyntheticEvent } from "react";
+import { useState, type ReactNode, type SyntheticEvent } from "react";
 import { GrokAttribution } from "@/components/grok-attribution";
 import { StatusChip } from "@/components/status-chip";
 import { StructuredReportView } from "@/components/structured-report";
 import { PageBody, PageHero, Section } from "@/components/terminal";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import type { Report } from "@/lib/reports";
 import { parseStructuredReport } from "@/lib/report-schema";
 import { ReportActions } from "./report-actions";
 
-export function ReportView({ report }: { report: Report }) {
+export function ReportView({
+  report,
+  onReport,
+}: {
+  report: Report;
+  onReport?: (report: Report) => void;
+}) {
   const inFlight = report.status === "pending" || report.status === "researching";
+  const heroSub =
+    report.status === "pending"
+      ? `${report.exchange} · ${report.ticker} is queued`
+      : report.status === "researching"
+        ? `${report.exchange} · Research in process`
+        : `${report.exchange} · Market Pulse`;
 
   return (
     <>
-      <PageHero
-        eyebrow="Research report"
-        ticker
-        title={report.ticker}
-        sub={`${report.exchange} · Market Pulse`}
-      >
+      <PageHero eyebrow="Research report" ticker title={report.ticker} sub={heroSub}>
         <div className="flex flex-col items-start gap-4 md:items-end">
           <GrokAttribution tone={inFlight ? "working" : report.status === "done" ? "done" : "inline"} />
           <dl className="flex flex-wrap gap-x-7 gap-y-3">
@@ -39,7 +47,7 @@ export function ReportView({ report }: { report: Report }) {
       </PageHero>
       <PageBody>
         <Section code="01" name="Report">
-          <ReportBody report={report} />
+          <ReportBody report={report} onReport={onReport} />
         </Section>
       </PageBody>
     </>
@@ -67,27 +75,71 @@ function formatTime(iso: string) {
 
 const STEPS = ["Queued", "Researching", "Report ready"];
 
-function Progress({ report }: { report: Report }) {
-  const current = report.status === "pending" ? 0 : 1;
-  const fill = report.status === "pending" ? "18%" : "62%";
+function Progress({
+  report,
+  onReport,
+}: {
+  report: Report;
+  onReport?: (report: Report) => void;
+}) {
+  const [stopping, setStopping] = useState(false);
+  const [stopError, setStopError] = useState<string | null>(null);
+  const queued = report.status === "pending";
+  const current = queued ? 0 : 1;
+  const fill = queued ? "18%" : "62%";
+  const phaseLabel = queued ? "In queue" : "In process";
+  const phaseDetail = queued
+    ? `${report.ticker} is queued — waiting for the Grok research bot to pick up the job.`
+    : `Research is in process for ${report.ticker} — Grok is working on the deep dive.`;
+
+  async function stopResearch() {
+    setStopping(true);
+    setStopError(null);
+    try {
+      const res = await fetch(`/api/reports/${report.id}/stop`, { method: "POST" });
+      const data = await res.json().catch(() => null);
+      if (!res.ok) {
+        setStopError(data?.error ?? "Could not stop research.");
+        return;
+      }
+      onReport?.(data as Report);
+    } catch {
+      setStopError("Could not stop research.");
+    } finally {
+      setStopping(false);
+    }
+  }
 
   return (
     <Card className="overflow-hidden border-border-soft">
       <CardContent className="flex flex-col gap-5">
-        <div className="flex items-start gap-3">
-          <span
-            aria-hidden
-            className="mt-1.5 size-2 shrink-0 rounded-full bg-live motion-safe:animate-signal-pulse"
-          />
-          <div className="min-w-0">
-            <p role="status" className="text-[15px] font-semibold tracking-tight">
-              {STEPS[current]}{" "}
-              <span className="font-mono text-primary">{report.ticker}</span>
-            </p>
-            <p className="mt-1 font-mono text-xs tracking-[0.08em] text-muted-foreground uppercase">
-              Step 0{current + 1} / 03 · polling every 10s
-            </p>
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+          <div className="flex items-start gap-3">
+            <span
+              aria-hidden
+              className="mt-1.5 size-2 shrink-0 rounded-full bg-live motion-safe:animate-signal-pulse"
+            />
+            <div className="min-w-0 flex-1">
+              <p className="term-label text-live">{phaseLabel}</p>
+              <p role="status" className="mt-1 text-[15px] font-semibold tracking-tight">
+                <span className="font-mono text-primary">{report.ticker}</span>
+                {queued ? " is queued" : " — research in process"}
+              </p>
+              <p className="mt-1.5 text-muted-foreground">{phaseDetail}</p>
+              <p className="mt-2 font-mono text-xs tracking-[0.08em] text-muted-foreground uppercase">
+                Step 0{current + 1} / 03 · checks every 10s
+              </p>
+            </div>
           </div>
+          <span
+            className={`shrink-0 rounded-sm border px-2 py-1 font-mono text-xs tracking-[0.12em] uppercase ${
+              queued
+                ? "border-beta/40 bg-beta/10 text-beta"
+                : "border-live/40 bg-live/10 text-live"
+            }`}
+          >
+            {queued ? "Queued" : "Researching"}
+          </span>
         </div>
 
         <div
@@ -125,17 +177,45 @@ function Progress({ report }: { report: Report }) {
                 }`}
               />
               {step}
+              {index === current && (
+                <span className="text-live normal-case tracking-normal">← now</span>
+              )}
             </li>
           ))}
         </ol>
+
+        <div className="flex flex-col gap-2 border-t border-border-soft pt-4 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-muted-foreground">
+            Bot stuck? Stop waiting and research another ticker.
+          </p>
+          <Button
+            type="button"
+            variant="destructive"
+            disabled={stopping}
+            onClick={stopResearch}
+            className="shrink-0"
+          >
+            <Square aria-hidden className="size-3.5 fill-current" />
+            {stopping ? "Stopping…" : "Stop research"}
+          </Button>
+        </div>
+        <p aria-live="polite" className="text-destructive empty:hidden">
+          {stopError}
+        </p>
       </CardContent>
     </Card>
   );
 }
 
-function ReportBody({ report }: { report: Report }) {
+function ReportBody({
+  report,
+  onReport,
+}: {
+  report: Report;
+  onReport?: (report: Report) => void;
+}) {
   if (report.status === "pending" || report.status === "researching") {
-    return <Progress report={report} />;
+    return <Progress report={report} onReport={onReport} />;
   }
 
   if (report.status === "failed") {

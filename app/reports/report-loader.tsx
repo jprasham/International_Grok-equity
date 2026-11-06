@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { PageBody, PageHero } from "@/components/terminal";
 import { Card, CardContent } from "@/components/ui/card";
 import type { Report } from "@/lib/reports";
@@ -11,6 +11,7 @@ import { ReportView } from "./report-view";
 export function ReportLoader({ latest = false }: { latest?: boolean }) {
   const [report, setReport] = useState<Report | null>(null);
   const [checked, setChecked] = useState(false);
+  const stopPolling = useRef<(() => void) | null>(null);
 
   useEffect(() => {
     // ponytail: read from the URL, because useParams would suspend and put a hole back.
@@ -33,12 +34,19 @@ export function ReportLoader({ latest = false }: { latest?: boolean }) {
     function stop() {
       active = false;
       clearInterval(timer);
+      stopPolling.current = null;
     }
+    stopPolling.current = stop;
     load();
     return stop;
   }, [latest]);
 
-  if (report) return <ReportView report={report} />;
+  function applyReport(next: Report) {
+    setReport(next);
+    if (next.status === "done" || next.status === "failed") stopPolling.current?.();
+  }
+
+  if (report) return <ReportView report={report} onReport={applyReport} />;
   return (
     <>
       <PageHero

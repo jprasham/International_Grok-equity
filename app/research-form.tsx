@@ -206,7 +206,7 @@ export function ResearchForm() {
                 disabled={busy}
                 className="h-11 px-6 font-semibold tracking-[0.04em] motion-safe:transition-transform"
               >
-                {busy ? "Running…" : "Research"}
+                {busy ? "Queuing…" : "Research"}
               </Button>
             </div>
             <p id="ticker-hint" className="mt-2 font-mono text-xs tracking-[0.04em] text-muted-foreground">
