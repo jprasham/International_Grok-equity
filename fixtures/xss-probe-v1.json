@@ -1,0 +1,1099 @@
+{
+  "schema": "dl-equity-report/v1",
+  "chrome": {
+    "kicker": "EQUITY RESEARCH · <script>alert('xss-script')</script> · AS OF \"><svg onload=alert(1)> · PAPER ANALYSIS ONLY, NOT ADVICE",
+    "companyLine": "<img src=x onerror=alert(1)> (NSE: XSS)",
+    "thesis": "<script>alert('xss-script')</script>",
+    "ratingPaper": "U",
+    "target": "₹<script>alert(1)</script>",
+    "price": "₹<b>1</b> (<script>alert(1)</script>)",
+    "tabs": [
+      "F1 Summary",
+      "F2 Forensic & BS",
+      "F3 Scorecard",
+      "F4 Management",
+      "F5 Sentiment",
+      "F6 Business",
+      "F7 Financials",
+      "F8 Growth/ROCE",
+      "F9 Calls",
+      "F10 Price ranges",
+      "F11 Franchise",
+      "F12 Cost & downside",
+      "F13 Investors' lens",
+      "F14 Execution",
+      "F15 Sell-side",
+      "F16 Stakeholders",
+      "F17 Your research (uploaded)"
+    ]
+  },
+  "footer": {
+    "disclaimer": "Paper analysis only, not advice.",
+    "asOfIst": "<script>alert('xss-script')</script>",
+    "priceDate": "<img src=x onerror=\"alert('xss-img')\">",
+    "sourcesSummary": "\"><svg onload=alert(1)>",
+    "estUDisclaimer": "&lt;script&gt;alert('xss-entity')&lt;/script&gt; & <b>bold</b>"
+  },
+  "panels": {
+    "f1": {
+      "leadTitle": "<script>alert('xss-script')</script>",
+      "takeaways": [
+        "<img src=x onerror=\"alert('xss-img')\">"
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "\"><svg onload=alert(1)>"
+        ],
+        "estDefinition": "&lt;script&gt;alert('xss-entity')&lt;/script&gt; & <b>bold</b>",
+        "gaps": [
+          "<script>alert('xss-script')</script>"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "topInsights": [
+        "<script>alert('xss-script')</script>",
+        "<img src=x onerror=\"alert('xss-img')\">",
+        "\"><svg onload=alert(1)>"
+      ]
+    },
+    "f2": {
+      "leadTitle": "<script>alert('xss-script')</script>",
+      "takeaways": [
+        "<img src=x onerror=\"alert('xss-img')\">"
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "\"><svg onload=alert(1)>"
+        ],
+        "estDefinition": "&lt;script&gt;alert('xss-entity')&lt;/script&gt; & <b>bold</b>",
+        "gaps": [
+          "<script>alert('xss-script')</script>"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "combinedVerdict": "<script>alert('xss-script')</script>",
+      "deduplicationNote": "<img src=x onerror=\"alert('xss-img')\">",
+      "stress": {
+        "headline": "\"><svg onload=alert(1)>",
+        "why": "&lt;script&gt;alert('xss-entity')&lt;/script&gt; & <b>bold</b>",
+        "tally": "31 checks: 0 RED · 0 AMBER · 0 GREEN · 31 not checked <script>alert('xss-script')</script>"
+      },
+      "categories": [
+        {
+          "name": "Cash conversion",
+          "counts": {
+            "r": 0,
+            "a": 0,
+            "g": 0,
+            "u": 0
+          },
+          "summary": "<img src=x onerror=\"alert('xss-img')\">",
+          "checks": {
+            "title": "<script>alert('xss-script')</script>",
+            "columns": [
+              "#",
+              "Check",
+              "Threshold",
+              "Verdict",
+              "Evidence"
+            ],
+            "rows": [
+              [
+                "1.1",
+                "<script>alert('xss-script')</script>",
+                "<img src=x onerror=\"alert('xss-img')\">",
+                "RED",
+                "\"><svg onload=alert(1)>"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Receivables, WC & inventory",
+          "counts": {
+            "r": 0,
+            "a": 0,
+            "g": 0,
+            "u": 0
+          },
+          "summary": "<img src=x onerror=\"alert('xss-img')\">",
+          "checks": {
+            "title": "<script>alert('xss-script')</script>",
+            "columns": [
+              "#",
+              "Check",
+              "Threshold",
+              "Verdict",
+              "Evidence"
+            ],
+            "rows": [
+              [
+                "1.1",
+                "<script>alert('xss-script')</script>",
+                "<img src=x onerror=\"alert('xss-img')\">",
+                "RED",
+                "\"><svg onload=alert(1)>"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Leverage & debt service",
+          "counts": {
+            "r": 0,
+            "a": 0,
+            "g": 0,
+            "u": 0
+          },
+          "summary": "<img src=x onerror=\"alert('xss-img')\">",
+          "checks": {
+            "title": "<script>alert('xss-script')</script>",
+            "columns": [
+              "#",
+              "Check",
+              "Threshold",
+              "Verdict",
+              "Evidence"
+            ],
+            "rows": [
+              [
+                "1.1",
+                "<script>alert('xss-script')</script>",
+                "<img src=x onerror=\"alert('xss-img')\">",
+                "RED",
+                "\"><svg onload=alert(1)>"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Earnings quality & one-offs",
+          "counts": {
+            "r": 0,
+            "a": 0,
+            "g": 0,
+            "u": 0
+          },
+          "summary": "<img src=x onerror=\"alert('xss-img')\">",
+          "checks": {
+            "title": "<script>alert('xss-script')</script>",
+            "columns": [
+              "#",
+              "Check",
+              "Threshold",
+              "Verdict",
+              "Evidence"
+            ],
+            "rows": [
+              [
+                "1.1",
+                "<script>alert('xss-script')</script>",
+                "<img src=x onerror=\"alert('xss-img')\">",
+                "RED",
+                "\"><svg onload=alert(1)>"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Growth / order-book quality",
+          "counts": {
+            "r": 0,
+            "a": 0,
+            "g": 0,
+            "u": 0
+          },
+          "summary": "<img src=x onerror=\"alert('xss-img')\">",
+          "checks": {
+            "title": "<script>alert('xss-script')</script>",
+            "columns": [
+              "#",
+              "Check",
+              "Threshold",
+              "Verdict",
+              "Evidence"
+            ],
+            "rows": [
+              [
+                "1.1",
+                "<script>alert('xss-script')</script>",
+                "<img src=x onerror=\"alert('xss-img')\">",
+                "RED",
+                "\"><svg onload=alert(1)>"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "External watchers",
+          "counts": {
+            "r": 0,
+            "a": 0,
+            "g": 0,
+            "u": 0
+          },
+          "summary": "<img src=x onerror=\"alert('xss-img')\">",
+          "checks": {
+            "title": "<script>alert('xss-script')</script>",
+            "columns": [
+              "#",
+              "Check",
+              "Threshold",
+              "Verdict",
+              "Evidence"
+            ],
+            "rows": [
+              [
+                "1.1",
+                "<script>alert('xss-script')</script>",
+                "<img src=x onerror=\"alert('xss-img')\">",
+                "RED",
+                "\"><svg onload=alert(1)>"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Integrity, capital & related parties",
+          "counts": {
+            "r": 0,
+            "a": 0,
+            "g": 0,
+            "u": 0
+          },
+          "summary": "<img src=x onerror=\"alert('xss-img')\">",
+          "checks": {
+            "title": "<script>alert('xss-script')</script>",
+            "columns": [
+              "#",
+              "Check",
+              "Threshold",
+              "Verdict",
+              "Evidence"
+            ],
+            "rows": [
+              [
+                "1.1",
+                "<script>alert('xss-script')</script>",
+                "<img src=x onerror=\"alert('xss-img')\">",
+                "RED",
+                "\"><svg onload=alert(1)>"
+              ]
+            ]
+          }
+        }
+      ],
+      "dataGaps": {
+        "title": "DATA GAPS · 1 CHECKS NOT SCORED",
+        "columns": [
+          "#",
+          "Check",
+          "Category",
+          "What is missing"
+        ],
+        "rows": [
+          [
+            "6.2",
+            "<script>alert('xss-script')</script>",
+            "Cash conversion",
+            "<img src=x onerror=\"alert('xss-img')\">"
+          ]
+        ]
+      }
+    },
+    "f3": {
+      "leadTitle": "<script>alert('xss-script')</script>",
+      "takeaways": [
+        "<img src=x onerror=\"alert('xss-img')\">"
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "\"><svg onload=alert(1)>"
+        ],
+        "estDefinition": "&lt;script&gt;alert('xss-entity')&lt;/script&gt; & <b>bold</b>",
+        "gaps": [
+          "<script>alert('xss-script')</script>"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "scorecard": {
+        "title": "SCORECARD (EST)",
+        "columns": [
+          "Model",
+          "Score",
+          "Read"
+        ],
+        "rows": [
+          [
+            "<script>alert('xss-script')</script>",
+            "<img src=x onerror=\"alert('xss-img')\">",
+            "\"><svg onload=alert(1)>"
+          ]
+        ]
+      }
+    },
+    "f4": {
+      "leadTitle": "<script>alert('xss-script')</script>",
+      "takeaways": [
+        "<img src=x onerror=\"alert('xss-img')\">"
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "\"><svg onload=alert(1)>"
+        ],
+        "estDefinition": "&lt;script&gt;alert('xss-entity')&lt;/script&gt; & <b>bold</b>",
+        "gaps": [
+          "<script>alert('xss-script')</script>"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "ownership": {
+        "title": "OWNERSHIP",
+        "columns": [
+          "Item",
+          "Value"
+        ],
+        "rows": [
+          [
+            "<script>alert('xss-script')</script>",
+            "<img src=x onerror=\"alert('xss-img')\">"
+          ]
+        ]
+      },
+      "managementChange": {
+        "banner": "MANAGEMENT CHANGE & CULTURE · VERDICT: <script>alert('xss-script')</script> · public data only, not advice",
+        "summary": "<img src=x onerror=\"alert('xss-img')\">"
+      },
+      "changeLog": {
+        "title": "KEY-PERSON CHANGE LOG (<script>alert('xss-script')</script>)",
+        "columns": [
+          "Date",
+          "Person",
+          "Role",
+          "In/Out",
+          "Stated reason / profile",
+          "AR 0/+1",
+          "AR 20d"
+        ],
+        "rows": []
+      },
+      "signalStrip": {
+        "title": "SIGNAL STRIP",
+        "columns": [
+          "Signal",
+          "Reading",
+          "Flag"
+        ],
+        "rows": [
+          [
+            "<script>alert('xss-script')</script>",
+            "<img src=x onerror=\"alert('xss-img')\">",
+            "NO DATA"
+          ]
+        ]
+      },
+      "cultureStrip": {
+        "title": "CULTURE STRIP (checked <script>alert('xss-script')</script>)",
+        "columns": [
+          "Source",
+          "Reading",
+          "Note"
+        ],
+        "rows": []
+      },
+      "literature": [
+        "<script>alert('xss-script')</script>"
+      ]
+    },
+    "f5": {
+      "leadTitle": "<script>alert('xss-script')</script>",
+      "takeaways": [
+        "<img src=x onerror=\"alert('xss-img')\">"
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "\"><svg onload=alert(1)>"
+        ],
+        "estDefinition": "&lt;script&gt;alert('xss-entity')&lt;/script&gt; & <b>bold</b>",
+        "gaps": [
+          "<script>alert('xss-script')</script>"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "themeBanner": "INDUSTRY / THEME SENTIMENT · <script>alert('xss-script')</script> · <img src=x onerror=\"alert('xss-img')\">",
+      "themeMood": "<script>alert('xss-script')</script>",
+      "plainRead": "<img src=x onerror=\"alert('xss-img')\">",
+      "themeStrip": {
+        "title": "THEME STRIP (EST where marked)",
+        "columns": [
+          "Signal",
+          "Reading",
+          "Read"
+        ],
+        "rows": []
+      },
+      "narratives": [
+        "<script>alert('xss-script')</script>",
+        "<img src=x onerror=\"alert('xss-img')\">",
+        "\"><svg onload=alert(1)>"
+      ],
+      "methodNote": "&lt;script&gt;alert('xss-entity')&lt;/script&gt; & <b>bold</b>",
+      "stockMood": {
+        "title": "STOCK MOOD (<script>alert('xss-script')</script>)",
+        "columns": [
+          "Signal",
+          "Reading"
+        ],
+        "rows": []
+      }
+    },
+    "f6": {
+      "leadTitle": "<script>alert('xss-script')</script>",
+      "takeaways": [
+        "<img src=x onerror=\"alert('xss-img')\">"
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "\"><svg onload=alert(1)>"
+        ],
+        "estDefinition": "&lt;script&gt;alert('xss-entity')&lt;/script&gt; & <b>bold</b>",
+        "gaps": [
+          "<script>alert('xss-script')</script>"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "bottomUp": {
+        "title": "FY27E BOTTOM-UP REVENUE (₹ cr, EST)",
+        "columns": [
+          "Line",
+          "FY27E",
+          "Basis"
+        ],
+        "rows": []
+      },
+      "orderBook": {
+        "title": "ORDER BOOK (<script>alert('xss-script')</script>)",
+        "columns": [
+          "Order",
+          "Size",
+          "Delivered",
+          "Status"
+        ],
+        "rows": []
+      },
+      "structure": {
+        "title": "<script>alert('xss-script')</script> STRUCTURE",
+        "columns": [
+          "Entity",
+          "Role"
+        ],
+        "rows": [
+          [
+            "<script>alert('xss-script')</script>",
+            "<img src=x onerror=\"alert('xss-img')\">"
+          ]
+        ]
+      }
+    },
+    "f7": {
+      "leadTitle": "<script>alert('xss-script')</script>",
+      "takeaways": [
+        "<img src=x onerror=\"alert('xss-img')\">"
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "\"><svg onload=alert(1)>"
+        ],
+        "estDefinition": "&lt;script&gt;alert('xss-entity')&lt;/script&gt; & <b>bold</b>",
+        "gaps": [
+          "<script>alert('xss-script')</script>"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "pl": {
+        "title": "P&L (₹ cr, consolidated)",
+        "columns": [
+          "",
+          "FY23",
+          "FY24",
+          "FY25",
+          "FY26",
+          "TTM",
+          "FY27E",
+          "FY28E"
+        ],
+        "rows": [
+          [
+            "<script>alert('xss-script')</script>",
+            "U",
+            "U",
+            "U",
+            "U",
+            "U",
+            "U",
+            "<img src=x onerror=\"alert('xss-img')\">"
+          ]
+        ]
+      }
+    },
+    "f8": {
+      "leadTitle": "<script>alert('xss-script')</script>",
+      "takeaways": [
+        "<img src=x onerror=\"alert('xss-img')\">"
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "\"><svg onload=alert(1)>"
+        ],
+        "estDefinition": "&lt;script&gt;alert('xss-entity')&lt;/script&gt; & <b>bold</b>",
+        "gaps": [
+          "<script>alert('xss-script')</script>"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "returns": {
+        "title": "RETURNS",
+        "columns": [
+          "Metric",
+          "Value"
+        ],
+        "rows": [
+          [
+            "<script>alert('xss-script')</script>",
+            "<img src=x onerror=\"alert('xss-img')\">"
+          ]
+        ]
+      }
+    },
+    "f9": {
+      "leadTitle": "<script>alert('xss-script')</script>",
+      "takeaways": [
+        "<img src=x onerror=\"alert('xss-img')\">"
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "\"><svg onload=alert(1)>"
+        ],
+        "estDefinition": "&lt;script&gt;alert('xss-entity')&lt;/script&gt; & <b>bold</b>",
+        "gaps": [
+          "<script>alert('xss-script')</script>"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "keyTakeawaysNote": "<script>alert('xss-script')</script>",
+      "guidance": {
+        "title": "KEY TAKEAWAYS",
+        "columns": [
+          "",
+          "What was said",
+          "Number",
+          "Tag",
+          "So what (price ranges)"
+        ],
+        "rows": []
+      },
+      "delta": {
+        "new": [
+          "<script>alert('xss-script')</script>"
+        ],
+        "droppedOrGoneQuiet": [
+          "<img src=x onerror=\"alert('xss-img')\">"
+        ],
+        "guidanceRaisedCut": [
+          "\"><svg onload=alert(1)>"
+        ]
+      },
+      "language": {
+        "confidenceScore": "<script>alert('xss-script')</script>",
+        "confidenceNote": "<img src=x onerror=\"alert('xss-img')\">",
+        "hedgingVsCertainty": "\"><svg onload=alert(1)>",
+        "evasiveAnswers": [
+          "<script>alert('xss-script')</script>"
+        ],
+        "analystPushbackTopics": [
+          "<img src=x onerror=\"alert('xss-img')\">"
+        ]
+      },
+      "callLanguageScorecard": {
+        "reading": "<script>alert('xss-script')</script>",
+        "note": "<img src=x onerror=\"alert('xss-img')\">"
+      },
+      "whatToWatch": {
+        "title": "WHAT TO WATCH NEXT QUARTER",
+        "columns": [
+          "KPI",
+          "Threshold (good / bad)"
+        ],
+        "rows": []
+      },
+      "thesisImpact": {
+        "title": "THESIS IMPACT",
+        "columns": [
+          "Tab",
+          "Effect",
+          "Why"
+        ],
+        "rows": []
+      }
+    },
+    "f10": {
+      "leadTitle": "<script>alert('xss-script')</script>",
+      "takeaways": [
+        "<img src=x onerror=\"alert('xss-img')\">"
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "\"><svg onload=alert(1)>"
+        ],
+        "estDefinition": "&lt;script&gt;alert('xss-entity')&lt;/script&gt; & <b>bold</b>",
+        "gaps": [
+          "<script>alert('xss-script')</script>"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "rewardRisk": {
+        "strip": "Reward : risk U",
+        "detail": "<script>alert('xss-script')</script>"
+      },
+      "scenarios": {
+        "title": "SCENARIOS: one row per independent lens",
+        "columns": [
+          "Lens",
+          "Scenario",
+          "Price",
+          "vs now",
+          "What it tells you"
+        ],
+        "rows": []
+      },
+      "priceLadder": [
+        {
+          "label": "<script>alert('xss-script')</script>",
+          "value": "<img src=x onerror=\"alert('xss-img')\">"
+        },
+        {
+          "label": "◆ CURRENT PRICE",
+          "value": "\"><svg onload=alert(1)>"
+        }
+      ],
+      "whatWouldNeedToHappen": [
+        "<script>alert('xss-script')</script>"
+      ],
+      "weightedTarget": "<img src=x onerror=\"alert('xss-img')\">",
+      "methodDetail": "\"><svg onload=alert(1)>"
+    },
+    "f11": {
+      "leadTitle": "<script>alert('xss-script')</script>",
+      "takeaways": [
+        "<img src=x onerror=\"alert('xss-img')\">"
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "\"><svg onload=alert(1)>"
+        ],
+        "estDefinition": "&lt;script&gt;alert('xss-entity')&lt;/script&gt; & <b>bold</b>",
+        "gaps": [
+          "<script>alert('xss-script')</script>"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "grid": {
+        "title": "LEIBOWITZ GRID (<script>alert('xss-script')</script>)",
+        "columns": [
+          "k \\\\ R",
+          "R <b>%",
+          "Today %"
+        ],
+        "rows": [
+          [
+            "<script>alert('xss-script')</script>",
+            "<img src=x onerror=\"alert('xss-img')\">",
+            "\"><svg onload=alert(1)>"
+          ]
+        ]
+      }
+    },
+    "f12": {
+      "leadTitle": "<script>alert('xss-script')</script>",
+      "takeaways": [
+        "<img src=x onerror=\"alert('xss-img')\">"
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "\"><svg onload=alert(1)>"
+        ],
+        "estDefinition": "&lt;script&gt;alert('xss-entity')&lt;/script&gt; & <b>bold</b>",
+        "gaps": [
+          "<script>alert('xss-script')</script>"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "costSplit": {
+        "title": "COST SPLIT (EST)",
+        "columns": [
+          "Item",
+          "Value",
+          "Method"
+        ],
+        "rows": []
+      },
+      "revenueScenarios": {
+        "title": "REVENUE SCENARIOS ON TTM COST STRUCTURE (₹ cr, EST; value at <script>alert('xss-script')</script>x)",
+        "columns": [
+          "Revenue Δ",
+          "Revenue",
+          "EBITDA",
+          "Margin",
+          "EBIT",
+          "PAT",
+          "EPS ₹",
+          "Value ₹"
+        ],
+        "rows": []
+      },
+      "marginShock": {
+        "title": "MARGIN SHOCK (revenue held at TTM)",
+        "columns": [
+          "EBITDA margin",
+          "EPS",
+          "Value @<b>x"
+        ],
+        "rows": []
+      }
+    },
+    "f13": {
+      "leadTitle": "<script>alert('xss-script')</script> 0 would buy / 0 watchlist / 0 pass",
+      "takeaways": [
+        "<img src=x onerror=\"alert('xss-img')\">"
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "\"><svg onload=alert(1)>"
+        ],
+        "estDefinition": "&lt;script&gt;alert('xss-entity')&lt;/script&gt; & <b>bold</b>",
+        "gaps": [
+          "<script>alert('xss-script')</script>"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "consensus": {
+        "wouldBuy": 0,
+        "watchlist": 0,
+        "pass": 0,
+        "note": "<script>alert('xss-script')</script>"
+      },
+      "keyDisagreement": "<img src=x onerror=\"alert('xss-img')\">",
+      "tieBreaker": "\"><svg onload=alert(1)>",
+      "investors": [
+        {
+          "name": "Buffett & Munger",
+          "stance": "U",
+          "criteriaLine": "<script>alert('xss-script')</script>",
+          "criteria": [
+            {
+              "mark": "✗",
+              "label": "<img src=x onerror=\"alert('xss-img')\">",
+              "evidence": "\"><svg onload=alert(1)>"
+            }
+          ],
+          "quote": "<script>alert('xss-script')</script>"
+        },
+        {
+          "name": "Terry Smith",
+          "stance": "U",
+          "criteriaLine": "<script>alert('xss-script')</script>",
+          "criteria": [
+            {
+              "mark": "✗",
+              "label": "<img src=x onerror=\"alert('xss-img')\">",
+              "evidence": "\"><svg onload=alert(1)>"
+            }
+          ],
+          "quote": "<script>alert('xss-script')</script>"
+        },
+        {
+          "name": "Greenblatt",
+          "stance": "U",
+          "criteriaLine": "<script>alert('xss-script')</script>",
+          "criteria": [
+            {
+              "mark": "✗",
+              "label": "<img src=x onerror=\"alert('xss-img')\">",
+              "evidence": "\"><svg onload=alert(1)>"
+            }
+          ],
+          "quote": "<script>alert('xss-script')</script>"
+        },
+        {
+          "name": "Sleep & Zakaria",
+          "stance": "U",
+          "criteriaLine": "<script>alert('xss-script')</script>",
+          "criteria": [
+            {
+              "mark": "✗",
+              "label": "<img src=x onerror=\"alert('xss-img')\">",
+              "evidence": "\"><svg onload=alert(1)>"
+            }
+          ],
+          "quote": "<script>alert('xss-script')</script>"
+        },
+        {
+          "name": "Raamdeo Agrawal",
+          "stance": "U",
+          "criteriaLine": "<script>alert('xss-script')</script>",
+          "criteria": [
+            {
+              "mark": "✗",
+              "label": "<img src=x onerror=\"alert('xss-img')\">",
+              "evidence": "\"><svg onload=alert(1)>"
+            }
+          ],
+          "quote": "<script>alert('xss-script')</script>"
+        },
+        {
+          "name": "Fisher",
+          "stance": "U",
+          "criteriaLine": "<script>alert('xss-script')</script>",
+          "criteria": [
+            {
+              "mark": "✗",
+              "label": "<img src=x onerror=\"alert('xss-img')\">",
+              "evidence": "\"><svg onload=alert(1)>"
+            }
+          ],
+          "quote": "<script>alert('xss-script')</script>"
+        },
+        {
+          "name": "Druckenmiller",
+          "stance": "U",
+          "criteriaLine": "<script>alert('xss-script')</script>",
+          "criteria": [
+            {
+              "mark": "✗",
+              "label": "<img src=x onerror=\"alert('xss-img')\">",
+              "evidence": "\"><svg onload=alert(1)>"
+            }
+          ],
+          "quote": "<script>alert('xss-script')</script>"
+        }
+      ],
+      "methodologyNote": "&lt;script&gt;alert('xss-entity')&lt;/script&gt; & <b>bold</b>"
+    },
+    "f14": {
+      "leadTitle": "<script>alert('xss-script')</script>",
+      "takeaways": [
+        "<img src=x onerror=\"alert('xss-img')\">"
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "\"><svg onload=alert(1)>"
+        ],
+        "estDefinition": "&lt;script&gt;alert('xss-entity')&lt;/script&gt; & <b>bold</b>",
+        "gaps": [
+          "<script>alert('xss-script')</script>"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "state": "<script>alert('xss-script')</script>",
+      "priceLine": "<img src=x onerror=\"alert('xss-img')\">",
+      "todaysAction": "\"><svg onload=alert(1)>",
+      "extensionMeter": {
+        "title": "EXTENSION METER",
+        "columns": [
+          "",
+          ""
+        ],
+        "rows": [
+          [
+            "<script>alert('xss-script')</script>",
+            "<img src=x onerror=\"alert('xss-img')\">"
+          ]
+        ]
+      },
+      "stagedEntry": {
+        "title": "STAGED ENTRY (3 TRANCHES)",
+        "columns": [
+          "",
+          "",
+          "",
+          ""
+        ],
+        "rows": [
+          [
+            "<script>alert('xss-script')</script>",
+            "<img src=x onerror=\"alert('xss-img')\">",
+            "\"><svg onload=alert(1)>",
+            "&lt;script&gt;alert('xss-entity')&lt;/script&gt; & <b>bold</b>"
+          ]
+        ]
+      },
+      "size": "<script>alert('xss-script')</script>",
+      "rules": [
+        {
+          "label": "<script>alert('xss-script')</script>",
+          "text": "<img src=x onerror=\"alert('xss-img')\">"
+        }
+      ],
+      "frameworkNote": "\"><svg onload=alert(1)>"
+    },
+    "f15": {
+      "leadTitle": "<script>alert('xss-script')</script>",
+      "takeaways": [
+        "<img src=x onerror=\"alert('xss-img')\">"
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "\"><svg onload=alert(1)>"
+        ],
+        "estDefinition": "&lt;script&gt;alert('xss-entity')&lt;/script&gt; & <b>bold</b>",
+        "gaps": [
+          "<script>alert('xss-script')</script>"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "consensusStrip": {
+        "title": "CONSENSUS STRIP · HEADLINE-LEVEL, REPORTS NOT READ IN FULL · price <script>alert('xss-script')</script>",
+        "columns": [
+          "Metric",
+          "Value",
+          "Note"
+        ],
+        "rows": []
+      },
+      "calls": {
+        "title": "CALLS FOUND (<script>alert('xss-script')</script>)",
+        "columns": [
+          "Date",
+          "Broker",
+          "Type",
+          "Rating",
+          "Target",
+          "Upside",
+          "Thesis / estimates",
+          "Status",
+          "Source"
+        ],
+        "rows": []
+      },
+      "trend": {
+        "title": "TREND (<script>alert('xss-script')</script> TARGET HISTORY)",
+        "columns": [
+          "Date",
+          "Rating",
+          "Target",
+          "Move"
+        ],
+        "rows": []
+      },
+      "streetVsOurs": {
+        "title": "STREET VS OUR VIEW",
+        "columns": [
+          "Topic",
+          "Street",
+          "Ours"
+        ],
+        "rows": []
+      },
+      "whatTheyMayKnow": {
+        "title": "WHAT THEY MAY KNOW THAT WE DO NOT",
+        "columns": [
+          "Item",
+          "Why it matters"
+        ],
+        "rows": []
+      },
+      "searchNote": "<script>alert('xss-script')</script>"
+    },
+    "f16": {
+      "leadTitle": "<script>alert('xss-script')</script>",
+      "takeaways": [
+        "<img src=x onerror=\"alert('xss-img')\">"
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "\"><svg onload=alert(1)>"
+        ],
+        "estDefinition": "&lt;script&gt;alert('xss-entity')&lt;/script&gt; & <b>bold</b>",
+        "gaps": [
+          "<script>alert('xss-script')</script>"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "stripBanner": "STAKEHOLDER STRIP · base P/E ~<script>alert('xss-script')</script>x · EST, not advice",
+      "adjustedMultiple": "<script>alert('xss-script')</script>",
+      "topHiddenRisks": [
+        "<img src=x onerror=\"alert('xss-img')\">"
+      ],
+      "lenses": [
+        {
+          "name": "Government / policy",
+          "flag": "NO DATA",
+          "multiple": "U",
+          "who": "<script>alert('xss-script')</script>",
+          "evidence": "<img src=x onerror=\"alert('xss-img')\">",
+          "hiddenRisk": "\"><svg onload=alert(1)>"
+        },
+        {
+          "name": "Regulator / safety",
+          "flag": "NO DATA",
+          "multiple": "U",
+          "who": "<script>alert('xss-script')</script>",
+          "evidence": "<img src=x onerror=\"alert('xss-img')\">",
+          "hiddenRisk": "\"><svg onload=alert(1)>"
+        },
+        {
+          "name": "Customers",
+          "flag": "NO DATA",
+          "multiple": "U",
+          "who": "<script>alert('xss-script')</script>",
+          "evidence": "<img src=x onerror=\"alert('xss-img')\">",
+          "hiddenRisk": "\"><svg onload=alert(1)>"
+        },
+        {
+          "name": "Suppliers",
+          "flag": "NO DATA",
+          "multiple": "U",
+          "who": "<script>alert('xss-script')</script>",
+          "evidence": "<img src=x onerror=\"alert('xss-img')\">",
+          "hiddenRisk": "\"><svg onload=alert(1)>"
+        },
+        {
+          "name": "Employees",
+          "flag": "NO DATA",
+          "multiple": "U",
+          "who": "<script>alert('xss-script')</script>",
+          "evidence": "<img src=x onerror=\"alert('xss-img')\">",
+          "hiddenRisk": "\"><svg onload=alert(1)>"
+        },
+        {
+          "name": "Lenders / capital",
+          "flag": "NO DATA",
+          "multiple": "U",
+          "who": "<script>alert('xss-script')</script>",
+          "evidence": "<img src=x onerror=\"alert('xss-img')\">",
+          "hiddenRisk": "\"><svg onload=alert(1)>"
+        },
+        {
+          "name": "Community & environment",
+          "flag": "NO DATA",
+          "multiple": "U",
+          "who": "<script>alert('xss-script')</script>",
+          "evidence": "<img src=x onerror=\"alert('xss-img')\">",
+          "hiddenRisk": "\"><svg onload=alert(1)>"
+        },
+        {
+          "name": "Competitors / entrants",
+          "flag": "NO DATA",
+          "multiple": "U",
+          "who": "<script>alert('xss-script')</script>",
+          "evidence": "<img src=x onerror=\"alert('xss-img')\">",
+          "hiddenRisk": "\"><svg onload=alert(1)>"
+        }
+      ],
+      "wantsNote": "&lt;script&gt;alert('xss-entity')&lt;/script&gt; & <b>bold</b>"
+    },
+    "f17": {
+      "kind": "upload_placeholder"
+    }
+  }
+}

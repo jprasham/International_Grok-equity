@@ -1,0 +1,2547 @@
+{
+  "schema": "dl-equity-report/v1",
+  "chrome": {
+    "kicker": "EQUITY RESEARCH · U · AS OF U · PAPER ANALYSIS ONLY, NOT ADVICE",
+    "companyLine": "Olectra Greentech (NSE: OLECTRA)",
+    "thesis": "Volume growth is real; the customer, the technology and the order book all lean on others",
+    "ratingPaper": "HOLD",
+    "target": "₹1,123",
+    "price": "₹951 (30 Oct 2026)",
+    "tabs": [
+      "F1 Summary",
+      "F2 Forensic & BS",
+      "F3 Scorecard",
+      "F4 Management",
+      "F5 Sentiment",
+      "F6 Business",
+      "F7 Financials",
+      "F8 Growth/ROCE",
+      "F9 Calls",
+      "F10 Price ranges",
+      "F11 Franchise",
+      "F12 Cost & downside",
+      "F13 Investors' lens",
+      "F14 Execution",
+      "F15 Sell-side",
+      "F16 Stakeholders",
+      "F17 Your research (uploaded)"
+    ]
+  },
+  "footer": {
+    "disclaimer": "Paper analysis only, not advice.",
+    "asOfIst": "U",
+    "priceDate": "30 Oct 2026",
+    "sourcesSummary": "Screener consolidated (price 30 Oct 2026); FY26 results and AGM notice (26 Sep 2026); ICRA and India Ratings (22 May 2026) rationales; Q1 FY27 call transcript (17 Aug 2026); Yahoo Finance prices; news on MSRTC/BEST/Telangana; MarketsMojo.",
+    "estUDisclaimer": "EST = my estimate. Unknown or missing data is labelled U, gap or NO DATA."
+  },
+  "panels": {
+    "f1": {
+      "leadTitle": "Volume growth is real; the customer, the technology and the order book all lean on others",
+      "takeaways": [
+        "FY26 revenue was ₹2,312 cr (+28%) and PAT ₹180 cr. Q1 FY27 deliveries rose to 358 buses (+122%). FY27 guide: 2,500 buses.",
+        "Most buses are sold to Evey Trans SPVs, owned by the promoter MEIL. Evey runs them for state transport bodies under 12-year GCC contracts, so Olectra gets paid only after Evey's bank debt is drawn and state subsidies arrive. BEST has paid subsidy on 10 of 686 buses; Maharashtra owes Evey about ₹860 cr.",
+        "~6,000 of the ~8,000-bus order book (MSRTC ~4,000, BEST ~2,000) is 'neither cancelled nor accepted'. At ₹951 (44x TTM) it is a paper HOLD with a ₹1,123 weighted target; reward:risk is 0.75x (unfavourable)."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "Screener consolidated (price 30 Oct 2026)",
+          "FY26 results and AGM notice (26 Sep 2026)",
+          "ICRA and India Ratings (22 May 2026) rationales",
+          "Q1 FY27 call transcript (17 Aug 2026)",
+          "Yahoo Finance prices",
+          "news on MSRTC/BEST/Telangana",
+          "MarketsMojo"
+        ],
+        "estDefinition": "EST = my estimate.",
+        "gaps": [
+          "X scan",
+          "language scorecard (single transcript)",
+          "RPT values",
+          "contingent amounts",
+          "auditor/CARO",
+          "NCLT and regulator checks",
+          "gross margin",
+          "one-offs",
+          "consensus estimates",
+          "Q2 FY27 results (not out)"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "topInsights": [
+        "The order book is smaller than it looks: ~6,000 of ~8,000 buses are MSRTC/BEST orders that are 'neither cancelled nor accepted'. Clean orders are ~2,000 buses, about one year of FY27 guidance.",
+        "Olectra's credit risk is the promoter's: Evey (MEIL) buys the buses and pays only when its banks lend and states pay. Maharashtra owes Evey ~₹860 cr; FCF has been negative for 2 years.",
+        "Costs are ~85% variable, so margins hold but EPS moves with volume. 82% of the price is a growth bet, while reward:risk is 0.75x."
+      ]
+    },
+    "f2": {
+      "leadTitle": "STRESSED: related-party concentration and stuck order book, not solvency",
+      "takeaways": [
+        "REDs: 1.2 FCF negative 2 yrs; 2.2 receivables tied to stuck subsidies; 2.3 Evey (MEIL) is the main buyer; 6.4 ~75% of the order book disputed; 7.3 related-party sales well above 5%.",
+        "Solvency is fine: debt ≈1.1x EBITDA, ICR ~4.4x, IND A/Stable (upgraded May 2026), ICRA positive outlook.",
+        "It flips to WATCH if the MSRTC schedule is signed and Maharashtra clears Evey's subsidy dues."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "Screener consolidated (price 30 Oct 2026)",
+          "FY26 results and AGM notice (26 Sep 2026)",
+          "ICRA and India Ratings (22 May 2026) rationales",
+          "Q1 FY27 call transcript (17 Aug 2026)",
+          "Yahoo Finance prices",
+          "news on MSRTC/BEST/Telangana",
+          "MarketsMojo"
+        ],
+        "estDefinition": "EST = my estimate.",
+        "gaps": [
+          "X scan",
+          "language scorecard (single transcript)",
+          "RPT values",
+          "contingent amounts",
+          "auditor/CARO",
+          "NCLT and regulator checks",
+          "gross margin",
+          "one-offs",
+          "consensus estimates",
+          "Q2 FY27 results (not out)"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "combinedVerdict": "STRESSED on related-party and order-book risk, not fraud: Schilit flags a related buyer and consolidation cut-outs; Mulford shows CFO/EBITDA falling to 46% and FCF negative; solvency is fine (ICR ~4.4x, IND A/Stable). Insider lens: REC LOC contingent fell from ₹272 cr to nil, but a ₹300 cr advance undertaking replaced it; warranty reserve is adequate (₹43 cr, 1.9% of sales); ₹13.7 cr of capitalised interest. Tice lens (FY26 annual report): payables funded 167% of FY25–26 standalone OCF, and 66% of FY26 payables were past due (₹486 cr vs ₹154 cr); short-seller call WATCH.",
+      "deduplicationNote": "De-duplicated: related-party buyer scored once in Stress 2.3/7.3; receivables in 2.2; CFO/FCF in 1.1/1.2/7.10 (Mulford keeps the yearly data); lender undertakings in 4.2/7.11; rating in 5.1.",
+      "stress": {
+        "headline": "STRESSED · related-party & order-book risk",
+        "why": "the main buyer is the promoter's own Evey SPVs, which depend on stuck state subsidies; FCF is negative 2 yrs and ~75% of the order book is disputed. Solvency is fine (debt ≈1.1x EBITDA, IND A upgrade).",
+        "tally": "31 checks: 5 RED · 8 AMBER · 13 GREEN · 5 not checked. Scoring rule unchanged."
+      },
+      "categories": [
+        {
+          "name": "Cash conversion",
+          "counts": {
+            "r": 1,
+            "a": 1,
+            "g": 2,
+            "u": 0
+          },
+          "summary": "CFO/PAT OK on 3 yrs, but FCF negative 2 yrs and falling CFO/EBITDA",
+          "checks": {
+            "title": "Cash conversion",
+            "columns": [
+              "#",
+              "Check",
+              "Threshold",
+              "Verdict",
+              "Evidence"
+            ],
+            "rows": [
+              [
+                "1.1",
+                "3-yr CFO/PAT",
+                "≥0.7x G / <0.5x R",
+                "GREEN",
+                "FY24–26 CFO ₹388 cr vs PAT ₹398 cr = 0.97x"
+              ],
+              [
+                "1.2",
+                "FCF while profit rises",
+                "FCF neg 2 yrs = R",
+                "RED",
+                "FCF +64 / −36 / −55 (FY24–26) while PAT rose 79 → 180"
+              ],
+              [
+                "1.3",
+                "Factoring / supplier finance",
+                "Disclosed = G",
+                "AMBER",
+                "Payable days 153 ≈ debtor days 156; LC limits ₹935 cr. Buyer (Evey) is financed by SPV bank debt"
+              ],
+              [
+                "7.10",
+                "2-yr CFO/PAT",
+                "<0.5x R",
+                "GREEN",
+                "(141 + 104) / (139 + 180) = 0.77x"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Receivables, WC & inventory",
+          "counts": {
+            "r": 2,
+            "a": 1,
+            "g": 1,
+            "u": 0
+          },
+          "summary": "Paid only when Evey's debt and state subsidies arrive",
+          "checks": {
+            "title": "Receivables, WC & inventory",
+            "columns": [
+              "#",
+              "Check",
+              "Threshold",
+              "Verdict",
+              "Evidence"
+            ],
+            "rows": [
+              [
+                "2.1",
+                "Debtor days; WC cycle",
+                ">180d A / >300d R",
+                "AMBER",
+                "Debtor days 156 (211 FY23); CCC 54d only because of 153 payable days"
+              ],
+              [
+                "2.2",
+                "Ageing, unbilled, retention",
+                ">25% aged A",
+                "RED",
+                "40% paid 120–180d after delivery; Maharashtra owes Evey ~₹860 cr; BEST subsidy paid on 10 of 686 buses"
+              ],
+              [
+                "2.3",
+                "Related / govt debtors",
+                ">50% A",
+                "RED",
+                "Related-party receivables ₹716 cr = 72% of ₹987 cr (FY25 ₹590 cr, 85%); Evey MSR alone ₹345 cr (AR FY26 p187)"
+              ],
+              [
+                "3.1",
+                "Inventory days",
+                "Rising 2 yrs A",
+                "GREEN",
+                "51 days FY26"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Leverage & debt service",
+          "counts": {
+            "r": 0,
+            "a": 3,
+            "g": 3,
+            "u": 0
+          },
+          "summary": "Low debt; contingent undertakings for Evey",
+          "checks": {
+            "title": "Leverage & debt service",
+            "columns": [
+              "#",
+              "Check",
+              "Threshold",
+              "Verdict",
+              "Evidence"
+            ],
+            "rows": [
+              [
+                "4.1",
+                "ND/EBITDA; ST funds LT",
+                ">2x A",
+                "GREEN",
+                "Debt ₹380 cr vs TTM EBITDA ₹350 cr ≈ 1.1x"
+              ],
+              [
+                "4.2",
+                "Guarantees, contingents",
+                ">10% NW A",
+                "AMBER",
+                "REC LOC contingent ₹272 cr at FY25 → nil at FY26 (AR p185). Replaced Oct 2025 by a ₹300 cr advance-facility undertaking (≈22% NW if drawn); up to ₹1,000/600 cr approved Sep 2026"
+              ],
+              [
+                "4.3",
+                "Pledges; WC utilisation",
+                "Util >75% A / >90% R",
+                "GREEN",
+                "Zero pledge; REC NDU released Jan 2026. WC utilisation not read"
+              ],
+              [
+                "4.4",
+                "ICR; debt/GCA",
+                "ICR ≥2.5x G",
+                "GREEN",
+                "EBIT ~₹320 cr / interest ₹73 cr ≈ 4.4x"
+              ],
+              [
+                "4.5",
+                "Group exposure; TOL/ATNW",
+                "<10% G",
+                "AMBER",
+                "Equity-method Evey stakes ₹94 cr ≈ 8% NW, plus lender undertakings"
+              ],
+              [
+                "7.2",
+                "Finance cost vs debt",
+                "Moves with debt G",
+                "AMBER",
+                "Interest ₹61 cr on ~₹318 cr avg debt ≈ 19% (LC costs)"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Earnings quality & one-offs",
+          "counts": {
+            "r": 0,
+            "a": 1,
+            "g": 2,
+            "u": 2
+          },
+          "summary": "Stable margins, guide cut to 12%",
+          "checks": {
+            "title": "Earnings quality & one-offs",
+            "columns": [
+              "#",
+              "Check",
+              "Threshold",
+              "Verdict",
+              "Evidence"
+            ],
+            "rows": [
+              [
+                "6.1",
+                "H2 vs H1 margin; Q4 lumping",
+                ">300bp below A",
+                "GREEN",
+                "FY26 quarterly OPM steady ~14–15%; Q1 FY27 12% noted"
+              ],
+              [
+                "6.3",
+                "Margin vs peers",
+                ">+500bp A",
+                "GREEN",
+                "~14% vs CV peers ~10–12% (EST)"
+              ],
+              [
+                "6.5",
+                "Revenue quality / margin",
+                "±200bp G",
+                "AMBER",
+                "Margin guide cut to ~12%; sales to the 51% subsidiary are eliminated"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Growth / order-book quality",
+          "counts": {
+            "r": 1,
+            "a": 0,
+            "g": 0,
+            "u": 0
+          },
+          "summary": "~75% of the order book is legacy and disputed",
+          "checks": {
+            "title": "Growth / order-book quality",
+            "columns": [
+              "#",
+              "Check",
+              "Threshold",
+              "Verdict",
+              "Evidence"
+            ],
+            "rows": [
+              [
+                "6.4",
+                "Order-book quality",
+                "OB 1.5–4x; top <25% G",
+                "RED",
+                "~8,000 buses; MSRTC ~4,000 + BEST ~2,000 = ~75% disputed / on hold"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "External watchers",
+          "counts": {
+            "r": 0,
+            "a": 1,
+            "g": 3,
+            "u": 2
+          },
+          "summary": "Ratings improving; promoter-group probes",
+          "checks": {
+            "title": "External watchers",
+            "columns": [
+              "#",
+              "Check",
+              "Threshold",
+              "Verdict",
+              "Evidence"
+            ],
+            "rows": [
+              [
+                "5.1",
+                "Rating history (P1)",
+                "Outlook cut A",
+                "GREEN",
+                "ICRA positive outlook; India Ratings upgraded to IND A/Stable (22 May 2026)"
+              ],
+              [
+                "5.2",
+                "Auditor / EoM / CARO",
+                "—",
+                "GREEN",
+                "Unmodified, no EoM; IFC unmodified; CARO clean (no defaults, bank returns agree). KAMs: receivables, warranty (AR FY26 p149–157)"
+              ],
+              [
+                "7.4",
+                "Rating INC / advisory",
+                "Any INC R",
+                "GREEN",
+                "Cooperating; ICRA and India Ratings active"
+              ],
+              [
+                "7.7",
+                "ED / SEBI / CBI",
+                "Search R",
+                "AMBER",
+                "Promoter group: CBI FIR vs MEIL (Apr 2024), IT raids (2019); none against Olectra found"
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Integrity, capital & related parties",
+          "counts": {
+            "r": 1,
+            "a": 1,
+            "g": 2,
+            "u": 1
+          },
+          "summary": "MEIL is parent, buyer and guarantor",
+          "checks": {
+            "title": "Integrity, capital & related parties",
+            "columns": [
+              "#",
+              "Check",
+              "Threshold",
+              "Verdict",
+              "Evidence"
+            ],
+            "rows": [
+              [
+                "5.3",
+                "Promoter selling, FII exit",
+                "Big cut A",
+                "GREEN",
+                "Promoter 50.02% flat; FII 7.35%"
+              ],
+              [
+                "7.3",
+                "Counterparty = shareholder",
+                "RPT >5% A",
+                "RED",
+                "Evey MSR transactions ₹995 cr in FY26 (~44% of revenue, AGM notice p55); RP receivables ₹716 cr; MFGIL guarantee ₹30 cr (AR p188)"
+              ],
+              [
+                "7.8",
+                "Issue price; raise while CFO neg",
+                "Raise w/ CFO neg R",
+                "GREEN",
+                "No equity raised"
+              ],
+              [
+                "7.11",
+                "Promoter quasi-equity propping",
+                "Any A",
+                "AMBER",
+                "MEIL guarantees/unsecured loans approved Sep 2026"
+              ]
+            ]
+          }
+        }
+      ],
+      "dataGaps": {
+        "title": "DATA GAPS · 5 CHECKS NOT SCORED",
+        "columns": [
+          "#",
+          "Check",
+          "Category",
+          "What is missing"
+        ],
+        "rows": [
+          [
+            "6.2",
+            "Recurring one-offs",
+            "Earnings quality & one-offs",
+            "Not itemised (gap)"
+          ],
+          [
+            "7.1",
+            "Asset sales for paper",
+            "Earnings quality & one-offs",
+            "Not checked (gap)"
+          ],
+          [
+            "7.5",
+            "NCLT / IBC",
+            "External watchers",
+            "Cause lists not checked (gap)"
+          ],
+          [
+            "7.6",
+            "CFO / CS / auditor churn",
+            "External watchers",
+            "Not checked (gap)"
+          ],
+          [
+            "7.9",
+            "AR vs public records",
+            "Integrity, capital & related parties",
+            "Not cross-checked (gap)"
+          ]
+        ]
+      }
+    },
+    "f3": {
+      "leadTitle": "Scorecard: solvency fine, quality middling",
+      "takeaways": [
+        "Altman Z (EST): safe zone. Equity ₹1,228 cr vs debt ₹380 cr.",
+        "Piotroski (EST): 5/9. Profit up, but CFO is falling and debt rising.",
+        "Beneish (EST): borderline, on receivables and accruals. These are estimates; full inputs are not verified."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "Screener consolidated (price 30 Oct 2026)",
+          "FY26 results and AGM notice (26 Sep 2026)",
+          "ICRA and India Ratings (22 May 2026) rationales",
+          "Q1 FY27 call transcript (17 Aug 2026)",
+          "Yahoo Finance prices",
+          "news on MSRTC/BEST/Telangana",
+          "MarketsMojo"
+        ],
+        "estDefinition": "EST = my estimate.",
+        "gaps": [
+          "X scan",
+          "language scorecard (single transcript)",
+          "RPT values",
+          "contingent amounts",
+          "auditor/CARO",
+          "NCLT and regulator checks",
+          "gross margin",
+          "one-offs",
+          "consensus estimates",
+          "Q2 FY27 results (not out)",
+          "Spec lists an Interest cover scorecard row; the stored panel capture has none (gap)."
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "scorecard": {
+        "title": "SCORECARD (EST)",
+        "columns": [
+          "Model",
+          "Score",
+          "Read"
+        ],
+        "rows": [
+          [
+            "Altman Z",
+            "Safe (EST)",
+            "Equity ₹1,228 cr vs debt ₹380 cr"
+          ],
+          [
+            "Piotroski F",
+            "5/9 (EST)",
+            "CFO falling, debt rising"
+          ],
+          [
+            "Beneish M",
+            "Borderline (EST)",
+            "Receivables + accruals"
+          ],
+          [
+            "Schilit + Mulford",
+            "3A in Schilit; cash slipping",
+            "Related buyer, not fabrication"
+          ]
+        ]
+      }
+    },
+    "f4": {
+      "leadTitle": "MEIL-controlled: a strong parent, conflicted on both sides of the sale",
+      "takeaways": [
+        "Promoter MEIL Holdings holds 50.02%, flat. MD Mahesh Babu, CFO Sharath Chandra.",
+        "MEIL provides guarantees and unsecured loans and is the ultimate buyer through Evey. Promoters abstained on the related-party votes.",
+        "Retail holders fell from 5.25 lakh to 4.28 lakh; FII 7.35%, DII 0.61%."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "Screener consolidated (price 30 Oct 2026)",
+          "FY26 results and AGM notice (26 Sep 2026)",
+          "ICRA and India Ratings (22 May 2026) rationales",
+          "Q1 FY27 call transcript (17 Aug 2026)",
+          "Yahoo Finance prices",
+          "news on MSRTC/BEST/Telangana",
+          "MarketsMojo"
+        ],
+        "estDefinition": "EST = my estimate.",
+        "gaps": [
+          "X scan",
+          "language scorecard (single transcript)",
+          "RPT values",
+          "contingent amounts",
+          "auditor/CARO",
+          "NCLT and regulator checks",
+          "gross margin",
+          "one-offs",
+          "consensus estimates",
+          "Q2 FY27 results (not out)"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "ownership": {
+        "title": "OWNERSHIP",
+        "columns": [
+          "Item",
+          "Value"
+        ],
+        "rows": [
+          [
+            "Promoter (MEIL Holdings)",
+            "50.02%, flat; 0 pledged"
+          ],
+          [
+            "FII / DII",
+            "7.35% / 0.61%"
+          ],
+          [
+            "Shareholders",
+            "5.25 lakh → 4.28 lakh"
+          ],
+          [
+            "MD / CFO",
+            "Mahesh Babu (MD) · Sharath Chandra (CFO)"
+          ]
+        ]
+      },
+      "managementChange": {
+        "banner": "MANAGEMENT CHANGE & CULTURE · VERDICT: WATCH · public data only, not advice",
+        "summary": "The CEO/MD seat changed twice in 15 months, with a 3-month vacancy. The CFO and Company Secretary are stable (5+ yrs). Permanent-employee attrition jumped to 52% in FY26. The new MD has relevant EV experience, but the stock fell about 18% vs the Nifty in the 20 days after the appointment (EST)."
+      },
+      "changeLog": {
+        "title": "KEY-PERSON CHANGE LOG (abnormal return vs Nifty: day 0/+1 · ~20 trading days; EST, Yahoo prices)",
+        "columns": [
+          "Date",
+          "Person",
+          "Role",
+          "In/Out",
+          "Stated reason / profile",
+          "AR 0/+1",
+          "AR 20d"
+        ],
+        "rows": [
+          [
+            "9 Jan 2021",
+            "P V Ramesh / B Sharat Chandra",
+            "MD / CEO→CFO only",
+            "In / role split",
+            "Ex-IAS appointed MD; Sharat Chandra gave up the CEO title and kept CFO",
+            "n/a",
+            "n/a"
+          ],
+          [
+            "2 Jan 2024",
+            "Director (name not retrieved)",
+            "Director",
+            "Out",
+            "DATA GAP: Reg 30 filing not read",
+            "−1.5%",
+            "+26.9%"
+          ],
+          [
+            "27 Jan 2024",
+            "Ch. Laxmi Rajam",
+            "Non-exec, non-independent director",
+            "Out",
+            "Resigned; reason not retrieved",
+            "−1.7%",
+            "+15.8%"
+          ],
+          [
+            "12 Aug 2024",
+            "K V Pradeep (re-appt) + 2 IDs",
+            "CMD / independent directors",
+            "In",
+            "MD re-appointed for 3 yrs; 2 new IDs for 5 yrs",
+            "+6.8%",
+            "−4.3%"
+          ],
+          [
+            "9 Jun 2025 (letter)",
+            "K V Pradeep",
+            "Chairman & MD",
+            "Out",
+            "'Personal reasons', about 1 year into a 3-year term. Board took it on record 4 Jul",
+            "−0.6%",
+            "−3.5%"
+          ],
+          [
+            "4 Jul 2025",
+            "P V Krishna Reddy / P Rajesh Reddy",
+            "Chairman / Whole-time Director",
+            "In",
+            "MEIL-group directors filled the top roles while the MD seat was vacant",
+            "−1.0%",
+            "+19.0%"
+          ],
+          [
+            "24 Sep 2025",
+            "Mahesh Babu Subramanian",
+            "MD (3 yrs from 27 Sep)",
+            "In ★ relevant hire",
+            "Ex-CEO SWITCH Mobility and MD & CEO Mahindra Electric; sits on government/CII EV committees",
+            "−2.4%",
+            "−17.8%"
+          ],
+          [
+            "8 Nov 2025",
+            "P Rajesh Reddy",
+            "Whole-time Director → Non-exec",
+            "Out",
+            "'Personal reasons'; announced with Q2 results (confounded)",
+            "−7.9%",
+            "−22.4%"
+          ],
+          [
+            "5–6 Feb 2026",
+            "K N M Rao / Suhas Athma",
+            "VP Product Dev / VP HR (SMP)",
+            "In",
+            "Ex-SWITCH, Ashok Leyland, M&M, Tata Motors / ex-Telenor, Syngenta, Dr Reddy's (XLRI)",
+            "+0.3%",
+            "−8.4%"
+          ],
+          [
+            "3 Mar 2026",
+            "Sanjay Rastogi",
+            "AVP & Head HR (SMP)",
+            "Out",
+            "'Better career opportunities'; notice given 3 Jan 2026",
+            "−0.9%",
+            "+17.0%"
+          ],
+          [
+            "20 Mar 2026",
+            "Rajesh Sharma",
+            "VP Sales & Marketing (SMP)",
+            "In",
+            "30+ yrs in automotive; previously at SWITCH and other EV makers",
+            "n/c",
+            "n/c"
+          ],
+          [
+            "Statutory auditor",
+            "—",
+            "—",
+            "—",
+            "DATA GAP: no change found in the searches. VCSR & Associates were appointed secretarial (not statutory) auditors for 5 yrs from Sep 2025",
+            "—",
+            "—"
+          ]
+        ]
+      },
+      "signalStrip": {
+        "title": "SIGNAL STRIP",
+        "columns": [
+          "Signal",
+          "Reading",
+          "Flag"
+        ],
+        "rows": [
+          [
+            "CFO tenure / turnover",
+            "B Sharat Chandra has been CFO since at least 2021 (also CEO until Jan 2021); 0 CFO changes",
+            "GREEN"
+          ],
+          [
+            "KMP turnover",
+            "MD changed twice in ~15 months; whole-time director role created and ended in 4 months; ~3-month MD vacancy",
+            "RED"
+          ],
+          [
+            "Independent director mid-term exits",
+            "None found; C L Kumari re-appointed to 2031. DATA GAP: Jan 2024 director exit not identified",
+            "AMBER"
+          ],
+          [
+            "Auditor change",
+            "No statutory auditor change found (DATA GAP)",
+            "NO DATA"
+          ],
+          [
+            "Promoter/group in key roles",
+            "MEIL's P V Krishna Reddy is Chairman since Jul 2025; group directors stepped in during the vacancy",
+            "AMBER"
+          ],
+          [
+            "Key-person dependence",
+            "Turnaround now rests on the new MD and the SWITCH-linked team he brought in (3 SMP hires)",
+            "AMBER"
+          ]
+        ]
+      },
+      "cultureStrip": {
+        "title": "CULTURE STRIP (checked Nov 2026)",
+        "columns": [
+          "Source",
+          "Reading",
+          "Note"
+        ],
+        "rows": [
+          [
+            "AmbitionBox",
+            "3.3/5 (242 reviews)",
+            "Lowest scores: culture 2.8, promotions 2.9; 15% below industry average; 'Senior management' is the most-mentioned topic (31)"
+          ],
+          [
+            "Glassdoor",
+            "3.3/5 (51 reviews); 57% would recommend; 56% positive outlook",
+            "Senior management 2.9, culture 2.8 (+2% over 12 months). CEO approval: DATA GAP (not shown)"
+          ],
+          [
+            "Naukri",
+            "3.8/5 (398 reviews)",
+            "Self-selected; weaker signal"
+          ],
+          [
+            "BRSR attrition (permanent employees)",
+            "FY24 35% → FY25 37.9% → FY26 52%",
+            "Very high and rising"
+          ],
+          [
+            "Headcount (FY26)",
+            "331 permanent + 96 other employees; 1,403 contract workers, 0 permanent",
+            "Shop floor is almost entirely contract labour"
+          ],
+          [
+            "Wages share / strikes",
+            "DATA GAP",
+            "No strike or labour dispute found in the searches"
+          ]
+        ]
+      },
+      "literature": [
+        "Forced CEO exits follow poor performance, and announcement returns are small and ambiguous (Warner, Watts & Wruck 1988). Firms that hire an outsider CEO tend to see operating performance improve afterwards (Huson, Malatesta & Parrino 2004). So treat a 'star hire' as a slow-acting signal, not a quick price rerating.",
+        "CFOs are more likely to be replaced after poor performance (Mian 2001). Executive departures, CFOs included, cluster around financial restatements (e.g. Arthaud-Day et al. 2006). A sudden, unexplained CFO exit is a forensic red flag; Olectra has had none.",
+        "Employee satisfaction is priced slowly. 'Best Companies to Work For' earned about 2.3–3.8% a year of alpha, 1984–2009 (Edmans 2011). Improving Glassdoor ratings predict higher future returns (Green, Huang, Wen & Zhou 2019). Olectra's ratings are flat to low and attrition is rising, which is a mild negative."
+      ]
+    },
+    "f5": {
+      "leadTitle": "Sentiment: bearish, technical selling",
+      "takeaways": [
+        "Death cross on 23 Oct 2026; down 25% in a month and 39% from the high.",
+        "The news flow is order disputes (MSRTC, BEST) and the Maharashtra subsidy crunch; the 1,085-bus Telangana order gave only a brief bounce.",
+        "Theme mood is COLD ↓. Peers 3m −12% vs Nifty −4%, 1 of 8 above the 200-DMA, and the sector explains 39% of daily moves (R²). The sector is a headwind now."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "Screener consolidated (price 30 Oct 2026)",
+          "FY26 results and AGM notice (26 Sep 2026)",
+          "ICRA and India Ratings (22 May 2026) rationales",
+          "Q1 FY27 call transcript (17 Aug 2026)",
+          "Yahoo Finance prices",
+          "news on MSRTC/BEST/Telangana",
+          "MarketsMojo"
+        ],
+        "estDefinition": "EST = my estimate.",
+        "gaps": [
+          "X scan",
+          "language scorecard (single transcript)",
+          "RPT values",
+          "contingent amounts",
+          "auditor/CARO",
+          "NCLT and regulator checks",
+          "gross margin",
+          "one-offs",
+          "consensus estimates",
+          "Q2 FY27 results (not out)"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "themeBanner": "INDUSTRY / THEME SENTIMENT · EV & e-bus · Indian auto/CV · PM e-Drive · 2 Nov 2026",
+      "themeMood": "COLD ↓",
+      "plainRead": "the sector is a headwind for the stock right now. The peer basket fell 12% in 3 months while the Nifty fell 4%, and 7 of 8 peers are below their 50- and 200-day averages. The sector explains about 39% of Olectra's daily moves, nearly twice what the Nifty explains (21%), so a sector turn would matter. The e-bus story itself is getting better, but the stocks are not following it.",
+      "themeStrip": {
+        "title": "THEME STRIP (EST where marked)",
+        "columns": [
+          "Signal",
+          "Reading",
+          "Read"
+        ],
+        "rows": [
+          [
+            "X tone (EST)",
+            "About 45% positive, 20% negative, 35% neutral, from ~50 theme posts (Aug–Nov 2026), classified by hand",
+            "E-bus adoption posts are upbeat; market posts on auto stocks are cautious"
+          ],
+          [
+            "X volume trend",
+            "169 → 67 posts/day (26 Oct–1 Nov); 760 in 7 days",
+            "Fading attention ↓"
+          ],
+          [
+            "Sector vs Nifty (relative strength)",
+            "Basket 1m −4.2% / 3m −12.0% / 6m −1.0% vs Nifty +3.2% / −4.3% / −2.8%. Nifty Auto −1.9% / −10.3% / −0.5%",
+            "Lagging over 1m and 3m"
+          ],
+          [
+            "Breadth",
+            "1 of 8 peers above the 50-DMA and the 200-DMA (only Sona BLW). Nifty Auto 25,793 vs 50-DMA 26,714 and 200-DMA 26,823",
+            "Weak"
+          ],
+          [
+            "Stock-to-sector link (1 yr daily)",
+            "vs peer basket: correlation 0.63, beta 1.19, R² 0.39. vs Nifty Auto: R² 0.22. vs Nifty: beta 1.47, R² 0.21",
+            "Sector mood matters about 2x more than the market"
+          ],
+          [
+            "Olectra vs its own theme",
+            "1m −12.5% / 3m −25.1% / 6m −20.3%",
+            "Falling about 2x as much as the basket: stock-specific problems on top"
+          ]
+        ]
+      },
+      "narratives": [
+        "E-bus demand is real, but rivals are taking it. India's e-bus sales rose 55% to 3,723 in Apr–Sep 2026; penetration is 8.55% (x.com/gaze_observer/status/2107341713199206819). JBM took 33% of September registrations (x.com/_Investor_Feed_/status/2105574791545757973). PM e-Drive has 14,000 buses allotted (x.com/JulehMobility/status/2103680960902676969).",
+        "Rates and valuations weigh on auto stocks. With the RBI hiking, posts warn that expensive auto names could correct more (x.com/stocksbyrishabh/status/2109460294305288590). Nifty Auto is down about 8% over a year (x.com/SwingAcumen/status/2113862758680936842). Strong October sales gave only a one-day bounce (x.com/RisingIndiaHQ/status/2117106147882897885).",
+        "Policy friction and China. The traction-motor localisation deadline was pushed to April 2027 because China has not granted rare-earth magnet licences (x.com/snipy_in/status/2096194914057142399). PM e-Drive e-truck subsidies reached only 52 of 5,643 trucks by 24 Aug (x.com/lakshmishaks/status/2094420920438051238). The China EV/BYD read-across was not checked (gap)."
+      ],
+      "methodNote": "Method: X public search (theme terms: electric bus, e-bus, PM e-Drive, EV stocks, Nifty Auto, JBM Auto, Olectra), 4 Aug–2 Nov 2026, plus 7-day counts. Tone was classified by hand (EST). Peer basket, equal-weighted: JBM Auto, Tata Motors CV, Ashok Leyland, Exide, Amara Raja, M&M, Eicher, Sona BLW. Prices: Yahoo Finance daily closes to 2 Nov 2026 (intraday for the last day). Beta, correlation and R² use ~250 daily returns. A Nifty EV index series was not available on Yahoo (gap). Theme mood rule: Hot = RS positive and breadth over 60%; Cold = RS negative and breadth under 40%; otherwise Neutral. Not advice.",
+      "stockMood": {
+        "title": "STOCK MOOD (news proxy; no stock-level X scan)",
+        "columns": [
+          "Signal",
+          "Reading"
+        ],
+        "rows": [
+          [
+            "Trend",
+            "Death cross 23 Oct 2026; −25% in 1 month, −39% in 1 year"
+          ],
+          [
+            "Broker / quant",
+            "MarketsMojo SELL (28 Sep 2026)"
+          ],
+          [
+            "Positive news",
+            "Telangana 1,085 buses (₹1,800 cr); IND A upgrade (May 2026)"
+          ],
+          [
+            "Negative news",
+            "MSRTC / BEST disputes; Maharashtra subsidy crunch"
+          ]
+        ]
+      }
+    },
+    "f6": {
+      "leadTitle": "Bottom-up FY27E ≈ ₹3,300 cr, if 2,000 buses ship",
+      "takeaways": [
+        "Mobility: 2,000 buses × ~₹1.5 cr ≈ ₹3,000 cr (EST).",
+        "Energy (insulators): ~₹300 cr order book; ~36% exports; a 5x plan in 3 years.",
+        "Trucks: ~0 in FY27 (115 pilots); FY28 target ~20–25% of a 1,500–2,000 market."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "Screener consolidated (price 30 Oct 2026)",
+          "FY26 results and AGM notice (26 Sep 2026)",
+          "ICRA and India Ratings (22 May 2026) rationales",
+          "Q1 FY27 call transcript (17 Aug 2026)",
+          "Yahoo Finance prices",
+          "news on MSRTC/BEST/Telangana",
+          "MarketsMojo"
+        ],
+        "estDefinition": "EST = my estimate.",
+        "gaps": [
+          "X scan",
+          "language scorecard (single transcript)",
+          "RPT values",
+          "contingent amounts",
+          "auditor/CARO",
+          "NCLT and regulator checks",
+          "gross margin",
+          "one-offs",
+          "consensus estimates",
+          "Q2 FY27 results (not out)"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "bottomUp": {
+        "title": "FY27E BOTTOM-UP REVENUE (₹ cr, EST)",
+        "columns": [
+          "Line",
+          "FY27E",
+          "Basis"
+        ],
+        "rows": [
+          [
+            "E-buses",
+            "~3,000",
+            "2,000 buses × ~₹1.5 cr (guide 2,500)"
+          ],
+          [
+            "Insulators",
+            "~300",
+            "~₹300 cr order book; ~36% exports (MacLean Power)"
+          ],
+          [
+            "E-trucks",
+            "~0",
+            "115 pilots; sales FY28"
+          ],
+          [
+            "Total",
+            "~3,300",
+            "+43% vs FY26"
+          ]
+        ]
+      },
+      "orderBook": {
+        "title": "ORDER BOOK (~8,000 buses)",
+        "columns": [
+          "Order",
+          "Size",
+          "Delivered",
+          "Status"
+        ],
+        "rows": [
+          [
+            "MSRTC (Evey, LoI Jul 2023)",
+            "5,150 buses / ₹10,000 cr",
+            "~1,200 by Apr 2026",
+            "Cancelled then reinstated; Dec 2026 deadline; 'neither cancelled nor accepted'"
+          ],
+          [
+            "BEST (Evey, 2022)",
+            "2,100 / ₹3,675 cr",
+            "686",
+            "Evey can't continue 1,414; subsidy on 10 buses"
+          ],
+          [
+            "Telangana CESL (Evey)",
+            "1,085 / ₹1,800 cr",
+            "0",
+            "20 months; 12-yr GCC"
+          ],
+          [
+            "Rajasthan (outright)",
+            "155",
+            "0",
+            "L1"
+          ]
+        ]
+      },
+      "structure": {
+        "title": "EVEY / MEIL STRUCTURE",
+        "columns": [
+          "Entity",
+          "Role"
+        ],
+        "rows": [
+          [
+            "MEIL Holdings",
+            "Olectra promoter, 50.02%"
+          ],
+          [
+            "Evey Trans + SPVs",
+            "MEIL step-downs; buy buses, run 12-yr GCCs for states"
+          ],
+          [
+            "Olectra's stakes",
+            "26% in associate SPVs (34% UP); 51% in GTC"
+          ],
+          [
+            "Payment",
+            "60% at supply, 40% in 120–180 days (ICRA)"
+          ],
+          [
+            "Technology",
+            "BYD licence; Chinese cells ≈ 50% of bus cost"
+          ],
+          [
+            "Seetharampur (Hyderabad)",
+            "5,000/yr plant; ramp undated"
+          ]
+        ]
+      }
+    },
+    "f7": {
+      "leadTitle": "Revenue up 4x in 4 years; margin stuck around 14%",
+      "takeaways": [
+        "Sales ₹593 cr (FY22) → ₹2,312 cr (FY26); TTM ₹2,540 cr.",
+        "OPM was 14–15%; Q1 FY27 fell to 12%. Interest rose to ₹73 cr TTM, partly LC costs.",
+        "FY27E: revenue ₹3,300 cr, PAT ~₹225 cr, EPS ₹27.4 (EST)."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "Screener consolidated (price 30 Oct 2026)",
+          "FY26 results and AGM notice (26 Sep 2026)",
+          "ICRA and India Ratings (22 May 2026) rationales",
+          "Q1 FY27 call transcript (17 Aug 2026)",
+          "Yahoo Finance prices",
+          "news on MSRTC/BEST/Telangana",
+          "MarketsMojo"
+        ],
+        "estDefinition": "EST = my estimate.",
+        "gaps": [
+          "X scan",
+          "language scorecard (single transcript)",
+          "RPT values",
+          "contingent amounts",
+          "auditor/CARO",
+          "NCLT and regulator checks",
+          "gross margin",
+          "one-offs",
+          "consensus estimates",
+          "Q2 FY27 results (not out)"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "pl": {
+        "title": "P&L (₹ cr, consolidated)",
+        "columns": [
+          "",
+          "FY23",
+          "FY24",
+          "FY25",
+          "FY26",
+          "TTM",
+          "FY27E",
+          "FY28E"
+        ],
+        "rows": [
+          [
+            "Revenue",
+            "1,091",
+            "1,154",
+            "1,802",
+            "2,312",
+            "2,540",
+            "3,300",
+            "4,300"
+          ],
+          [
+            "EBITDA",
+            "n/a",
+            "166",
+            "262",
+            "330",
+            "350",
+            "430",
+            "560"
+          ],
+          [
+            "Margin",
+            "n/a",
+            "14%",
+            "15%",
+            "14%",
+            "14%",
+            "13%",
+            "13%"
+          ],
+          [
+            "PAT",
+            "67",
+            "79",
+            "139",
+            "180",
+            "180",
+            "225",
+            "300"
+          ],
+          [
+            "EPS ₹",
+            "8.2",
+            "9.6",
+            "16.9",
+            "21.6",
+            "21.9",
+            "27.4",
+            "36.5"
+          ]
+        ]
+      }
+    },
+    "f8": {
+      "leadTitle": "ROCE has improved to 21%, but long-run returns are modest",
+      "takeaways": [
+        "ROCE 15% → 21% → 21% (FY24–26). ROE 3-yr 13%, 10-yr 8%.",
+        "₹1 test: retained earnings of about ₹400 cr over 3 yrs, while the stock has fallen 39% in a year. It does not pass yet.",
+        "Capex of ₹600 cr at 21% ROCE would add ~₹125 cr of EBIT if it is used."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "Screener consolidated (price 30 Oct 2026)",
+          "FY26 results and AGM notice (26 Sep 2026)",
+          "ICRA and India Ratings (22 May 2026) rationales",
+          "Q1 FY27 call transcript (17 Aug 2026)",
+          "Yahoo Finance prices",
+          "news on MSRTC/BEST/Telangana",
+          "MarketsMojo"
+        ],
+        "estDefinition": "EST = my estimate.",
+        "gaps": [
+          "X scan",
+          "language scorecard (single transcript)",
+          "RPT values",
+          "contingent amounts",
+          "auditor/CARO",
+          "NCLT and regulator checks",
+          "gross margin",
+          "one-offs",
+          "consensus estimates",
+          "Q2 FY27 results (not out)"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "returns": {
+        "title": "RETURNS",
+        "columns": [
+          "Metric",
+          "Value"
+        ],
+        "rows": [
+          [
+            "ROCE FY24 / 25 / 26",
+            "15% / 21% / 21%"
+          ],
+          [
+            "ROE 3y / 10y",
+            "13% / 8%"
+          ],
+          [
+            "Capex plan",
+            "₹600 cr / 18 months"
+          ],
+          [
+            "Debt",
+            "₹121 → 255 → 380 cr"
+          ]
+        ]
+      }
+    },
+    "f9": {
+      "leadTitle": "Guidance has a miss record; the margin guide was cut",
+      "takeaways": [
+        "Past annual delivery targets (~900) were missed; FY27 asks for 2,500.",
+        "Margin guidance stepped down to ~12% from 14–15% delivered.",
+        "Legacy orders: 'neither cancelled nor accepted'."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "Screener consolidated (price 30 Oct 2026)",
+          "FY26 results and AGM notice (26 Sep 2026)",
+          "ICRA and India Ratings (22 May 2026) rationales",
+          "Q1 FY27 call transcript (17 Aug 2026)",
+          "Yahoo Finance prices",
+          "news on MSRTC/BEST/Telangana",
+          "MarketsMojo"
+        ],
+        "estDefinition": "EST = my estimate.",
+        "gaps": [
+          "X scan",
+          "language scorecard (single transcript)",
+          "RPT values",
+          "contingent amounts",
+          "auditor/CARO",
+          "NCLT and regulator checks",
+          "gross margin",
+          "one-offs",
+          "consensus estimates",
+          "Q2 FY27 results (not out)"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "keyTakeawaysNote": "Source: Q1 FY27 call, Aug 2026 (Nomura-hosted; Investing.com transcript, published 17 Aug 2026). Compared with FY26 statements and the ICRA/press record. Quotes are close paraphrases.",
+      "guidance": {
+        "title": "KEY TAKEAWAYS",
+        "columns": [
+          "",
+          "What was said",
+          "Number",
+          "Tag",
+          "So what (price ranges)"
+        ],
+        "rows": [
+          [
+            "↑",
+            "FY27 guide: 2,500 buses (Q2 500, Q3 600, Q4 700)",
+            "2,500 vs 1,280 FY26",
+            "Guidance change",
+            "Needs ~2x volume. Past annual targets were missed (analyst: 'targeting ~900, could not achieve'). The base row assumes 2,000."
+          ],
+          [
+            "↓",
+            "Order book 'about 8,000'; ~4,000 MSRTC + ~2,000 BEST",
+            "~75% legacy/disputed",
+            "Risk",
+            "Only ~2,000 buses are clean. This drives the bear row (₹660)."
+          ],
+          [
+            "↓",
+            "BEST/MSRTC are 'neither cancelled nor accepted'; 'not delivering any more buses for that tender'",
+            "1,414 BEST stopped",
+            "Risk",
+            "The headline order book overstates deliverable demand."
+          ],
+          [
+            "↑",
+            "New wins: Telangana CESL 1,085 buses (₹1,800 cr, via Evey); L1 in Rajasthan (155, outright)",
+            "1,240 new",
+            "Growth driver",
+            "Fresh orders, but the 1,085 still goes through Evey, so the related-party model continues."
+          ],
+          [
+            "↓",
+            "Margin to 'stabilise around 12%' (12–15% band); insulator input costs up 40–70%",
+            "Q1 EBITDA 12.7%",
+            "Margin",
+            "Guide cut from the 14–15% history. Feeds the cost tab."
+          ],
+          [
+            "→",
+            "Capex ₹600 cr over 18 months (₹450 cr new bus/truck platforms)",
+            "₹600 cr",
+            "Capital allocation",
+            "FCF is already negative (FY25–26). Expect more debt; borrowings went ₹121 → 380 cr."
+          ],
+          [
+            "→",
+            "Battery-only localisation dropped for 'next-gen platform with local battery' by Q4 FY27",
+            "Q4 FY27",
+            "Growth driver",
+            "This is the route off BYD dependence, but timing slipped and it is unproven."
+          ],
+          [
+            "→",
+            "Trucks: 115 pilots, sales only in FY28; 20–25% share target of a 1,500–2,000 market",
+            "~350–500 units FY28",
+            "Growth driver",
+            "Small; it does not move FY27."
+          ]
+        ]
+      },
+      "delta": {
+        "new": [
+          "FY27 2,500-bus quarterly ramp.",
+          "Rajasthan L1 (155, outright sale: no Evey).",
+          "Insulators 5x in 3 years; hollow/solid core products.",
+          "Next-gen bus/truck platform with a local battery by Q4 FY27."
+        ],
+        "droppedOrGoneQuiet": [
+          "Standalone battery-pack localisation plan (replaced).",
+          "GFRP rebar business (no longer pursued).",
+          "Order-book ageing: 'I do not have exact details'."
+        ],
+        "guidanceRaisedCut": [
+          "Cut: EBITDA margin to ~12% (12–15%), from the ~15% delivered in FY26.",
+          "Order book: ~10,000 (FY26) → ~8,000 (Q1 FY27).",
+          "Kept: 5,000/yr Seetharampur capacity; no date given."
+        ]
+      },
+      "language": {
+        "confidenceScore": "5/10",
+        "confidenceNote": "Management confidence score: medium: confident volume guide, but past targets missed, the margin guide cut and the legacy-order answers vague.",
+        "hedgingVsCertainty": "Not computed with word lists for this stock (single transcript). Read qualitatively: certainty on volumes ('full confidence', 'strongly believe'), hedged on margins ('our wish along with you'), and evasive on legacy orders.",
+        "evasiveAnswers": [
+          "Order-book ageing: 'I do not have exact details'.",
+          "Current localisation level: 'I do not have the exact number'.",
+          "Domestic vs export insulator margins: 'very difficult to predict'."
+        ],
+        "analystPushbackTopics": [
+          "Capacity added in Jan, but no lift in deliveries for 8 months.",
+          "Repeated misses of past delivery targets.",
+          "How much of the order book is MSRTC/BEST, and how old it is.",
+          "Why guide a 12% margin when it was 14–15%."
+        ]
+      },
+      "callLanguageScorecard": {
+        "reading": "N/A.",
+        "note": "Only one Olectra transcript (Q1 FY27) was read for this Page. The scorecard needs a multi-call baseline scored with Loughran-McDonald lists, so it is left as a data gap instead of guessing. Data gap: add the Q3/Q4 FY26 and Q2 FY27 transcripts to compute it. Paper analysis only."
+      },
+      "whatToWatch": {
+        "title": "WHAT TO WATCH NEXT QUARTER",
+        "columns": [
+          "KPI",
+          "Threshold (good / bad)"
+        ],
+        "rows": [
+          [
+            "Q2 FY27 deliveries",
+            "≥500 keeps the 2,500 guide / <400 = another miss"
+          ],
+          [
+            "EBITDA margin",
+            "≥13% = insulator recovery / <11% = margin reset"
+          ],
+          [
+            "MSRTC / BEST resolution",
+            "Signed revised schedule / formal cancellation = order book −4,000 to −6,000"
+          ]
+        ]
+      },
+      "thesisImpact": {
+        "title": "THESIS IMPACT",
+        "columns": [
+          "Tab",
+          "Effect",
+          "Why"
+        ],
+        "rows": [
+          [
+            "Business (F6)",
+            "Weakens",
+            "~75% of the order book is legacy and disputed."
+          ],
+          [
+            "Cost (F12)",
+            "Neutral",
+            "Costs are ~85% variable: margin holds while volume falls."
+          ],
+          [
+            "Price ranges (F10)",
+            "Weakens",
+            "The bear row (legacy orders lost) is a real path, not a tail."
+          ]
+        ]
+      }
+    },
+    "f10": {
+      "leadTitle": "Downside is bigger than upside: reward:risk 0.75x",
+      "takeaways": [
+        "Seven scenarios (plus the high as a marker): three above (median +33%), four below (median −44%).",
+        "Near-term support is the ₹867 52-week low (−9%). The big downside is legacy orders lost (₹660) or a margin reset (₹410).",
+        "Weighted target ₹1,123 (+18%): bear ₹660 / base ₹1,096 / bull ₹1,640 at 25/50/25."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "Screener consolidated (price 30 Oct 2026)",
+          "FY26 results and AGM notice (26 Sep 2026)",
+          "ICRA and India Ratings (22 May 2026) rationales",
+          "Q1 FY27 call transcript (17 Aug 2026)",
+          "Yahoo Finance prices",
+          "news on MSRTC/BEST/Telangana",
+          "MarketsMojo"
+        ],
+        "estDefinition": "EST = my estimate.",
+        "gaps": [
+          "X scan",
+          "language scorecard (single transcript)",
+          "RPT values",
+          "contingent amounts",
+          "auditor/CARO",
+          "NCLT and regulator checks",
+          "gross margin",
+          "one-offs",
+          "consensus estimates",
+          "Q2 FY27 results (not out)"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "rewardRisk": {
+        "strip": "Reward : risk 0.76x · ASYMMETRIC UNFAVOURABLE",
+        "detail": "Median upside +33% vs median downside −44% across 7 independent scenarios · current ₹951 (30 Oct 2026)"
+      },
+      "scenarios": {
+        "title": "SCENARIOS: one row per independent lens",
+        "columns": [
+          "Lens",
+          "Scenario",
+          "Price",
+          "vs now",
+          "What it tells you"
+        ],
+        "rows": [
+          [
+            "Technical",
+            "52-week low",
+            "₹867",
+            "−9%",
+            "Stress test: the 16 Mar 2026 low. Only 9% below, so it is the first support."
+          ],
+          [
+            "Technical",
+            "6-month average",
+            "₹1,266",
+            "+33%",
+            "Mean reversion: where the stock settles if the sell-off was overdone."
+          ],
+          [
+            "Marker",
+            "52-week high (marker)",
+            "₹1,574",
+            "+65%",
+            "Upside marker: the 31 Oct 2025 peak. Not in the ratio."
+          ],
+          [
+            "Fundamental",
+            "Margin resets to 10% (EST)",
+            "₹410",
+            "−57%",
+            "EST. TTM revenue at 10% EBITDA → EPS ~₹13.7 × 30x. Insulator export loss + bus pricing pressure."
+          ],
+          [
+            "Fundamental",
+            "Base: FY27E EPS × 40x (EST)",
+            "₹1,096",
+            "+15%",
+            "EST. 2,000 buses (not 2,500), 13% margin → EPS ₹27.4 × 40x."
+          ],
+          [
+            "Fundamental",
+            "Bull: 2,500+ buses, FY28E × 45x (EST)",
+            "₹1,640",
+            "+72%",
+            "EST. Guide met, legacy orders resolved, FY28E EPS ₹36.5."
+          ],
+          [
+            "Fundamental",
+            "Bear: MSRTC + BEST lost (EST)",
+            "₹660",
+            "−31%",
+            "EST. ~6,000 of 8,000 order book gone; FY28E EPS ~₹22 × 30x."
+          ],
+          [
+            "Fundamental",
+            "No-growth (earnings-power) value",
+            "₹175",
+            "−82%",
+            "EST. TTM PAT ₹180 cr ÷ 12.5% ÷ 8.21 cr shares; ~82% of the price is a growth bet."
+          ]
+        ]
+      },
+      "priceLadder": [
+        {
+          "label": "Bull: 2,500+ buses, FY28E × 45x (EST)",
+          "value": "₹1,640 +72%"
+        },
+        {
+          "label": "52-week high (marker)",
+          "value": "₹1,574 +65%"
+        },
+        {
+          "label": "6-month average",
+          "value": "₹1,266 +33%"
+        },
+        {
+          "label": "Base: FY27E EPS × 40x (EST)",
+          "value": "₹1,096 +15%"
+        },
+        {
+          "label": "◆ CURRENT PRICE",
+          "value": "₹951"
+        },
+        {
+          "label": "52-week low",
+          "value": "₹867 −9%"
+        },
+        {
+          "label": "Bear: MSRTC + BEST lost (EST)",
+          "value": "₹660 −31%"
+        },
+        {
+          "label": "Margin resets to 10% (EST)",
+          "value": "₹410 −57%"
+        },
+        {
+          "label": "No-growth (earnings-power) value",
+          "value": "₹175 −82%"
+        }
+      ],
+      "whatWouldNeedToHappen": [
+        "To justify ₹951 (44x TTM): EPS must roughly double by FY28 (~₹36), which needs 2,500+ buses a year with a ~13% margin.",
+        "That needs new orders to replace the ~6,000 disputed MSRTC/BEST buses, and states paying subsidies on time so Evey can fund purchases.",
+        "What breaks it: formal cancellation of the legacy orders (₹660) or a margin reset to 10% (₹410)."
+      ],
+      "weightedTarget": "Weighted target (one input, not the answer): ₹1,123 (+18%): bear ₹660 / base ₹1,096 / bull ₹1,640, weights 25/50/25. Paper rating HOLD.",
+      "methodDetail": "Reward : risk = median % upside of scenarios above the price ÷ median % downside of those below. Rule: ≥1.5x favourable, 0.8–1.5x balanced, below 0.8x unfavourable. 'Marker' rows are shown on the ladder but excluded from the ratio. Technical prices: Yahoo Finance NSE daily closes to 30 Oct 2026. Fundamental rows are estimates (EST). Near-duplicate lenses (DCF variants, ATR/volatility bands, 50/200-DMA, swing pivots, EV/EBITDA bands, revenue shocks already on the Cost tab, thin peer sets) were removed because they move together and add no new information. Value is imprecise: these are ways to think about where the price could go, not forecasts. Paper analysis only, not advice."
+    },
+    "f11": {
+      "leadTitle": "~18% of the price is today's business; ~82% is growth",
+      "takeaways": [
+        "TV = E/k = ₹180 cr / 12.5% = ₹1,440 cr, 18% of the ₹7,807 cr market cap.",
+        "At R = 21% the bet needs ~₹9,400 cr of new investment (PV), about 5.8x current capital employed (₹1,608 cr).",
+        "If R slips to 15%, it needs ~₹32,000 cr: not plausible. Incremental ROCE is the watch variable."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "Screener consolidated (price 30 Oct 2026)",
+          "FY26 results and AGM notice (26 Sep 2026)",
+          "ICRA and India Ratings (22 May 2026) rationales",
+          "Q1 FY27 call transcript (17 Aug 2026)",
+          "Yahoo Finance prices",
+          "news on MSRTC/BEST/Telangana",
+          "MarketsMojo"
+        ],
+        "estDefinition": "EST = my estimate.",
+        "gaps": [
+          "X scan",
+          "language scorecard (single transcript)",
+          "RPT values",
+          "contingent amounts",
+          "auditor/CARO",
+          "NCLT and regulator checks",
+          "gross margin",
+          "one-offs",
+          "consensus estimates",
+          "Q2 FY27 results (not out)"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "grid": {
+        "title": "LEIBOWITZ GRID (E = ₹180 cr TTM; G = required new investment as × capital employed ₹1,608 cr / PV ₹)",
+        "columns": [
+          "k \\\\ R",
+          "R 15%",
+          "R 21%",
+          "R 26%",
+          "Today %"
+        ],
+        "rows": [
+          [
+            "11%",
+            "G 10.9",
+            "G 3.6",
+            "G 2.7",
+            "21%"
+          ],
+          [
+            "12%",
+            "G 15.6",
+            "G 4.5",
+            "G 3.4",
+            "19%"
+          ],
+          [
+            "12.5%",
+            "G 19.8 / ₹31,800 cr",
+            "G 5.8 / ₹9,400 cr",
+            "G 3.7 / ₹5,900 cr",
+            "18%"
+          ],
+          [
+            "13%",
+            "G 25.6",
+            "G 6.5",
+            "G 4.1",
+            "18%"
+          ]
+        ]
+      }
+    },
+    "f12": {
+      "leadTitle": "Costs are ~85% variable: downside comes from volume, not margin",
+      "takeaways": [
+        "A regression of 5 quarters' costs on revenue gives a slope of 0.85; fixed costs are negligible. Contribution margin ~15%.",
+        "So margins barely move with volume (13.6–14.1% across ±30% revenue). The risk is losing orders, and that hits EPS one-for-one.",
+        "At 35x: −30% revenue → ₹446; base ₹800; +30% → ₹1,154."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "Screener consolidated (price 30 Oct 2026)",
+          "FY26 results and AGM notice (26 Sep 2026)",
+          "ICRA and India Ratings (22 May 2026) rationales",
+          "Q1 FY27 call transcript (17 Aug 2026)",
+          "Yahoo Finance prices",
+          "news on MSRTC/BEST/Telangana",
+          "MarketsMojo"
+        ],
+        "estDefinition": "EST = my estimate.",
+        "gaps": [
+          "X scan",
+          "language scorecard (single transcript)",
+          "RPT values",
+          "contingent amounts",
+          "auditor/CARO",
+          "NCLT and regulator checks",
+          "gross margin",
+          "one-offs",
+          "consensus estimates",
+          "Q2 FY27 results (not out)"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "costSplit": {
+        "title": "COST SPLIT (EST)",
+        "columns": [
+          "Item",
+          "Value",
+          "Method"
+        ],
+        "rows": [
+          [
+            "Variable cost ratio",
+            "~85% of revenue",
+            "Regression of 5 quarters' costs on revenue (slope 0.85)"
+          ],
+          [
+            "Fixed opex",
+            "~₹16 cr/yr",
+            "Intercept; effectively negligible"
+          ],
+          [
+            "Contribution margin",
+            "~15%",
+            "Thin; batteries/chassis are pass-through"
+          ],
+          [
+            "Implication",
+            "Low operating leverage",
+            "Margin stable; EPS tracks volume"
+          ]
+        ]
+      },
+      "revenueScenarios": {
+        "title": "REVENUE SCENARIOS ON TTM COST STRUCTURE (₹ cr, EST; value at 35x)",
+        "columns": [
+          "Revenue Δ",
+          "Revenue",
+          "EBITDA",
+          "Margin",
+          "EBIT",
+          "PAT",
+          "EPS ₹",
+          "Value ₹"
+        ],
+        "rows": [
+          [
+            "−30%",
+            "1,778",
+            "243",
+            "13.6%",
+            "194",
+            "105",
+            "12.7",
+            "446"
+          ],
+          [
+            "−20%",
+            "2,032",
+            "279",
+            "13.8%",
+            "230",
+            "132",
+            "16.1",
+            "564"
+          ],
+          [
+            "−10%",
+            "2,286",
+            "316",
+            "13.8%",
+            "267",
+            "160",
+            "19.5",
+            "682"
+          ],
+          [
+            "Base TTM",
+            "2,540",
+            "353",
+            "13.9%",
+            "304",
+            "188",
+            "22.9",
+            "800"
+          ],
+          [
+            "+10%",
+            "2,794",
+            "390",
+            "14.0%",
+            "341",
+            "215",
+            "26.2",
+            "918"
+          ],
+          [
+            "+20%",
+            "3,048",
+            "427",
+            "14.0%",
+            "378",
+            "243",
+            "29.6",
+            "1,036"
+          ],
+          [
+            "+30%",
+            "3,302",
+            "464",
+            "14.1%",
+            "415",
+            "271",
+            "33.0",
+            "1,154"
+          ]
+        ]
+      },
+      "marginShock": {
+        "title": "MARGIN SHOCK (revenue held at TTM)",
+        "columns": [
+          "EBITDA margin",
+          "EPS",
+          "Value @30x"
+        ],
+        "rows": [
+          [
+            "15%",
+            "25.4",
+            "₹762"
+          ],
+          [
+            "14% (TTM)",
+            "22.9",
+            "₹687"
+          ],
+          [
+            "12% (guide)",
+            "18.3",
+            "₹549"
+          ],
+          [
+            "10%",
+            "13.7",
+            "₹410"
+          ]
+        ]
+      }
+    },
+    "f13": {
+      "leadTitle": "Investors' lens: 0 would buy / 3 watchlist / 4 pass",
+      "takeaways": [
+        "Nobody buys. Druckenmiller passes on the downtrend and the cuts to guidance.",
+        "Agrawal, Fisher and Nomad like the e-bus runway but want quality (cash, related-party) fixed.",
+        "Buffett & Munger, Smith and Greenblatt pass: negative FCF, related-party buyer, BYD dependence, 2.3% earnings yield."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "Screener consolidated (price 30 Oct 2026)",
+          "FY26 results and AGM notice (26 Sep 2026)",
+          "ICRA and India Ratings (22 May 2026) rationales",
+          "Q1 FY27 call transcript (17 Aug 2026)",
+          "Yahoo Finance prices",
+          "news on MSRTC/BEST/Telangana",
+          "MarketsMojo"
+        ],
+        "estDefinition": "EST = my estimate.",
+        "gaps": [
+          "X scan",
+          "language scorecard (single transcript)",
+          "RPT values",
+          "contingent amounts",
+          "auditor/CARO",
+          "NCLT and regulator checks",
+          "gross margin",
+          "one-offs",
+          "consensus estimates",
+          "Q2 FY27 results (not out)"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "consensus": {
+        "wouldBuy": 0,
+        "watchlist": 3,
+        "pass": 4,
+        "note": "7 investors · price ₹951, 30 Oct 2026"
+      },
+      "keyDisagreement": "Druckenmiller vs everyone else. Volumes are inflecting (358 buses in Q1, +122%), but the stock is in a downtrend and estimates are being cut. The quality camp sees ~21% ROCE built on related-party sales to the promoter's own SPVs, plus negative FCF.",
+      "tieBreaker": "Q2 FY27 deliveries ≥500 plus a signed MSRTC schedule. That would move Agrawal and Fisher toward buying; a formal cancellation confirms the pass.",
+      "investors": [
+        {
+          "name": "Buffett & Munger",
+          "stance": "PASS",
+          "criteriaLine": "Moat + high ROE/ROCE + owner earnings, then invert: what kills it, incentives",
+          "criteria": [
+            {
+              "mark": "◐",
+              "label": "ROE / ROCE",
+              "evidence": "ROE 10-yr 8%, 3-yr 13%; ROCE 21% FY26"
+            },
+            {
+              "mark": "✗",
+              "label": "Owner earnings",
+              "evidence": "FCF −₹36 / −₹55 cr (FY25–26)"
+            },
+            {
+              "mark": "✗",
+              "label": "Invert",
+              "evidence": "BYD tech + Evey (MEIL) as main buyer"
+            },
+            {
+              "mark": "✗",
+              "label": "Incentives",
+              "evidence": "MEIL is on both sides of the bus sale"
+            },
+            {
+              "mark": "✗",
+              "label": "Price vs value",
+              "evidence": "No-growth value ₹175 vs ₹951"
+            }
+          ],
+          "quote": "“The customer is the promoter's own company, and the technology is licensed from a Chinese rival. Invert it: lose BYD or Evey and what's left?”"
+        },
+        {
+          "name": "Terry Smith",
+          "stance": "PASS",
+          "criteriaLine": "High ROCE, gross margin, cash conversion, FCF yield",
+          "criteria": [
+            {
+              "mark": "✓",
+              "label": "ROCE",
+              "evidence": "21% FY26"
+            },
+            {
+              "mark": "◐",
+              "label": "Gross margin",
+              "evidence": "Not on Page (gap); EBITDA ~14%"
+            },
+            {
+              "mark": "✗",
+              "label": "Cash conversion",
+              "evidence": "CFO/EBITDA 103% → 59% → 46% (FY24–26)"
+            },
+            {
+              "mark": "✗",
+              "label": "FCF yield",
+              "evidence": "Negative"
+            }
+          ],
+          "quote": "“Returns look fine; the cash and the customer don't.”"
+        },
+        {
+          "name": "Greenblatt",
+          "stance": "PASS",
+          "criteriaLine": "Magic Formula: ROIC, earnings yield",
+          "criteria": [
+            {
+              "mark": "✓",
+              "label": "ROIC",
+              "evidence": "ROCE 21%"
+            },
+            {
+              "mark": "✗",
+              "label": "Earnings yield",
+              "evidence": "≈ 2.3% (1 ÷ P/E 44)"
+            },
+            {
+              "mark": "◐",
+              "label": "Special situation",
+              "evidence": "Order dispute resolution, not a clean catalyst"
+            }
+          ],
+          "quote": "“A decent return on capital at a 2–3% earnings yield isn't cheap.”"
+        },
+        {
+          "name": "Sleep & Zakaria",
+          "stance": "WATCHLIST",
+          "criteriaLine": "Nomad: scale economies shared, runway, destination",
+          "criteria": [
+            {
+              "mark": "✓",
+              "label": "Runway",
+              "evidence": "Bus EV penetration still low; large state tender pipeline"
+            },
+            {
+              "mark": "◐",
+              "label": "Scale economies shared",
+              "evidence": "Margins guided down to 12%"
+            },
+            {
+              "mark": "✗",
+              "label": "Destination",
+              "evidence": "Depends on GCC subsidies and the state's ability to pay"
+            },
+            {
+              "mark": "◐",
+              "label": "Hold 10 yrs",
+              "evidence": "BYD dependence; next-gen platform unproven"
+            }
+          ],
+          "quote": "“India's e-bus runway is long. I'd want proof the scale benefits Olectra, not just MEIL.”"
+        },
+        {
+          "name": "Raamdeo Agrawal",
+          "stance": "WATCHLIST",
+          "criteriaLine": "QGLP",
+          "criteria": [
+            {
+              "mark": "◐",
+              "label": "Quality",
+              "evidence": "ROCE 21%, but related-party debtors"
+            },
+            {
+              "mark": "✓",
+              "label": "Growth",
+              "evidence": "Revenue +28% FY26, Q1 +66%"
+            },
+            {
+              "mark": "◐",
+              "label": "Longevity",
+              "evidence": "Order book ~8,000, 75% legacy"
+            },
+            {
+              "mark": "✗",
+              "label": "Price",
+              "evidence": "PEG ≈ 1.7 (44x ÷ ~26% EPS CAGR EST)"
+            }
+          ],
+          "quote": "“Growth yes, but Quality and Price both need work.”"
+        },
+        {
+          "name": "Fisher",
+          "stance": "WATCHLIST",
+          "criteriaLine": "15 points: sales runway, R&D, margins, management candour",
+          "criteria": [
+            {
+              "mark": "✓",
+              "label": "Sales runway",
+              "evidence": "New tenders (Telangana, Rajasthan) still coming"
+            },
+            {
+              "mark": "◐",
+              "label": "R&D",
+              "evidence": "₹450 cr next-gen platform"
+            },
+            {
+              "mark": "✗",
+              "label": "Margins",
+              "evidence": "15% → guided 12%"
+            },
+            {
+              "mark": "◐",
+              "label": "Candour",
+              "evidence": "'No exact details' on order ageing"
+            }
+          ],
+          "quote": "“The product is accepted; a 4,000-bus fleet is real. Candour on old orders is lacking.”"
+        },
+        {
+          "name": "Druckenmiller",
+          "stance": "PASS",
+          "criteriaLine": "Liquidity, revisions, trend, asymmetry",
+          "criteria": [
+            {
+              "mark": "✗",
+              "label": "Revisions",
+              "evidence": "Margin guide cut; order book 10k → 8k"
+            },
+            {
+              "mark": "✗",
+              "label": "Flows",
+              "evidence": "FII 7.35%, DII 0.61%; shareholders 5.25 → 4.28 lakh"
+            },
+            {
+              "mark": "✗",
+              "label": "Trend",
+              "evidence": "−20% vs 200-DMA; death cross 23 Oct"
+            },
+            {
+              "mark": "✗",
+              "label": "Asymmetry",
+              "evidence": "Reward:risk 0.75x"
+            }
+          ],
+          "quote": "“Death cross, falling revisions, flat FII. Wait for the tape.”"
+        }
+      ],
+      "methodologyNote": "✓ pass · ◐ partial · ✗ fail. Criteria are each investor's documented rules (Buffett letters, Munger speeches; Smith, Fundsmith letters / Investing for Growth; Greenblatt, The Little Book That Beats the Market / You Can Be a Stock Market Genius; Nomad Partnership letters; Agrawal, Motilal Oswal Wealth Creation Studies; Fisher, Common Stocks and Uncommon Profits; Druckenmiller interviews) applied to this Page's own numbers; EST = estimate. The quotes are paraphrased views written for this exercise, not real statements. Paper analysis only, not advice."
+    },
+    "f14": {
+      "leadTitle": "Execution: pulled-back, so buy 40% now at ₹940–955; limits at ₹885–900 and ₹770–785",
+      "takeaways": [
+        "−17.6% vs the 50-DMA, −20% vs the 200-DMA, 40% off the high, RSI 27.",
+        "Typical range: 3.2% a day, 8% a week, 20% a month. Similar setups pulled back a median 6% in 1 month and 18% in 3 months.",
+        "Stop: close below ₹715. Unfilled by 13 Dec: buy the rest. Close above ₹1,154: buy the rest. Size ≤ ~5% at 1% risk."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "Screener consolidated (price 30 Oct 2026)",
+          "FY26 results and AGM notice (26 Sep 2026)",
+          "ICRA and India Ratings (22 May 2026) rationales",
+          "Q1 FY27 call transcript (17 Aug 2026)",
+          "Yahoo Finance prices",
+          "news on MSRTC/BEST/Telangana",
+          "MarketsMojo"
+        ],
+        "estDefinition": "EST = my estimate.",
+        "gaps": [
+          "X scan",
+          "language scorecard (single transcript)",
+          "RPT values",
+          "contingent amounts",
+          "auditor/CARO",
+          "NCLT and regulator checks",
+          "gross margin",
+          "one-offs",
+          "consensus estimates",
+          "Q2 FY27 results (not out)"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "state": "PULLED-BACK",
+      "priceLine": "Yahoo close ₹951.1, 30 Oct 2026",
+      "todaysAction": "Today's action: Buy 40% now at ₹940–955; place limits for 30% at ₹885–900 and 30% at ₹770–785.",
+      "extensionMeter": {
+        "title": "EXTENSION METER",
+        "columns": [
+          "",
+          ""
+        ],
+        "rows": [
+          [
+            "vs 20 / 50 / 200-DMA",
+            "−7.7% / −17.6% / −20.1%"
+          ],
+          [
+            "From 52-wk high ₹1,574",
+            "−39.6%"
+          ],
+          [
+            "RSI(14) · vs 50-DMA in ATR",
+            "27 · −6.6 ATR (ATR ₹30.7)"
+          ],
+          [
+            "Range daily / weekly / monthly (1-yr median)",
+            "3.2% / 8.0% / 20.0%"
+          ],
+          [
+            "Pullback from similar extension, 1 mo (median / 75th pct)",
+            "−6.2% / −18.4%"
+          ],
+          [
+            "Pullback from similar extension, 3 mo (median / 75th pct)",
+            "−18.4% / −25.5%"
+          ]
+        ]
+      },
+      "stagedEntry": {
+        "title": "STAGED ENTRY (3 TRANCHES)",
+        "columns": [
+          "",
+          "",
+          "",
+          ""
+        ],
+        "rows": [
+          [
+            "T1 40%",
+            "₹940–955",
+            "now",
+            "Oversold: RSI 27, 40% off the high"
+          ],
+          [
+            "T2 30%",
+            "₹885–900",
+            "limit",
+            "1-mo median pullback (−6.2%); above the ₹867 52-wk low"
+          ],
+          [
+            "T3 30%",
+            "₹770–785",
+            "limit",
+            "3-mo median pullback (−18.4%)"
+          ]
+        ]
+      },
+      "size": "1% of portfolio at risk ÷ ~19% (average ≈ ₹880 to the ₹715 stop) → position ≤ ~5% of portfolio (EST).",
+      "rules": [
+        {
+          "label": "Stop",
+          "text": "Close below ₹715 (T3 − 2 ATR)."
+        },
+        {
+          "label": "Time stop",
+          "text": "Any tranche unfilled by 13 Dec 2026 (6 weeks): buy the rest at market."
+        },
+        {
+          "label": "Runaway",
+          "text": "A close above the ₹1,154 50-DMA: buy the rest the next day. Don't chase more than 1 ATR (₹31) above it."
+        },
+        {
+          "label": "After entry",
+          "text": "No buying below T3 and never move the stop down. Exit on the stop the next session; don't freeze."
+        }
+      ],
+      "frameworkNote": "Framework: Lee Freeman-Shor, The Art of Execution (Assassins cut losers at a pre-set loss; Hunters add only in pre-planned tranches; Raiders take profits, Connoisseurs let winners run; never be a Rabbit who freezes). Evidence: George & Hwang (2004) 52-week-high momentum, with short-term mean reversion after extended moves. Price stats: Yahoo Finance daily closes (10 yrs) to 30 Oct 2026; pullback analogs = all days the stock closed 4+ ATR below its 50-DMA (n=125; today −6.6 ATR, so few exact matches); zones and sizes are EST. Paper analysis only, not advice."
+    },
+    "f15": {
+      "leadTitle": "Sell-side: thin and stale. 3 fundamental targets (₹1,574–1,732, median ₹1,707, +79%) are all from before the fall; the only recent call is a quant SELL",
+      "takeaways": [
+        "Headline-level only: no reports were read in full. Targets come from public news and aggregators, not broker PDFs, except Geojit's.",
+        "Only Geojit's Accumulate ₹1,732 (21 Aug 2025) is dated and primary. It values the stock at 40x FY27E EPS, which implies about ₹43. Ours is ₹27.4, about 37% lower.",
+        "JM Financial Buy ₹1,707 and ICICI Securities Neutral ₹1,574 come only from a Univest blog dated '2026' (when the price was ₹1,422). They are unverified.",
+        "Every 2025–26 technical Buy (Axis, LKP, Choice) has since hit its stop loss. MarketsMojo's quant SELL (28 Sep 2026) is the only call newer than 6 months."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "Screener consolidated (price 30 Oct 2026)",
+          "FY26 results and AGM notice (26 Sep 2026)",
+          "ICRA and India Ratings (22 May 2026) rationales",
+          "Q1 FY27 call transcript (17 Aug 2026)",
+          "Yahoo Finance prices",
+          "news on MSRTC/BEST/Telangana",
+          "MarketsMojo"
+        ],
+        "estDefinition": "EST = my estimate.",
+        "gaps": [
+          "X scan",
+          "language scorecard (single transcript)",
+          "RPT values",
+          "contingent amounts",
+          "auditor/CARO",
+          "NCLT and regulator checks",
+          "gross margin",
+          "one-offs",
+          "consensus estimates",
+          "Q2 FY27 results (not out)"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "consensusStrip": {
+        "title": "CONSENSUS STRIP · HEADLINE-LEVEL, REPORTS NOT READ IN FULL · price ₹951.1 (30 Oct 2026)",
+        "columns": [
+          "Metric",
+          "Value",
+          "Note"
+        ],
+        "rows": [
+          [
+            "Fundamental ratings found",
+            "3: 2 Buy/Accumulate, 1 Neutral, 0 Sell",
+            "Geojit, JM Financial, ICICI Securities"
+          ],
+          [
+            "Median target",
+            "₹1,707 (+79%)",
+            "Range ₹1,574–1,732 (+65% to +82%)"
+          ],
+          [
+            "Trendlyne consensus",
+            "₹1,732 (+82%)",
+            "A single broker (Geojit), so this is not a real consensus"
+          ],
+          [
+            "Quant/screen",
+            "MarketsMojo SELL",
+            "28 Sep 2026; the only call under 6 months old"
+          ],
+          [
+            "Staleness",
+            "All fundamental targets are STALE",
+            "Set at ₹1,420–1,530, before the 35–40% fall"
+          ]
+        ]
+      },
+      "calls": {
+        "title": "CALLS FOUND (upside vs ₹951.1)",
+        "columns": [
+          "Date",
+          "Broker",
+          "Type",
+          "Rating",
+          "Target",
+          "Upside",
+          "Thesis / estimates",
+          "Status",
+          "Source"
+        ],
+        "rows": [
+          [
+            "21 Aug 2025",
+            "Geojit BNP Paribas",
+            "Fundamental",
+            "Accumulate",
+            "₹1,732",
+            "+82%",
+            "Order book >10,000 buses; FY26 guidance of 2,000 buses; capacity ramp. Valued at 40x FY27E EPS (implies ~₹43)",
+            "STALE",
+            "gcc.geojit.net/researchdesk/SP20252108134905660olectraQ1.pdf"
+          ],
+          [
+            "'2026' (undated)",
+            "JM Financial",
+            "Fundamental",
+            "Buy",
+            "₹1,707",
+            "+79%",
+            "Not disclosed",
+            "UNVERIFIED",
+            "univest.in/blogs/olectra-greentech-stock-prediction-2026"
+          ],
+          [
+            "'2026' (undated)",
+            "ICICI Securities",
+            "Fundamental",
+            "Neutral",
+            "₹1,574",
+            "+65%",
+            "Not disclosed",
+            "UNVERIFIED",
+            "univest.in (same)"
+          ],
+          [
+            "28 Sep 2026",
+            "MarketsMojo",
+            "Quant",
+            "Sell",
+            "—",
+            "—",
+            "Score-based downgrade",
+            "Current",
+            "marketsmojo.com"
+          ],
+          [
+            "~Jun 2026",
+            "Choice Broking",
+            "Technical",
+            "Buy",
+            "₹1,400",
+            "+47%",
+            "Holding above key moving averages after a 60% rally from March; SL ₹1,235",
+            "Stopped out",
+            "news9live.com"
+          ],
+          [
+            "14 Apr 2026",
+            "LKP Securities",
+            "Technical",
+            "Buy",
+            "₹1,280",
+            "+35%",
+            "Broke out of a falling trendline; SL ₹1,160",
+            "Stopped out",
+            "businesstoday.in (14 Apr 2026)"
+          ],
+          [
+            "25 Aug 2025",
+            "Axis Securities",
+            "Technical",
+            "Buy",
+            "₹1,685/1,800",
+            "+77–89%",
+            "Trend reversal; SL ₹1,500",
+            "Stopped out, STALE",
+            "moneycontrol.com Trade Spotlight"
+          ],
+          [
+            "14–20 Aug 2025",
+            "Axis Securities",
+            "Technical",
+            "Buy",
+            "₹1,689–1,700",
+            "+78%",
+            "Broke the 1-year downtrend line; SL ₹1,430",
+            "Stopped out, STALE",
+            "zeebiz / businesstoday.in"
+          ]
+        ]
+      },
+      "trend": {
+        "title": "TREND (GEOJIT TARGET HISTORY)",
+        "columns": [
+          "Date",
+          "Rating",
+          "Target",
+          "Move"
+        ],
+        "rows": [
+          [
+            "25 Jun 2024",
+            "Buy",
+            "₹2,086",
+            "Peak"
+          ],
+          [
+            "11 Feb 2025",
+            "Accumulate",
+            "₹1,485",
+            "Downgrade, −29%"
+          ],
+          [
+            "21 Aug 2025",
+            "Accumulate",
+            "₹1,732",
+            "Raised, +17%"
+          ],
+          [
+            "Since",
+            "—",
+            "—",
+            "No public revision after Q4 FY26 or Q1/Q2 FY27"
+          ]
+        ]
+      },
+      "streetVsOurs": {
+        "title": "STREET VS OUR VIEW",
+        "columns": [
+          "Topic",
+          "Street",
+          "Ours"
+        ],
+        "rows": [
+          [
+            "Rating",
+            "Mostly Buy/Accumulate; Neutral at ICICI Securities",
+            "HOLD; R:R 0.75x"
+          ],
+          [
+            "Target",
+            "Median ₹1,707",
+            "₹1,123 (−34% vs the street)"
+          ],
+          [
+            "FY27E EPS",
+            "~₹43 (Geojit, implied)",
+            "₹27.4"
+          ],
+          [
+            "Order book",
+            ">10,000 buses, taken at face value",
+            "~75% disputed; SPV related-party buyer"
+          ],
+          [
+            "Forensics",
+            "Not discussed in the headlines",
+            "STRESSED (5 RED)"
+          ]
+        ]
+      },
+      "whatTheyMayKnow": {
+        "title": "WHAT THEY MAY KNOW THAT WE DO NOT",
+        "columns": [
+          "Item",
+          "Why it matters"
+        ],
+        "rows": [
+          [
+            "Management access on FY27/FY28 delivery schedules",
+            "The FY26 guide was 2,000 buses and FY27 is 2,500. Broker models may hold quarterly phasing"
+          ],
+          [
+            "Battery/chassis localisation and margin path",
+            "Drives whether FY27 EPS lands nearer ~43 or 27"
+          ],
+          [
+            "Status of the MSRTC/BEST dispute",
+            "Decides whether ~75% of the order book is real"
+          ],
+          [
+            "Gap",
+            "No public post-crash note was found. The street has not visibly reset to ₹951. Treat the targets as anchored to old prices"
+          ]
+        ]
+      },
+      "searchNote": "Searched Moneycontrol, Business Today, Trendlyne, Geojit and news aggregators (Oct–Nov 2026). Also searched X (May–Oct 2026, about 23 posts): no broker initiations, ratings or targets. X had only retail chart calls (₹1,400–1,660 targets), which are excluded. Two forward datapoints from X: the Q1 FY27 call guided 2,000–2,500 bus deliveries in FY27 with a 600–700 a quarter exit rate (x.com/Value_Tracking/status/2089393512081162528, 17 Aug 2026), and Business Standard reported a target of about 1,000 e-trucks in FY28 (x.com/bsindia/status/2086015957970096586, 8 Aug 2026). Coverage is thin. Treat this tab as a sentiment indicator, not as estimates."
+    },
+    "f16": {
+      "leadTitle": "Stakeholder lens: 2 RED (customers, competitors), 4 AMBER, 1 GREEN, 1 NO DATA. Stakeholder-adjusted P/E ~29x vs 44x (−15 turns, capped, EST)",
+      "takeaways": [
+        "Customers: related-party buyer Evey; PMPML ₹55 cr breakdown fine; ~75% of the order book on hold.",
+        "Competitors: share 23.5% → 19.6% (FY26) → 9.5% (H1 2026); CESL per-km price war.",
+        "Hidden: FDSS/safety compliance, plus contingent undertakings to Evey's lenders. Not advice."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "Screener consolidated (price 30 Oct 2026)",
+          "FY26 results and AGM notice (26 Sep 2026)",
+          "ICRA and India Ratings (22 May 2026) rationales",
+          "Q1 FY27 call transcript (17 Aug 2026)",
+          "Yahoo Finance prices",
+          "news on MSRTC/BEST/Telangana",
+          "MarketsMojo"
+        ],
+        "estDefinition": "EST = my estimate.",
+        "gaps": [
+          "X scan",
+          "language scorecard (single transcript)",
+          "RPT values",
+          "contingent amounts",
+          "auditor/CARO",
+          "NCLT and regulator checks",
+          "gross margin",
+          "one-offs",
+          "consensus estimates",
+          "Q2 FY27 results (not out)"
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "stripBanner": "STAKEHOLDER STRIP · base P/E ~44x · EST, not advice",
+      "adjustedMultiple": "Stakeholder-adjusted multiple (EST): sum of impacts -20x, capped at -15x → ~29x P/E (≈-34%). The impacts overlap (customers, regulator and competitors share causes), hence the cap.",
+      "topHiddenRisks": [
+        "Market-share collapse to 9.5% in H1 2026 amid per-km price wars.",
+        "Safety/regulatory: FDSS non-compliance, the PMPML ₹55 cr fine and blacklisting threat, and the BEST accident audit demand.",
+        "Undertakings to Evey's lenders: contingent leverage tied to state payers."
+      ],
+      "lenses": [
+        {
+          "name": "Government / policy",
+          "flag": "AMBER",
+          "multiple": "multiple −3x (EST)",
+          "who": "MHI (PM e-Drive), CESL, state transport bodies (STUs)",
+          "evidence": "PM e-Drive: 14,028 e-buses with a ₹4,391 cr outlay; grant = lowest of ₹10k/kWh, ₹35 lakh cap, or 20% of capital cost, paid 20/30/25/25 by milestone (CESL RfP). Olectra/Evey won 1,785 of 10,900 in Phase 1 (Mint). Maharashtra owes Evey ~₹860 cr; BEST has paid subsidy on only 10 of 686 buses (Q1 FY27 call). Promoter MEIL: ~₹966 cr of electoral bonds; CBI FIR Apr 2024.",
+          "hiddenRisk": "Demand is policy-made and paid out by cash-poor states. The 75% of the grant paid after operations start means buses that don't run earn no subsidy. Political ties cut both ways after a change of government."
+        },
+        {
+          "name": "Regulator / safety",
+          "flag": "AMBER",
+          "multiple": "multiple −2x (EST)",
+          "who": "SEBI/NSE, MCA, GST, ARAI/MoRTH (CMVR, AIS-135), STU safety audits",
+          "evidence": "50 new BEST e-buses parked without the mandatory fire detection and suppression system (FDSS, AIS-135) (PTI, Jun 2025). Pune Olectra bus fire, Sep 2024 (compressor/short circuit; the auto-suppression failed). BEST: 16 major incidents May–Jun 2026; activists want an independent audit of contractor-run Olectra buses (FPJ). DATA GAP: no SEBI/MCA/GST orders found.",
+          "hiddenRisk": "A formal MoRTH/ARAI safety audit or recall would hit the whole installed fleet and future tender eligibility, not just one city."
+        },
+        {
+          "name": "Customers",
+          "flag": "RED",
+          "multiple": "multiple −5x (EST)",
+          "who": "Evey (MEIL SPVs) as buyer; end users are STUs (MSRTC, BEST, PMPML, TGSRTC) and commuters",
+          "evidence": "Most buses go to related party Evey; ~75% of the order book (MSRTC ~4,000 + BEST ~2,000) is on hold. PMPML fined Olectra ₹55 cr after 45 battery breakdowns in 45 days, ordered cell replacement on 25 buses at Olectra's cost, and threatened blacklisting (HT, Sep 2025). Debtor days 156.",
+          "hiddenRisk": "Service failures turn into penalties under GCC contracts and reputation loss across STUs that talk to each other. The real customer (the STU) has no switching cost at the next tender."
+        },
+        {
+          "name": "Suppliers",
+          "flag": "AMBER",
+          "multiple": "multiple −3x (EST)",
+          "who": "BYD (technology licence), cell makers (China), FDSS/component vendors",
+          "evidence": "BYD technology licence; LFP cells imported (EST, likely China). Next-gen platform with a local battery slipped to Q4 FY27 (F11). PM e-Drive requires minimum domestic value addition (phased manufacturing programme). Payable days 153; LC limits ₹935 cr.",
+          "hiddenRisk": "A geopolitical or duty shock on Chinese cells, or BYD terms changing, hits both cost and subsidy eligibility. Delayed FDSS supply already stalled deliveries."
+        },
+        {
+          "name": "Employees",
+          "flag": "AMBER",
+          "multiple": "multiple −1x (EST)",
+          "who": "331 permanent staff, 96 other, 1,403 contract workers",
+          "evidence": "Permanent-employee turnover 35% → 37.9% → 52% (BRSR FY24–26). AmbitionBox 3.3, culture 2.8; Glassdoor 3.3, senior management 2.9. 0 permanent workers. Details in F4.",
+          "hiddenRisk": "Service quality (breakdowns, FDSS fits) depends on a churning, contract-heavy workforce. This links to lens 3."
+        },
+        {
+          "name": "Lenders / capital",
+          "flag": "GREEN",
+          "multiple": "multiple −1x (EST)",
+          "who": "Banks (LC, term loans), ICRA, India Ratings, Evey's lenders",
+          "evidence": "IND A/Stable (upgraded May 2026); ICRA positive outlook. Debt ₹380 cr ≈ 1.1x EBITDA. AGM Sep 2026 approved undertakings to Evey lenders and MEIL guarantees/loans. CareEdge: GCC bankability depends on payment security, escrow and DSRA, and STUs paying on time.",
+          "hiddenRisk": "The undertakings to Evey lenders are effectively contingent, off-balance-sheet leverage tied to state payers. DATA GAP: amount."
+        },
+        {
+          "name": "Community & environment",
+          "flag": "NO DATA",
+          "multiple": "multiple 0x (EST)",
+          "who": "Plant locality (Telangana), regulators for battery waste/EPR, ESG investors",
+          "evidence": "BRSR FY26 filed but not assured (assurance: NA). DATA GAP: Battery Waste Management Rules EPR registration and recycling volumes, plant land/approval disputes. Positive: e-bus lifecycle cost ~15–20% below AC diesel (CareEdge).",
+          "hiddenRisk": "Battery end-of-life liability grows as the 2019-era fleet ages (Pune buses already past 5 years)."
+        },
+        {
+          "name": "Competitors / entrants",
+          "flag": "RED",
+          "multiple": "multiple −5x (EST)",
+          "who": "Switch, JBM, PMI, EKA/Pinnacle, Tata, VECV",
+          "evidence": "Olectra share 23.5% (FY25) → 19.6% (FY26, 853 units) → 9.5% (H1 2026, 4th; Switch 28.2%) (Vahan via BusinessLine, Sustainable Bus). CESL Phase 1: PMI 5,210, EKA 3,485, Olectra 1,785; per-km rates 'lower than estimates', some bids ₹5–18/km apart (Mint, ETAuto). Top 4 capacity ~32,000/yr vs 2026 market ~6,000.",
+          "hiddenRisk": "Overcapacity plus per-km price wars squeeze Evey's economics, which then pushes on Olectra's bus price. 'Pioneer' status no longer wins tenders."
+        }
+      ],
+      "wantsNote": "What each stakeholder wants: Government wants cheap, reliable buses with local content. Regulators want safety compliance. STUs want uptime at a low per-km fee. Suppliers want volume. Employees want stability and growth. Lenders want escrowed cash flows. Community wants clean air and safe battery disposal. Rivals want share. Sources: CESL PM e-Drive RfP; Mint/ETAuto (Dec 2025); Hindu BusinessLine, Sustainable Bus (Vahan); CareEdge e-bus report (2026); Hindustan Times, Indian Express, TOI, PTI, Free Press Journal; BRSR FY26; earlier tabs. Multiples are judgemental estimates (EST). DATA GAPs are flagged."
+    },
+    "f17": {
+      "kind": "upload_placeholder"
+    }
+  }
+}

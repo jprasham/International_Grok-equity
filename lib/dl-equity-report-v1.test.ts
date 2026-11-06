@@ -1,3 +1,5 @@
+import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import * as v1 from "./dl-equity-report-v1";
 import { DL_EQUITY_REPORT_SCHEMA, DL_TAB_LABELS, parseDlEquityReportV1 } from "./dl-equity-report-v1";
@@ -391,5 +393,87 @@ describe("parseDlEquityReportV1", () => {
 
   it("rejects a rating outside BUY/HOLD/REDUCE/U", () => {
     expectRejected((r) => void (r.chrome.ratingPaper = "STRONG BUY"), "chrome.ratingPaper");
+  });
+});
+
+const loadFixture = (name: string) => JSON.parse(readFileSync(join("fixtures", `${name}-v1.json`), "utf8"));
+
+describe.each(["olectra", "hfcl", "xss-probe"])("fixtures/%s-v1.json", (name) => {
+  it("parses, with F1–F16 present and F17 as the upload slot", () => {
+    const result = parseDlEquityReportV1(loadFixture(name));
+    expect(result.ok ? [] : result.errors).toEqual([]);
+    if (!result.ok) return;
+    expect(Object.keys(result.data.panels)).toEqual(DL_TAB_LABELS.map((_, i) => `f${i + 1}`));
+    expect(result.data.panels.f17).toEqual({ kind: "upload_placeholder" });
+  });
+
+  it("fails when malformed", () => {
+    const report = loadFixture(name);
+    delete report.panels.f7;
+    expect(parseDlEquityReportV1(report)).toMatchObject({ ok: false });
+    expect(parseDlEquityReportV1({ ...loadFixture(name), schema: "dl-equity-report/v0" })).toMatchObject({ ok: false });
+  });
+});
+
+describe("fixture content", () => {
+  it.each(["olectra", "hfcl"])("%s keeps the frozen column taxonomy", (name) => {
+    const { panels: p } = loadFixture(name);
+    expect(p.f7.pl.columns).toEqual(v1.F7_PL_COLUMNS);
+    expect(p.f15.calls.columns).toEqual(v1.F15_CALLS_COLUMNS);
+    for (const category of p.f2.categories) expect(category.checks.columns).toEqual(v1.F2_CHECK_COLUMNS);
+    expect(p.f2.dataGaps.columns).toEqual(v1.F2_DATA_GAPS_COLUMNS);
+  });
+
+  it.each(["olectra", "hfcl"])("%s F2 counts agree with its check rows and DATA GAPS", (name) => {
+    const { f2 } = loadFixture(name).panels;
+    const ids = (rows: string[][]) => rows.map((r) => r[0]);
+    let unknown = 0;
+    for (const { counts, checks } of f2.categories) {
+      const of = (verdict: string) => checks.rows.filter((r: string[]) => r[3] === verdict).length;
+      expect([of("RED"), of("AMBER"), of("GREEN")]).toEqual([counts.r, counts.a, counts.g]);
+      unknown += counts.u;
+    }
+    expect(f2.dataGaps.rows).toHaveLength(unknown);
+    const scored = f2.categories.flatMap((c: { checks: { rows: string[][] } }) => ids(c.checks.rows));
+    expect(new Set([...scored, ...ids(f2.dataGaps.rows)]).size).toBe(31);
+  });
+
+  it("stores the OLECTRA reward:risk values as captured and U for the missing chrome", () => {
+    const { chrome, footer, panels } = loadFixture("olectra");
+    expect(panels.f10.rewardRisk.strip).toBe("Reward : risk 0.76x · ASYMMETRIC UNFAVOURABLE");
+    expect(panels.f10.leadTitle).toContain("0.75x");
+    expect(chrome.kicker).toBe("EQUITY RESEARCH · U · AS OF U · PAPER ANALYSIS ONLY, NOT ADVICE");
+    expect(footer.asOfIst).toBe("U");
+  });
+
+  it("keeps the HFCL normalisations visible in the gaps", () => {
+    const { f4, f1, f3 } = loadFixture("hfcl").panels;
+    expect(f4.signalStrip.rows.map((r: string[]) => r[2])).not.toContain("GREEN (limited)");
+    expect(f4.sourcesAndGaps.gaps.join(" ")).toContain("GREEN (limited)");
+    expect(f1.sourcesAndGaps.gaps.join(" ")).toContain("LIVE PRICE SNAPSHOT");
+    expect(f3.sourcesAndGaps.gaps.join(" ")).toContain("MODEL INPUTS & UNCERTAINTY");
+  });
+
+  it("carries the XSS strings through parsing untouched", () => {
+    const result = parseDlEquityReportV1(loadFixture("xss-probe"));
+    expect(result.ok && result.data.panels.f1.leadTitle).toContain("<script>");
+  });
+
+  // _reference is local-only, so this guards regeneration on the machine that has it.
+  it.skipIf(!existsSync("_reference"))("invents no numbers: every figure appears in the stored source", () => {
+    const numbers = (text: string) => text.match(/\d[\d,.]*\d|\d/g) ?? [];
+    const panelsDir = join("_reference", "olectra-panels");
+    const olectra = readdirSync(panelsDir).filter((f) => f.endsWith(".txt")).map((f) => readFileSync(join(panelsDir, f), "utf8")).join("\n");
+    const sources: Record<string, string> = {
+      olectra: olectra + readFileSync(join("_reference", "equity-terminal-olectra-report-spec.md"), "utf8"),
+      hfcl: readFileSync(join("_reference", "hfcl-research-sample.html"), "utf8"),
+    };
+    for (const [name, source] of Object.entries(sources)) {
+      const known = new Set(numbers(source));
+      // Strings only: the parsed F2/F13 counts are structural and re-checked against the rows above.
+      const strings: string[] = [];
+      JSON.stringify(loadFixture(name), (_key, value) => (typeof value === "string" && strings.push(value), value));
+      expect(strings.flatMap(numbers).filter((n) => !known.has(n))).toEqual([]);
+    }
   });
 });

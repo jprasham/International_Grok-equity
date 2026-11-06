@@ -1,0 +1,2242 @@
+{
+  "schema": "dl-equity-report/v1",
+  "chrome": {
+    "kicker": "EQUITY RESEARCH · TELECOM / OPTICAL CONNECTIVITY · AS OF 6 NOV 2026 IST · PAPER ANALYSIS ONLY, NOT ADVICE",
+    "companyLine": "HFCL Limited (NSE: HFCL)",
+    "thesis": "Optical demand accelerates; cash conversion, dilution and cycle durability decide per-share value.",
+    "ratingPaper": "HOLD",
+    "target": "₹216.68",
+    "price": "₹210.66 (6 Nov 2026, 15:59 IST)",
+    "tabs": [
+      "F1 Summary",
+      "F2 Forensic & BS",
+      "F3 Scorecard",
+      "F4 Management",
+      "F5 Sentiment",
+      "F6 Business",
+      "F7 Financials",
+      "F8 Growth/ROCE",
+      "F9 Calls",
+      "F10 Price ranges",
+      "F11 Franchise",
+      "F12 Cost & downside",
+      "F13 Investors' lens",
+      "F14 Execution",
+      "F15 Sell-side",
+      "F16 Stakeholders",
+      "F17 Your research (uploaded)"
+    ]
+  },
+  "footer": {
+    "disclaimer": "Paper analysis only, not advice.",
+    "asOfIst": "6 Nov 2026 IST",
+    "priceDate": "6 Nov 2026 15:59 IST",
+    "sourcesSummary": "NSE/BSE, CARE, two call mirrors, dated Upstox quote, broker news",
+    "estUDisclaimer": "EST scenarios/Ugaps. No claim of exact visual parity or exhaustive diligence."
+  },
+  "panels": {
+    "f1": {
+      "leadTitle": "A fibre-cycle acceleration, not yet a proven cash compound er",
+      "takeaways": [
+        "Q2 FY27 consolidated sales ₹2,541.79 cr and PAT₹394.22 cr; H1 sales ₹4,456.77 cr. FY27 growth aspiration raised to≥80% (S4/S6). Hyperscaler connectivity, not telecom EPC, drives the inflection.",
+        "FY26 audited CFO−₹378.13 cr versus group PAT₹329.44 cr. H1 FY27 CFO₹455.27 cr is a constructive recovery (reported summary), still only 71.2% ofH1PAT.",
+        "Paper HOLD at ₹210.66 (6 Nov 2026 15:59 IST). Weighted EST₹216.68; scenario reward:risk 0.47 x unfavourable. Format sample, not a buy/sell instruction."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "S2 BSE audited consolidated FY26 XBRL",
+          "S4 Q2 FY27 transcript mirror",
+          "S6 NSE Q2 FY27 investor presentation",
+          "S7 Upstox NSE quote and financial tables"
+        ],
+        "estDefinition": "FACT=reported retrieved value; EST=analyst assumption/calculation; U=not verified.",
+        "gaps": [
+          "H1 CFO ₹455.27 cr is sourced to S13 Quartr Q2 summary; summary-only, not a full primary interim cash-flow verification.",
+          "Retrieved 6 Nov 2026 IST. Current statutory diluted-share reconciliation, primary contract terms and full annual-report notes unavailable. Quote current on retrieval date; independent exchange-close certification U.",
+          "Standalone format sample. Static navigation with all sections expanded. No JavaScript, external assets, uploads or callback s. Financial cutoff Sep 2026; primary FY26 audit. Some primary documents accessible only as indexed excerpts, not full PDFs. EST/U labelled inside each section.",
+          "F17 source body, kept out because F17 is upload-only: OnlyF17 label verified in reference; original panel body unavailable. No fabricated uploaded analysis or working upload control.",
+          "Source section with no v1 slot, LIVE PRICE SNAPSHOT: CMP: ₹210.66; NSE HFCL, S7 | As of: 6 Nov 2026 15:59 IST; dated broker quote, not direct NSE bhavcopy | 52W range: ₹59.82–282.25; constituent dates U | Market cap: ₹34,943.65 cr as displayed; cap/price imply 165.88 cr shares | Financial cutoff: Q2/H1 ended 30 Sep 2026; audited FY26. Mar balance sheet not represented asSep."
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "topInsights": [
+        "Product mix matters more than capacity alone. FY26 telecomproducts ₹2,931.01 cr versus EPC₹1,875 cr; Q2 call data-centre share 65–75% refers to relevant telecom revenue, not all group sales.",
+        "Book≈₹28,900 cr spans manufacturing/service contracts of heterogeneous duration. It is not one-year non-can cell able take-or-pay revenue.",
+        "Per-share value is dilution-sensitive. Mar 2026 paid-up 153.03 cr shares differs from current cap/price implied 165.88 cr. Model 170 cr shares and 5% NCI haircut are EST, not verified future ownership."
+      ]
+    },
+    "f2": {
+      "leadTitle": "STRESSED: cash/capital intensity with a genuine growth counter-case",
+      "takeaways": [
+        "Four RED cash/dilution checks warrant scrutiny, not fraud conclusions.",
+        "Active CARE upgrade and coverage reduce solvency concern, not WC risk.",
+        "WATCH requires sustained CFO, diluted share reconciliation and milestone collections."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "S2 BSE audited consolidated FY26 XBRL",
+          "S3 CARE rating rationale",
+          "S4 Q2 FY27 transcript mirror",
+          "S5 Q1 FY27 transcript mirror",
+          "S7 Upstox NSE quote and financial tables",
+          "S11 Value Research cash-flow review",
+          "S12 NSE FY26 results comparative cash flow"
+        ],
+        "estDefinition": "FACT=reported retrieved value; EST=analyst assumption/calculation; U=not verified.",
+        "gaps": [
+          "H1 CFO ₹455.27 cr is sourced to S13 Quartr Q2 summary; summary-only, not a full primary interim cash-flow verification.",
+          "Retrieved 6 Nov 2026 IST. Use consolidated BSE CFO, notS11 conflicting−422/527 series. CARE ratios different perimeter. Full RPT, audit notes, legal checks and ageing remain U.",
+          "Thresholds of the U checks, which leave the check tables for DATA GAPS: 2.2 >25% agedA; 4.2 >10% NWA; 4.5 <10% G; 6.3 >+500 bpA; 7.1 Non cash disposal gains A; 7.7 Substantiated adverse action R; 7.5 Adverse proceeding R; 7.3 RPT>5% A; 7.9 Mismatch A.",
+          "Source section with no v1 slot, CATEGORY SCORECARD · TAP A ROW FOR ITS CHECKS: Static sample: all categories expanded. U checks repeat in data gap index, not double counted.",
+          "SUB-TABS · Verified empty UI shell; no invented buttons."
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "combinedVerdict": "STRESSED cash conversion, not a fraud verdict. Schilit lens: milestone revenue/customer opacity and fast mix shift. Mulford lens: weak multi-year CFO/PAT and negative FCF. Insider lens: warrants, cash issue/dilution, not assumed insider selling. Tice lens: FY26 inventory absorbed 517.15 cr and other current assets 357.96 cr (S2); earnings must convert. H1 FY27CFO recovery is a genuine counter-signal.",
+      "deduplicationNote": "De-duplicated:1.1/7.10 share CFO;1.2 adds cash capex.2.1/2.2/2.3 share collection evidence.7.8/7.11 share financing. Tallies count checks, not independent risk events. Thresholds are inherited screens; discretionary flags where exact trigger unavailable are explained.",
+      "stress": {
+        "headline": "STRESSED: cash/capital intensity with a genuine growth counter-case",
+        "why": "profits/orders accelerate, but historical cash deficit needed financing.",
+        "tally": "31 checks: 4 RED · 12 AMBER · 6 GREEN · 9 not checked."
+      },
+      "categories": [
+        {
+          "name": "Cash conversion",
+          "counts": {
+            "r": 3,
+            "a": 1,
+            "g": 0,
+            "u": 0
+          },
+          "summary": "Cash remains the gating metric.",
+          "checks": {
+            "title": "Cash conversion",
+            "columns": [
+              "#",
+              "Check",
+              "Threshold",
+              "Verdict",
+              "Evidence"
+            ],
+            "rows": [
+              [
+                "1.1",
+                "3-yr CFO/PAT",
+                "≥0.7 xG / <0.5 xR",
+                "RED",
+                "FY24–26 CFO−44.87+395.99−378.13=−27.01; PAT 337.52+173.26+329.44=840.22; −0.032 x (S2/S7)."
+              ],
+              [
+                "1.2",
+                "FCF while profit rises",
+                "FCF negative 2 yrs=R",
+                "RED",
+                "FY25 CFO 395.99−PPE 230.17−intangibles 179.03=−13.21; FY26−378.13−230.18−115.13=−723.44 cr (S2/S12). PAT rose FY26, not both years."
+              ],
+              [
+                "1.3",
+                "Factoring / supplier finance",
+                "Disclosed=G",
+                "AMBER",
+                "FY26 operational buyers credit 151.95 cr disclosed (S2); factoring/recourse terms U. Not evidence of hidden debt."
+              ],
+              [
+                "7.10",
+                "2-yr CFO/PAT",
+                "<0.5 xR",
+                "RED",
+                "FY25–26 CFO 17.86/PAT 502.70=0.036 x; shares evidence with 1.1, not an independent fraud signal."
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Receivables, WC & inventory",
+          "counts": {
+            "r": 0,
+            "a": 3,
+            "g": 0,
+            "u": 1
+          },
+          "summary": "Milestones and public-payer timing matter.",
+          "checks": {
+            "title": "Receivables, WC & inventory",
+            "columns": [
+              "#",
+              "Check",
+              "Threshold",
+              "Verdict",
+              "Evidence"
+            ],
+            "rows": [
+              [
+                "2.1",
+                "Debtor days; WC cycle",
+                ">180 dA / >300 dR",
+                "AMBER",
+                "FY26 closing current receivables 2212.18/sales 4949.27×365=163.14 d, not average DSO. CARE perimeter collection 174 d/cycle 191 d (S3); perimeter/CCC trigger warrants A."
+              ],
+              [
+                "2.3",
+                "Related / govt debtors",
+                ">50% A",
+                "AMBER",
+                "CARE≈57% debtors strong counter parties inc l BSNL/state entities (S3). Credit worthiness is not prompt collection; no related-buyer allegation inferred."
+              ],
+              [
+                "3.1",
+                "Inventory days",
+                "Rising 2 yrsA",
+                "AMBER",
+                "Consolidated inventory≈774(FY24),899(FY25),1415.99(FY26)cr; CARE days 85→106, different perimeter. Inventory outgrew sales (S2/S11)."
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Leverage & debt service",
+          "counts": {
+            "r": 0,
+            "a": 3,
+            "g": 1,
+            "u": 2
+          },
+          "summary": "Coverage adequate, funding intensity material.",
+          "checks": {
+            "title": "Leverage & debt service",
+            "columns": [
+              "#",
+              "Check",
+              "Threshold",
+              "Verdict",
+              "Evidence"
+            ],
+            "rows": [
+              [
+                "4.1",
+                "ND/EBITDA; ST funds LT",
+                ">2 xA",
+                "AMBER",
+                "Narrow ND389.88+1323.49−37.67=1675.70 cr/adjusted EBITDA 826.75=2.03 x. Excludes buyer credit/leases; restricted cash U(S2)."
+              ],
+              [
+                "4.3",
+                "Pledges; WC util is ation",
+                "Util>75% A / >90% R",
+                "AMBER",
+                "CARE fund based average util≈81% over 12 months to Apr 2026; non fund≈72%(S3). Current pledge U; flag based on util is ation only."
+              ],
+              [
+                "4.4",
+                "ICR; debt/GCA",
+                "ICR≥2.5 xG",
+                "GREEN",
+                "FY26E BIT including other income=PBT 427.68+interest 242.06=669.74; coverage 2.77 x. CARE3.30 x different perimeter(S2/S3)."
+              ],
+              [
+                "7.2",
+                "Finance cost vs debt",
+                "Moves with debt G",
+                "AMBER",
+                "Finance 242.06/closing borrowings 1713.37=14.13%; not yield because fees and closing not average debt. Average bridge U."
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Earnings quality & one-offs",
+          "counts": {
+            "r": 0,
+            "a": 2,
+            "g": 1,
+            "u": 2
+          },
+          "summary": "Mix shift requires operating/non operating bridge.",
+          "checks": {
+            "title": "Earnings quality & one-offs",
+            "columns": [
+              "#",
+              "Check",
+              "Threshold",
+              "Verdict",
+              "Evidence"
+            ],
+            "rows": [
+              [
+                "6.1",
+                "H2 vs H1 margin; Q4 lumping",
+                ">300 bp below A",
+                "AMBER",
+                "FY26 Q4PAT184.45/annual 329.44=56.0%(S2). Concentration flag, not exact margin trigger; fullH1/H2 margin bridge U."
+              ],
+              [
+                "6.5",
+                "Revenue quality / margin",
+                "±200 bpG",
+                "AMBER",
+                "Q2 adjusted 25.89% vsQ123.25%=+264 bp. Nuvama operating 24.8% different from company adjusted 25.89%; classification not sales fraud(S4/S8)."
+              ],
+              [
+                "6.2",
+                "Recurring one-offs",
+                "Item is e/recurring A",
+                "GREEN",
+                "FY26 exceptional line 0; other income 65.25 cr separately disclosed(S2). GREEN limited to exceptional line, not all adjustments."
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Growth / order-book quality",
+          "counts": {
+            "r": 0,
+            "a": 1,
+            "g": 0,
+            "u": 0
+          },
+          "summary": "Duration/concentration constrain book visibility.",
+          "checks": {
+            "title": "Growth / order-book quality",
+            "columns": [
+              "#",
+              "Check",
+              "Threshold",
+              "Verdict",
+              "Evidence"
+            ],
+            "rows": [
+              [
+                "6.4",
+                "Order-book quality",
+                "OB1.5–4 x; top<25% G",
+                "AMBER",
+                "28900/4949.27=5.84 xFY26 sales; large hyperscaler exposure, NDA customer profile,4–5 yr durations(S4). Exact top customer% U."
+              ]
+            ]
+          }
+        },
+        {
+          "name": "External watchers",
+          "counts": {
+            "r": 0,
+            "a": 0,
+            "g": 4,
+            "u": 2
+          },
+          "summary": "Rating improvement real; legal review incomplete.",
+          "checks": {
+            "title": "External watchers",
+            "columns": [
+              "#",
+              "Check",
+              "Threshold",
+              "Verdict",
+              "Evidence"
+            ],
+            "rows": [
+              [
+                "5.1",
+                "Rating history (P1)",
+                "Outlook cutA",
+                "GREEN",
+                "CAREA/Positive, A1 upgraded from A−/Stable, A2+ on 14 Jul 2026(S3). Not an equity endorsement."
+              ],
+              [
+                "5.2",
+                "Auditor / EoM / CARO",
+                "Unmodified G; qualification R",
+                "GREEN",
+                "FY26 consolidated XB RL unmodified opinion declaration; S Bhandari&CoLLP/Oswal Sunil&Company(S2). Full KAM/EoM/CAROU; flag limited to declaration."
+              ],
+              [
+                "7.4",
+                "Rating INC / advisory",
+                "Any INC R",
+                "GREEN",
+                "Retrieved CARE action active upgrade, not INC(S3); subsequent/other agency actions U."
+              ],
+              [
+                "7.6",
+                "CFO / CS / auditor churn",
+                "Unexplained exits A",
+                "GREEN",
+                "Same MD/CFO/CS named Jul 22/Oct 19 calls(S4/S5). GREEN only for observed 3 month continuity; longer history U."
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Integrity, capital & related parties",
+          "counts": {
+            "r": 1,
+            "a": 2,
+            "g": 0,
+            "u": 2
+          },
+          "summary": "Dilution verified; abuse not established.",
+          "checks": {
+            "title": "Integrity, capital & related parties",
+            "columns": [
+              "#",
+              "Check",
+              "Threshold",
+              "Verdict",
+              "Evidence"
+            ],
+            "rows": [
+              [
+                "5.3",
+                "Promoter selling, FII exit",
+                "Big cutA",
+                "AMBER",
+                "S7FII7.08% Mar→17.24% Sep. S11 promoter≈39% FY23→≈29% largely capital raising, not proven insider sale. Exact transaction bridge U."
+              ],
+              [
+                "7.8",
+                "Issue price; raise while CFO neg",
+                "Raise with CFO negative R",
+                "RED",
+                "FY26 CFO−378.13 cr with net share issue cash 543.62 cr(S2). Funding dependence screen, not fraud. Issue fairness U."
+              ],
+              [
+                "7.11",
+                "Promoter quasi-equity propping",
+                "AnyA",
+                "AMBER",
+                "CARE promoter group warrants 555 cr/QIP550 cr(S3). Commitment value not full cash received; dilution risk."
+              ]
+            ]
+          }
+        }
+      ],
+      "dataGaps": {
+        "title": "DATA GAPS · 9 CHECKS NOT SCORED",
+        "columns": [
+          "#",
+          "Check",
+          "Category",
+          "What is missing"
+        ],
+        "rows": [
+          [
+            "2.2",
+            "Ageing, un billed, retention",
+            "Receivables, WC & inventory",
+            "CARE un billed 906 cr, security deposits 418 cr; full consolidated aged buckets not read. Cannot score overdue 25% threshold."
+          ],
+          [
+            "4.2",
+            "Guarantees, contingents",
+            "Leverage & debt service",
+            "Full guarantee/legal/cross default notes not read; no zero assumed."
+          ],
+          [
+            "4.5",
+            "Group exposure; TOL/ATNW",
+            "Leverage & debt service",
+            "Equity accounted investment 23.24 cr does not capture all group guarantees/adjusted net worth. Need notes."
+          ],
+          [
+            "6.3",
+            "Margin vs peers",
+            "Earnings quality & one-offs",
+            "Analysts challenged high product margins(S4¶136–140); no audited like for like peer panel to score 500 bp."
+          ],
+          [
+            "7.1",
+            "Asset sales for paper",
+            "Earnings quality & one-offs",
+            "Full gains/disposal notes unread. Investing proceeds 12.11 cr not proof of paper profits(S2)."
+          ],
+          [
+            "7.7",
+            "ED / SEBI / CBI",
+            "External watchers",
+            "No exhaustive entity-specific regulator/order search. No assertion of absence."
+          ],
+          [
+            "7.5",
+            "NCLT / IBC",
+            "External watchers",
+            "Cause lists/subsidiary cases not checked."
+          ],
+          [
+            "7.3",
+            "Counter party = shareholder",
+            "Integrity, capital & related parties",
+            "Full RPT values/customer shareholder map not read. Ordinary course approval not proof of immaterial it y; no reference issuer facts imported."
+          ],
+          [
+            "7.9",
+            "AR vs public records",
+            "Integrity, capital & related parties",
+            "No full MCA/NSE/AR capital/RPT reconciliation. Current cap implied shares above Mar paid up(S2/S7)."
+          ]
+        ]
+      }
+    },
+    "f3": {
+      "leadTitle": "Scorecard: incomplete inputs are not false precision",
+      "takeaways": [
+        "Cash quality is demonstrably weak FY24–26; stronger evidence than an estimated manipulation label.",
+        "A high market value alone must not yield an Altman safe certificate.",
+        "Statistical screens prior it is e diligence, not diagnose fraud or insolvency."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "S2 BSE audited consolidated FY26 XBRL",
+          "S3 CARE rating rationale",
+          "S7 Upstox NSE quote and financial tables"
+        ],
+        "estDefinition": "FACT=reported retrieved value; EST=analyst assumption/calculation; U=not verified.",
+        "gaps": [
+          "Retrieved 6 Nov 2026 IST. Retained earnings, COGS/gross margin bridge, depreciation rates, average capital and two-year asset quality series U. Un scored models are evidence gaps, not favourable outcomes.",
+          "Source section with no v1 slot, MODEL INPUTS & UNCERTAINTY: Data:audited FY26(S2), historical comparatives(S7), current quote(S7). Confidence HIGH for XB RL cells, MEDIUM for secondary historical s, LOW for un performed composites. Full models withheld until line items reconcile. No fabricated governance/manipulation risk probability."
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "scorecard": {
+        "title": "SCORECARD (EST)",
+        "columns": [
+          "Model",
+          "Score",
+          "Read"
+        ],
+        "rows": [
+          [
+            "Altman Z",
+            "U — no valid complete score",
+            "Original listed manufacturer Z=1.2WC/TA+1.4RE/TA+3.3EBIT/TA+0.6MV/TL+Sales/TA. FY26 WC3336.40/TA8867.58=.376; EBIT669.74/TA=.0755. Retained earnings separate from premiums U; current MVv sold liabilities mismatch. No zone assigned."
+          ],
+          [
+            "Piotroski F",
+            "U — no invented 5/9",
+            "FY26 positive PAT pass, positive CFO fail, CFO>PAT fail, no-dilution fail. ROA/leverage/liquidity/gross margin/turnover need aligned averages and capital definitions. Partial observations not full F score."
+          ],
+          [
+            "Beneish M",
+            "U — no complete 8-index model",
+            "Need DSRI, GMI, AQI, SGI, DEPI, SGAI, LVGI, TATA for FY25/FY26. SGI4949.27/4064.52=1.218 x verified; seven other indices not fully reconciled. Acquisition/mix changes distort calibration. No“borderline”invented."
+          ],
+          [
+            "Schilit + Mulford",
+            "4R /12A inherited screens",
+            "Not probabilities.3 yrCFO/PAT−0.032 x;2 yr 0.036 x. De duplicate cash/financing evidence(F2)."
+          ],
+          [
+            "Interest cover",
+            "2.77 x(FY26 calculated)",
+            "(PBT 427.68+finance 242.06)/242.06. Includes other income; CARE3.30 x different perimeter."
+          ]
+        ]
+      }
+    },
+    "f4": {
+      "leadTitle": "Founder-led expansion needs minority-shareholder discipline",
+      "takeaways": [
+        "Mahendra Nahata is promoter/MD; V.R. Jain CFO; Manoj Baid CS on both July and October calls (S4/S5).",
+        "QIP, warrants and acquisitions mean revenue consolidation can out pace listed-owner earnings. The model explicitly allows for minorities and dilution.",
+        "No fabricated culture ratings, event-study returns or appointment dates."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "S2 BSE audited consolidated FY26 XBRL",
+          "S4 Q2 FY27 transcript mirror",
+          "S5 Q1 FY27 transcript mirror",
+          "S7 Upstox NSE quote and financial tables",
+          "S11 Value Research cash-flow review"
+        ],
+        "estDefinition": "FACT=reported retrieved value; EST=analyst assumption/calculation; U=not verified.",
+        "gaps": [
+          "Retrieved 6 Nov 2026 IST. Exact promoter/pledge, remuneration, BRSR, full KMP filing log and transaction ownership remain U.",
+          "Source flags GREEN (limited) on: CFO continuity, Audit declaration. The schema allows only GREEN here."
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "ownership": {
+        "title": "OWNERSHIP",
+        "columns": [
+          "Item",
+          "Value"
+        ],
+        "rows": [
+          [
+            "Promoter/group",
+            "Approximately 29% in S11 review; exact September filing U. S7 residual after named categories 28.29%, not independently verified promoter stake."
+          ],
+          [
+            "FII / MF / other DII (Sep 2026)",
+            "17.24% /8.03% /2.35% (S7 broker table); statutory filing not read."
+          ],
+          [
+            "MD / CFO / CS",
+            "Mahendra Nahata /V.R. Jain /Manoj Baid (S4/S5)."
+          ],
+          [
+            "Paid-up shares (Mar 2026)",
+            "153.03 cr at ₹1 face value (S2); current fully diluted bridge U."
+          ],
+          [
+            "Pledge",
+            "U — no zero-pledge assumption."
+          ]
+        ]
+      },
+      "managementChange": {
+        "banner": "MANAGEMENT CHANGE & CULTURE · VERDICT: WATCH · public data only, not advice",
+        "summary": "Two real calls establish continuity over three months, not a complete management-change history. FY27 growth aspiration rose 20%→40%→at least 80%. The army AMC contract expected in Q2 on the July call remained in final approval on the October call. Timing drift is more useful accountability evidence than unverified star-hire or culture anecdotes."
+      },
+      "changeLog": {
+        "title": "KEY-PERSON CHANGE LOG (abnormal return vs Nifty: day 0/+1 · ~20 trading days; EST methodology, price study unavailable)",
+        "columns": [
+          "Date",
+          "Person",
+          "Role",
+          "In/Out",
+          "Stated reason / profile",
+          "AR 0/+1",
+          "AR 20d"
+        ],
+        "rows": [
+          [
+            "22 Jul 2026",
+            "Nahata /Jain /Baid",
+            "MD /CFO /CS",
+            "Observed incumbents",
+            "Named in Q1 call, not appointment dates (S5).",
+            "U",
+            "U"
+          ],
+          [
+            "19 Oct 2026",
+            "Same leadership",
+            "MD /CFO /CS",
+            "Observed incumbents",
+            "Named in Q2 call (S4). No departure claim.",
+            "U",
+            "U"
+          ],
+          [
+            "Full FY24–27 log",
+            "U",
+            "Board/KMP/auditors",
+            "U",
+            "All Reg 30 filings not read.",
+            "U",
+            "U"
+          ]
+        ]
+      },
+      "signalStrip": {
+        "title": "SIGNAL STRIP",
+        "columns": [
+          "Signal",
+          "Reading",
+          "Flag"
+        ],
+        "rows": [
+          [
+            "CFO continuity",
+            "Same CFO on two calls; exact tenure U.",
+            "GREEN"
+          ],
+          [
+            "Capital allocation",
+            "Optical capex plan≈₹1,800 cr plus defence/aerospace ambitions; staging and incremental returns matter.",
+            "AMBER"
+          ],
+          [
+            "Minority economics",
+            "Q1 analyst questioned 51% defence ownership; transaction documents not reconciled.",
+            "AMBER"
+          ],
+          [
+            "Disclosure precision",
+            "July Q1 connectivity actual≈₹100 cr, October says nil. Definition reconciliation required.",
+            "AMBER"
+          ],
+          [
+            "Audit declaration",
+            "FY26 unmodified consolidated opinion; full notes U.",
+            "GREEN"
+          ]
+        ]
+      },
+      "cultureStrip": {
+        "title": "CULTURE STRIP (checked 6 Nov 2026 IST)",
+        "columns": [
+          "Source",
+          "Reading",
+          "Note"
+        ],
+        "rows": [
+          [
+            "BRSR turnover",
+            "U",
+            "Full employee tables not retrieved."
+          ],
+          [
+            "Ambition Box /Glass door /Nauk ri",
+            "U — not sampled",
+            "No invented ratings or review counts."
+          ],
+          [
+            "Operational proxy",
+            "AMC timing drift, product ramp, export growth",
+            "Not a measure of employee satisfaction."
+          ],
+          [
+            "Labour/safety disputes",
+            "U",
+            "No exhaustive legal/labour search."
+          ]
+        ]
+      },
+      "literature": [
+        "CEO appointment returns are confounded by concurrent news; a valid event study requires filing time stamps and market-adjusted daily prices. None performed.",
+        "Self-selected employee reviews are weak standalone signals. Prefer verified turnover, training, safety and tenure data; unavailable here.",
+        "Judge capital allocation on per-share owner earnings after dilution rather than consolidated revenue growth. Analytical principles, not fabricated academic quotations."
+      ]
+    },
+    "f5": {
+      "leadTitle": "Upward earnings revisions meet a circuit-constrained tape",
+      "takeaways": [
+        "Q2 upgrades and hyperscaler demand support positive news. A5% down day after a large rally is a separate caution (S7).",
+        "Theme excitement is not a quantified social-media survey; no X posts or counts were collected.",
+        "No peer regression, breadth panel or death cross is invented from a quote page."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "S4 Q2 FY27 transcript mirror",
+          "S5 Q1 FY27 transcript mirror",
+          "S7 Upstox NSE quote and financial tables",
+          "S8 Business Today on Nuvama"
+        ],
+        "estDefinition": "FACT=reported retrieved value; EST=analyst assumption/calculation; U=not verified.",
+        "gaps": [
+          "Retrieved 6 Nov 2026 IST. No X, independent sector panel, daily beta or breadth. Theme label is qualitative, not statistical."
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "themeBanner": "INDUSTRY / THEME SENTIMENT · Optical connectivity · AI data centres · Indian telecom · 6 Nov 2026 IST",
+      "themeMood": "NEWS POSITIVE /TAPE CAUTIOUS (qualitative EST)",
+      "plainRead": "Read-through comes from two real calls and dated coverage, not an X sample. Fibre scarcity and advanced product mix support earnings, while new industry capacity may eventually normal is e prices.",
+      "themeStrip": {
+        "title": "THEME STRIP (EST where marked)",
+        "columns": [
+          "Signal",
+          "Reading",
+          "Read"
+        ],
+        "rows": [
+          [
+            "X tone /volume",
+            "U — no scan",
+            "No made-up sentiment percentages or post counts."
+          ],
+          [
+            "Sector vs Nifty",
+            "U — no aligned return series",
+            "Stock-only gains do not establish relative strength."
+          ],
+          [
+            "Breadth",
+            "U — no fixed peer/DMA panel",
+            "No numeric hot/cold score."
+          ],
+          [
+            "Stock-to-sector link",
+            "U — daily panel unavailable",
+            "No beta/correlation/R² claim."
+          ],
+          [
+            "Order/news revisions",
+            "Growth aspiration 40%→≥80%; Nuvama target 380→410",
+            "Constructive but depends on fibre cycle."
+          ],
+          [
+            "Pricing regime",
+            "Q2 call reports higher prices; future st a bilis ation uncertain",
+            "Cyclical upside with normalisation risk."
+          ]
+        ]
+      },
+      "narratives": [
+        "News-only 1: AI/data-centre capex raises demand for specialised high-density fibre and connectivity assemblies. S4 discusses qualifications and annual resets; global market-size claims are not independently verified.",
+        "News-only 2: defence/aerospace could become a second engine. FY27₹500–600 cr aspiration versus H1≈₹80 cr cited in Q&A implies a demanding H2 ramp. Acquisition closing and approvals are dependencies.",
+        "News-only 3: cash recovery and capex expansion must coexist. FY26 audited CFO deficit and H1 recovery are opposing observations; actual collections decide. X evidence U for all narratives."
+      ],
+      "methodNote": "U",
+      "stockMood": {
+        "title": "STOCK MOOD (news proxy; no stock-level X scan)",
+        "columns": [
+          "Signal",
+          "Reading"
+        ],
+        "rows": [
+          [
+            "Trend",
+            "S7 +188.09% one-year /+72.20% six-month; same-day−5%. Longer-return calculations not independently replicated."
+          ],
+          [
+            "Broker /quant",
+            "Nuvama Buy ₹410 in 20 Oct coverage; independent fresh quant rating U."
+          ],
+          [
+            "Positive news",
+            "Revenue/PAT acceleration, higher guidance, export orders."
+          ],
+          [
+            "Caution",
+            "Price limits, EPC loss, margin cyclical it y and dilution."
+          ]
+        ]
+      }
+    },
+    "f6": {
+      "leadTitle": "FY27E ₹9,000 cr is an explicit scenario, not backlog divided by a year",
+      "takeaways": [
+        "Optical products/exports lead the inflection; telecom equipment, defence and EPC have different economics.",
+        "₹9,000 cr implies 81.84% growth versus FY26, near management≥80% aspiration. After H1₹4,456.77 cr, base needs H2₹4,543.23 cr.",
+        "The mix below is an analyst allocation, not disclosed FY27 segment guidance. Connectivity is carved out of telecom once."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "S2 BSE audited consolidated FY26 XBRL",
+          "S3 CARE rating rationale",
+          "S4 Q2 FY27 transcript mirror",
+          "S5 Q1 FY27 transcript mirror",
+          "S8 Business Today on Nuvama"
+        ],
+        "estDefinition": "FACT=reported retrieved value; EST=analyst assumption/calculation; U=not verified.",
+        "gaps": [
+          "Retrieved 6 Nov 2026 IST. No complete contract/cancellation schedule, shipment-volume/ASP forecast or subsidiary ownership reconciliation. Base mix is EST."
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "bottomUp": {
+        "title": "FY27E BOTTOM-UP REVENUE (₹ cr, EST)",
+        "columns": [
+          "Line",
+          "FY27E",
+          "Basis"
+        ],
+        "rows": [
+          [
+            "Optical fibre/cable excluding connectivity",
+            "6,100",
+            "EST allocation scaled from FY26 telecom products ₹2,931.01 cr, CARE OFC contribution and Q2 optical-led mix. No disclosed shipment×ASP forecast claimed."
+          ],
+          [
+            "Data-centre connectivity",
+            "800",
+            "Management FY27 aspiration S4/S5; subset of telecom carved out here."
+          ],
+          [
+            "Other telecom equipment",
+            "550",
+            "Midpoint of Q1 ₹500–600 cr expectation; not counted in optical again."
+          ],
+          [
+            "Defence & aerospace",
+            "500",
+            "Low end of ₹500–600 cr aspiration; closing/ownership U."
+          ],
+          [
+            "Turnkey /EPC /services",
+            "1,000",
+            "EST below FY26₹1,875 cr; Q2 decline and AMC uncertainty."
+          ],
+          [
+            "Others",
+            "50",
+            "EST versus FY26₹66.56 cr."
+          ],
+          [
+            "Total",
+            "9,000",
+            "6,100+800+550+500+1,000+50; non-overlapping estimate, not company budget."
+          ]
+        ]
+      },
+      "orderBook": {
+        "title": "ORDER BOOK (≈₹28,900 cr reported, Sep2026)",
+        "columns": [
+          "Order",
+          "Size",
+          "Delivered",
+          "Status"
+        ],
+        "rows": [
+          [
+            "OFC/data-centre interconnect",
+            "≈₹18,500 cr in Q2 analyst question",
+            "Exact billings U",
+            "Large hyperscaler component; customer names under NDA. Mixed 4–6 month/multi-year terms (S4¶21–22)."
+          ],
+          [
+            "O&M",
+            "≈₹5,000 cr in Q2 Q&A",
+            "U",
+            "Long duration, not one-year manufacturing sales."
+          ],
+          [
+            "Aerospace acquisition book",
+            "≈₹1,600 cr pending acquired book",
+            "Not yet consolidated at call date",
+            "Not assumed additional to reported book until closing verified; prior call numbers differ."
+          ],
+          [
+            "Other group orders",
+            "Residual U",
+            "U",
+            "Rounded book/analyst buckets not forced to sum."
+          ],
+          [
+            "New order momentum",
+            "26,665→≈28,900 cr Q1→Q2",
+            "Q2 sales 2,541.79 cr",
+            "Implied in take≈4,776.79 cr only if scope/FX/cancellations unchanged (EST), not disclosed in take."
+          ]
+        ]
+      },
+      "structure": {
+        "title": "HFCL / SUBSIDIARY STRUCTURE",
+        "columns": [
+          "Entity",
+          "Role"
+        ],
+        "rows": [
+          [
+            "HFCL Ltd",
+            "Listed parent: telecom/OFC, turnkey and remaining defence/ammunition activities."
+          ],
+          [
+            "HTL /connectivity operations",
+            "Subsidiary-linked expansion; Q1 auto-transcribed entity names inconsistent. Exact economic stakes U."
+          ],
+          [
+            "HFCL Advanced Systems /defence entities",
+            "Acquisition/restructuring discussed; need actual ownership transaction documents."
+          ],
+          [
+            "Customers",
+            "Hyperscalers, tel cos, BSNL/government/defence. No named hyperscaler inferred from gossip."
+          ],
+          [
+            "Suppliers",
+            "Preform purchased today; planned 600MT internal capacity covers roughly half future need per Q2 call, not full self-sufficiency."
+          ]
+        ]
+      }
+    },
+    "f7": {
+      "leadTitle": "A cyclical rebound has become a product-mix step-up",
+      "takeaways": [
+        "Revenues did not compound smoothly FY23–26:4,743→4,465→4,065→4,949 cr. Recent acceleration is not proof of long-run quality.",
+        "FY26 is audited consolidated; Q2/H1 FY27 interim un audited. TTM is trailing twelve months to September, not Q2 multiplied by four.",
+        "Group PAT and reported basic owner EPS use different ownership/share bases. Forecast owner EPS explicitly handles dilution and NCI."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "S1 NSE FY26 annual report",
+          "S2 BSE audited consolidated FY26 XBRL",
+          "S4 Q2 FY27 transcript mirror",
+          "S5 Q1 FY27 transcript mirror",
+          "S6 NSE Q2 FY27 investor presentation",
+          "S7 Upstox NSE quote and financial tables",
+          "S9 NSE FY24 annual report"
+        ],
+        "estDefinition": "FACT=reported retrieved value; EST=analyst assumption/calculation; U=not verified.",
+        "gaps": [
+          "Retrieved 6 Nov 2026 IST. Interim minority bridge/statutory EPS and diluted share reconciliation U. Other-income/adjusted EBITDA classification differences disclosed. No standalone CFO/PAT mixed into consolidated analysis.",
+          "Source section with no v1 slot, PERIODS, DEFINITIONS & EARNINGS BRIDGE: FY23–FY26 end 31 March of named year, actual s. TTM=1 Oct 2025–30 Sep 2026: revenue 4,949.27−1,914.36+4,456.77=7,491.68; PAT 329.44−42.62+639.86=926.68; adjusted EBITDA 826.75−246.30+1,103.27=1,683.72. H1 FY26 EBITDA 246.30=Q1 42.93+Q2 comparative 203.37; latter from reported growth/summary, subject to rounding. | Company adjusted EBITDA=PBT+D&A+finance and includes other-income effects. FY26 reported 826.75 differs from XBRL427.68+157.38+242.06=827.12 by 0.37 cr, consistent with equity-accounted/classification adjustment. Retain reported adjusted series; do not silently plug. FY23/24 EBITDA rounded primary excerpts(S9), margins calculated. | FY27E/FY28E end 31 Mar 2027/2028. FY27:9,000×25%=2,250; lessD&A250 and interest 260, plus other 60=PBT 1,800; tax 25%=group PAT 1,350; NCI haircut 5%→owner 1,282.50 /170 cr shares=EPS 7.54. FY28:11,000×26%, D&A300, same interest/other/tax/NCI→owner 1,681.50, EPS 9.89. All future inputs EST. | Historical EPS is reported basic owner EPS on weighted shares. FY26 owner PAT 311.74 cr versus group 329.44 cr. TTM normal is ed EPS is a 5% NCI haircut/170 cr share proxy, not statutory TTM EPS. Model 170 cr is a buffer above 165.88 cr implied by current broker cap; current fully diluted count U. No current-price division by historical paid-up shares."
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "pl": {
+        "title": "P&L (₹ cr, consolidated)",
+        "columns": [
+          "",
+          "FY23",
+          "FY24",
+          "FY25",
+          "FY26",
+          "TTM",
+          "FY27E",
+          "FY28E"
+        ],
+        "rows": [
+          [
+            "Revenue",
+            "4,743.31",
+            "4,465.05",
+            "4,064.52",
+            "4,949.27",
+            "7,491.68 calc",
+            "9,000.00 EST",
+            "11,000.00 EST"
+          ],
+          [
+            "EBITDA (adjusted)",
+            "666.00",
+            "682.00",
+            "506.75",
+            "826.75",
+            "1,683.72 calc",
+            "2,250.00 EST",
+            "2,860.00 EST"
+          ],
+          [
+            "Margin",
+            "14.04%",
+            "15.27%",
+            "12.47%",
+            "16.70%",
+            "22.47% calc",
+            "25.00% EST",
+            "26.00% EST"
+          ],
+          [
+            "PAT (group)",
+            "317.71",
+            "337.52",
+            "173.26",
+            "329.44",
+            "926.68 calc",
+            "1,350.00 EST",
+            "1,770.00 EST"
+          ],
+          [
+            "EPS ₹ (basis below)",
+            "2.18",
+            "2.33",
+            "1.23",
+            "2.13",
+            "5.18 normal is ed EST",
+            "7.54 EST",
+            "9.89 EST"
+          ]
+        ]
+      }
+    },
+    "f8": {
+      "leadTitle": "Incremental returns matter more than a bigger revenue target",
+      "takeaways": [
+        "FY26 company ROCE11.04% remains below the impression from latest quarterly margins. Definitions and capital denominators matter.",
+        "Optical capex plan≈₹1,800 cr is a use of cash, not automatic value creation. Util is ation, prices, yields and qualification decide returns.",
+        "Historical CFO/FCF do not yet validate a self-funding compound er thesis."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "S1 NSE FY26 annual report",
+          "S2 BSE audited consolidated FY26 XBRL",
+          "S4 Q2 FY27 transcript mirror",
+          "S7 Upstox NSE quote and financial tables",
+          "S9 NSE FY24 annual report"
+        ],
+        "estDefinition": "FACT=reported retrieved value; EST=analyst assumption/calculation; U=not verified.",
+        "gaps": [
+          "H1 CFO ₹455.27 cr is sourced to S13 Quartr Q2 summary; summary-only, not a full primary interim cash-flow verification.",
+          "Retrieved 6 Nov 2026 IST. No calibrated capex IRR or latest average-capital ROIC. Reported ROCE differs from simplified capital employed in F11."
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "returns": {
+        "title": "RETURNS",
+        "columns": [
+          "Metric",
+          "Value"
+        ],
+        "rows": [
+          [
+            "ROCE FY23 /24 /26",
+            "15.62% /13.54% /11.04% (S9/S1); FY25≈7.69% inferred from stated FY26+43.64%, not directly re verified."
+          ],
+          [
+            "FY26 owner ROE proxy",
+            "6.88% EST =311.74/average(4119.32,4948.59). Denominator total group equity includes NCI; not reported ROE."
+          ],
+          [
+            "Narrow capital employed",
+            "₹6,624.29 cr=4,948.59+1,713.37−37.67; excludes buyer credit/leases."
+          ],
+          [
+            "Capex programme",
+            "≈₹1,800 cr optical plan at Oct call; not all assumed FY27 spending."
+          ],
+          [
+            "Illustrative incremental EBIT",
+            "At 12/18/24% pre tax returns,₹1,800 cr generates ₹216/324/432 cr yearly when fully ramp ed (EST, not guidance)."
+          ],
+          [
+            "Cash conversion",
+            "FY24–26 CFO/PAT−0.032 x; FY26 FCF−₹723.44 cr."
+          ],
+          [
+            "₹1 retention test",
+            "U: need dilution-adjusted retained owner earnings, dividends and market values over same interval; one-year rally is not this test."
+          ]
+        ]
+      }
+    },
+    "f9": {
+      "leadTitle": "Two real calls: guidance upgraded, AMC timing slipped",
+      "takeaways": [
+        "Compare 22 Jul 2026 Q1 (S5) with 19 Oct 2026 Q2 (S4); both full secondary transcript mirrors retrieved.",
+        "Growth aspiration 40%→≥80%; quarterly sales 1,914.98→2,541.79 cr; margins 23.25%→25.89%. Observed changes, not word-count sentiment.",
+        "Q1 connectivity revenue≈100 cr in July versus nil in October requires reconciliation; do not invent a clean series."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "S4 Q2 FY27 transcript mirror",
+          "S5 Q1 FY27 transcript mirror",
+          "S6 NSE Q2 FY27 investor presentation",
+          "S8 Business Today on Nuvama"
+        ],
+        "estDefinition": "FACT=reported retrieved value; EST=analyst assumption/calculation; U=not verified.",
+        "gaps": [
+          "H1 CFO ₹455.27 cr is sourced to S13 Quartr Q2 summary; summary-only, not a full primary interim cash-flow verification.",
+          "Retrieved 6 Nov 2026 IST. No audio/NLP verification or primary transcript PDF read. Disclosure mismatch is not an allegation."
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "keyTakeawaysNote": "Data & Sources: Q1 S5, Q2 S4. Paraphrases, not fabricated verbatim quotations. Mirrors are secondary; primary transcript filing identified in search but full PDF not read. Confidence MEDIUM in details, higher where filing/news corroborates.",
+      "guidance": {
+        "title": "KEY TAKEAWAYS",
+        "columns": [
+          "",
+          "What was said",
+          "Number",
+          "Tag",
+          "So what (price ranges)"
+        ],
+        "rows": [
+          [
+            "↑",
+            "FY27 growth aspiration",
+            "40%→≥80%",
+            "Guidance raised",
+            "Base 9000 cr implies 81.84%; no invented FY28 group guidance."
+          ],
+          [
+            "↑",
+            "Quarterly adjusted margin",
+            "23.25%→25.89%",
+            "Actual",
+            "Base 25%; F12 stress 10% is not guidance."
+          ],
+          [
+            "↑",
+            "Order book",
+            "26,665→≈28,900 cr",
+            "Visibility",
+            "Duration and concentration limit annual conversion."
+          ],
+          [
+            "→",
+            "Connectivity aspirations",
+            "≈800 crFY27 /2000 crFY28",
+            "Product ramp",
+            "Subset of telecom, not additive twice."
+          ],
+          [
+            "↓",
+            "Army AMC approval",
+            "Expected mid Q2→still final approval",
+            "Timing drift",
+            "EPC loss persists; no signed contract assumed Nov 6."
+          ],
+          [
+            "?",
+            "Q1 connectivity actual",
+            "July≈100 cr /October nil",
+            "Disclosure mismatch",
+            "Need product/scope bridge; not proof of fraud."
+          ],
+          [
+            "↑",
+            "Preform expansion",
+            "300MT/580 crQ1→600MTQ2",
+            "Capex",
+            "Total optical plan 1800 cr; October 2028 is calendar timing, not FY28."
+          ],
+          [
+            "→",
+            "Defence aspiration",
+            "500–600 crFY27 vsH1≈80 cr",
+            "Execution",
+            "H2 needs 420–520 cr; acquisition/qualifications matter."
+          ]
+        ]
+      },
+      "delta": {
+        "new": [
+          "600MT preform plan, October 2028 timetable and confidential interim cost solution discussed in Q2.",
+          "FY28 defence≈₹2,000 cr and connectivity≈₹2,000 cr are aspirations, not formal consolidated guidance.",
+          "Q2 EPC profit expected from Q1 FY28; July discussed loss reduction with uncertainty."
+        ],
+        "droppedOrGoneQuiet": [
+          "July AMC mid-Q2 expectation not fulfilled by October discussion; final approval remains.",
+          "No post call verified closing evidence retrieved for aerospace transaction; not equivalent to cancellation.",
+          "Specific Q1 connectivity actual not carried forward consistently."
+        ],
+        "guidanceRaisedCut": [
+          "Raised FY27 growth 40%→≥80%, optimistic margin direction maintained. No numerical FY28 group guidance: Q2¶85 explicitly avoids it. No consensus EPS beat invented."
+        ]
+      },
+      "language": {
+        "confidenceScore": "U",
+        "confidenceNote": "U",
+        "hedgingVsCertainty": "Strong certainty on demand/margins, limited precision on volume/price decomposition. Q2¶134 admits earlier price-st a bilis ation expectation was wrong. Admitting uncertainty is not automatically evasive.",
+        "evasiveAnswers": [
+          "Q2¶93 lacked the revenue number against USD1.1 bn order; ¶207 declined interim preform detail as trade secret. NDA restrictions are plausible but leave concentration difficult to measure. Connectivity-actual inconsistency is the more actionable diligence item."
+        ],
+        "analystPushbackTopics": [
+          "Peer margin comparisons, price-volume split (¶136–140,193–197).",
+          "Defence H1≈80 vsFY27≈500 and backlog duration (¶67–70,161–169).",
+          "Preform pricing, germanium, competitor supply and EPC milestone billing (¶110–117,201–219)."
+        ]
+      },
+      "callLanguageScorecard": {
+        "reading": "U",
+        "note": "no normal is ed Loughran–McDonald dictionary counts or audio study. Two mixed-format calls are not a calibrated baseline. Qualitative confidence HIGH; disclosure granularity MIXED; growth execution improved but AMC timing did not. No fabricated 5/10."
+      },
+      "whatToWatch": {
+        "title": "WHAT TO WATCH NEXT QUARTER",
+        "columns": [
+          "KPI",
+          "Threshold (good / bad)"
+        ],
+        "rows": [
+          [
+            "FY27 growth execution",
+            "Minimum 8,908.69 cr=4,949.27×1.8; H2 needs 4,451.92 cr. Base 9000 needs 4543.23. Annual result decides pass."
+          ],
+          [
+            "Cash conversion",
+            "EST monitor rolling CFO/PAT≥0.8 good; <0.5 despite high profit weakens case."
+          ],
+          [
+            "EPC/AMC",
+            "Signed approval and actual billing/collections good; another defer ral bad."
+          ],
+          [
+            "Connectivity actual s",
+            "Reconciled scope/dates good; unresolved nil/100 remains gap."
+          ],
+          [
+            "Debt/capex",
+            "Debt reduction after capex/warrant conversion, not gross cash alone."
+          ]
+        ]
+      },
+      "thesisImpact": {
+        "title": "THESIS IMPACT",
+        "columns": [
+          "Tab",
+          "Effect",
+          "Why"
+        ],
+        "rows": [
+          [
+            "Business (F6)",
+            "Strengthens",
+            "Higher actual sales/book, but not unconditional contract conversion."
+          ],
+          [
+            "Cost (F12)",
+            "Mixed",
+            "Pricing helps; raw material reset/EPC loss justify shocks."
+          ],
+          [
+            "Price ranges (F10)",
+            "Mixed",
+            "Higher earnings lift base; growth priced/cash history widens downside."
+          ]
+        ]
+      }
+    },
+    "f10": {
+      "leadTitle": "Weighted target ₹216.68; downside asymmetry remains poor",
+      "takeaways": [
+        "2 upside and 4 downside non marker rows; median reward 35.89% /risk 75.97%=0.47 x.",
+        "Bear ₹67.90 /base ₹226.32 /bull ₹346.19 at 25/50/25. Differing horizons, not probability-calibrated forecasts.",
+        "No fabricated mean-reversion/DMA price.52-week low is a stress reference, not validated support."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "S2 BSE audited consolidated FY26 XBRL",
+          "S4 Q2 FY27 transcript mirror",
+          "S5 Q1 FY27 transcript mirror",
+          "S7 Upstox NSE quote and financial tables",
+          "S8 Business Today on Nuvama"
+        ],
+        "estDefinition": "FACT=reported retrieved value; EST=analyst assumption/calculation; U=not verified.",
+        "gaps": [
+          "Retrieved 6 Nov 2026 IST. No independent technical support-date/mean price/peer panel. Multiples 20/30/35 x, tax 25%, NCI 5%,170 cr shares are EST, not guidance. No DCF is asserted."
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "rewardRisk": {
+        "strip": "Reward : risk 0.47x · ASYMMETRIC UNFAVOURABLE",
+        "detail": "Median upside 35.89% ÷median downside 75.97%; current ₹210.66 on 6 Nov 2026. ≥1.5 x favourable; ≥0.8 x and<1.5 x balanced; below 0.8 x unfavourable. Marker rows excluded."
+      },
+      "scenarios": {
+        "title": "SCENARIOS: one row per independent lens",
+        "columns": [
+          "Lens",
+          "Scenario",
+          "Price",
+          "vs now",
+          "What it tells you"
+        ],
+        "rows": [
+          [
+            "Technical",
+            "52-week low stress reference",
+            "₹59.82",
+            "-71.60%",
+            "S7 range; low date U. Not validated support."
+          ],
+          [
+            "Marker",
+            "52-week high (marker)",
+            "₹282.25",
+            "+33.98%",
+            "Observed S7 range; excluded from ratio."
+          ],
+          [
+            "Fundamental",
+            "Margin resets to 10% (EST)",
+            "₹25.08",
+            "-88.10%",
+            "F12: TTM sales×10%, lessD&A250/interest 260, plus other 60; tax 25%, NCI 5%,170 cr shares, EPS×20 x."
+          ],
+          [
+            "Fundamental",
+            "Base FY27E EPS×30 x (EST)",
+            "₹226.32",
+            "+7.44%",
+            "Sales 9000 cr, margin 25%; growth/mix scenario, not company EPS guidance."
+          ],
+          [
+            "Fundamental",
+            "Bull FY28E EPS×35 x (EST)",
+            "₹346.19",
+            "+64.34%",
+            "Sales 11000 cr, margin 26%, D&A300 capacity qualifications/mix succeed."
+          ],
+          [
+            "Fundamental",
+            "Bear: cycle/EPC drag (EST)",
+            "₹67.90",
+            "-67.77%",
+            "Sales 7000 cr, margin 18%, EPS×20 x; not a cancellation forecast."
+          ],
+          [
+            "Fundamental",
+            "No-growth earnings power (EST)",
+            "₹41.43",
+            "-80.33%",
+            "TTM group PAT×95%/12.5% cost of equity/170 cr shares. No incremental franchise value."
+          ]
+        ]
+      },
+      "priceLadder": [
+        {
+          "label": "Bull FY28E EPS×35 x (EST)",
+          "value": "₹346.19"
+        },
+        {
+          "label": "52-week high (marker)",
+          "value": "₹282.25"
+        },
+        {
+          "label": "Base FY27E EPS×30 x (EST)",
+          "value": "₹226.32"
+        },
+        {
+          "label": "◆ CURRENT PRICE",
+          "value": "₹210.66"
+        },
+        {
+          "label": "Bear: cycle/EPC drag (EST)",
+          "value": "₹67.90"
+        },
+        {
+          "label": "52-week low stress reference",
+          "value": "₹59.82"
+        },
+        {
+          "label": "No-growth earnings power (EST)",
+          "value": "₹41.43"
+        },
+        {
+          "label": "Margin resets to 10% (EST)",
+          "value": "₹25.08"
+        }
+      ],
+      "whatWouldNeedToHappen": [
+        "Base requires ₹9000 cr sales/25% margin, controlled interest and no worse dilution/NCI than model. H2 needs 4543.23 cr, below two Q2 quarters, so execution rather than extrapolated spike matters.",
+        "Bull requires ₹11000 crFY28 sales/26% margin, timely qualifications and no major input/customer shock.35 x is discretionary premium, not peer-derived fairness.",
+        "Bear combines pricing normalisation and EPC drag at 7000 cr/18%; separate cost reset uses TTM sales at 10% margin. These are stress assumptions, not cancellation forecasts."
+      ],
+      "weightedTarget": "Weighted target (EST) ₹216.68 =25%×₹67.8971+50%×₹226.3235+25%×₹346.1912; +2.86% vs price. Paper HOLD. Weights illustrative, not estimated probabilities.",
+      "methodDetail": "median of positive scenario returns divided by median absolute negative returns. Both Marker high/current excluded. These lenses probe different questions but are not statistically independent; cost/bear/franchise rows correlate. Ratio describes this selected scenario set, sensitive to low earnings-power values, not expected return. No duplicate DCF, ATR or thin-peer targets. Display rounded; arithmetic uses full precision."
+    },
+    "f11": {
+      "leadTitle": "Most equity value requires future franchise growth",
+      "takeaways": [
+        "TTM normal is ed owner proxy ₹880.35 cr at 12.5% cost of equity gives no-growth ₹41.43/share, 19.67% of price (EST).",
+        "Franchise arithmetic tests implied reinvestment, not guaranteed incremental returns. EPC and optical capacity have different capital needs.",
+        "When incremental return approaches cost of equity, required reinvestment explodes. Announced capex alone does not validate premium."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "S2 BSE audited consolidated FY26 XBRL",
+          "S4 Q2 FY27 transcript mirror",
+          "S7 Upstox NSE quote and financial tables"
+        ],
+        "estDefinition": "FACT=reported retrieved value; EST=analyst assumption/calculation; U=not verified.",
+        "gaps": [
+          "Retrieved 6 Nov 2026 IST. Owner TTM uses flat 5% NCI haircut; incremental ROIC and latest capital U. Sensitivity only, not an extra F10 target.",
+          "Source section with no v1 slot, METHOD: Dilution adjusted equity V=₹210.66×170 cr=₹35,812.20 cr; notS7 displayed market cap 34943.65 cr. TV=E/k; FV=V−TV; present value investment I=FV/(R/k−1); G=I/6624.29. Constant perpetual earnings/incremental returns/no economic fade is a stylised identity, not DC F. k 11–13% andR15–26% EST, not calibrated WACC. R≤k cannot generate positive franchise value under this model."
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "grid": {
+        "title": "LEIBOWITZ GRID (E = ₹880.35 cr owner proxy; G = required investment as × capital employed ₹6,624.29 cr / PV ₹)",
+        "columns": [
+          "k \\\\ R",
+          "R 15%",
+          "R 21%",
+          "R 26%",
+          "Today %"
+        ],
+        "rows": [
+          [
+            "11%",
+            "11.54× / ₹76,475 cr EST",
+            "4.62× / ₹30,590 cr EST",
+            "3.08× / ₹20,393 cr EST",
+            "22.35%"
+          ],
+          [
+            "12%",
+            "17.19× / ₹113,904 cr EST",
+            "5.73× / ₹37,968 cr EST",
+            "3.68× / ₹24,408 cr EST",
+            "20.49%"
+          ],
+          [
+            "12.5%",
+            "21.72× / ₹143,847 cr EST",
+            "6.39× / ₹42,308 cr EST",
+            "4.02× / ₹26,638 cr EST",
+            "19.67%"
+          ],
+          [
+            "13%",
+            "28.50× / ₹188,762 cr EST",
+            "7.12× / ₹47,191 cr EST",
+            "4.38× / ₹29,040 cr EST",
+            "18.91%"
+          ]
+        ]
+      }
+    },
+    "f12": {
+      "leadTitle": "Cost sensitivity, not a fabricated regression",
+      "takeaways": [
+        "EST variable cost 65%; fixed/residual ₹938.37 cr anchored to TTM adjusted EBITDA₹1,683.72 cr. Construction for stress, not observed cost function.",
+        "Mix, traded goods, EPC milestones and other income make naive operating leverage unstable. Test alternative slopes before using for risk.",
+        "10% margin reset uses TTM sales and 20 xEPS, exactly matching F10; severe, not forecast."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "S2 BSE audited consolidated FY26 XBRL",
+          "S4 Q2 FY27 transcript mirror",
+          "S7 Upstox NSE quote and financial tables"
+        ],
+        "estDefinition": "FACT=reported retrieved value; EST=analyst assumption/calculation; U=not verified.",
+        "gaps": [
+          "Retrieved 6 Nov 2026 IST. True cost behaviour and contract reset dates U. Sensitivities illustrative; no probabilities.",
+          "Source section with no v1 slot, RECONCILIATION: Revenue table holds 65% cost slope/residual fixed and uses 30 x; margin table replaces margin and uses 20 x, matching F10 downside. Separate sensitivities, not independent targets. Both show group PAT; EPS after 5% NCI haircut. F12 base PAT differs from reported TTM because forward D&A/interest/tax assumptions replace actual s. No claim reference issuer 85% variable costs."
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "costSplit": {
+        "title": "COST SPLIT (EST)",
+        "columns": [
+          "Item",
+          "Value",
+          "Method"
+        ],
+        "rows": [
+          [
+            "Variable cost ratio",
+            "65% of revenue EST",
+            "FY26 materials 1903.15+traded goods 1756.74−inventory change 457.98=3201.91 cr /4949.27=64.70%;65% rough anchor, not audited variable classification."
+          ],
+          [
+            "Fixed/residual",
+            "₹938.37 cr EST",
+            "TTM sales×35%−adjusted EBITDA; includes other operating/adjusted income effects, not just payroll."
+          ],
+          [
+            "Contribution margin",
+            "35% EST",
+            "1−65%; not statutory gross margin."
+          ],
+          [
+            "Other inputs",
+            "D&A250 interest 260; other 60 cr; tax 25%; NCI 5%; shares 170 cr EST",
+            "Same asF7/F10. FY26 actual D&A157.38/interest 242.06; buffers not guidance."
+          ],
+          [
+            "Limitations",
+            "No regression performed",
+            "Contract mix, FX and classification can change actual slope."
+          ]
+        ]
+      },
+      "revenueScenarios": {
+        "title": "REVENUE SCENARIOS ON TTM COST STRUCTURE (₹ cr, EST; value at 30x)",
+        "columns": [
+          "Revenue Δ",
+          "Revenue",
+          "EBITDA",
+          "Margin",
+          "EBIT",
+          "PAT",
+          "EPS ₹",
+          "Value ₹"
+        ],
+        "rows": [
+          [
+            "-30%",
+            "5,244.18",
+            "897.09",
+            "17.11%",
+            "647.09",
+            "335.32",
+            "1.87",
+            "56.22"
+          ],
+          [
+            "-20%",
+            "5,993.34",
+            "1,159.30",
+            "19.34%",
+            "909.30",
+            "531.98",
+            "2.97",
+            "89.18"
+          ],
+          [
+            "-10%",
+            "6,742.51",
+            "1,421.51",
+            "21.08%",
+            "1,171.51",
+            "728.63",
+            "4.07",
+            "122.15"
+          ],
+          [
+            "Base TTM",
+            "7,491.68",
+            "1,683.72",
+            "22.47%",
+            "1,433.72",
+            "925.29",
+            "5.17",
+            "155.12"
+          ],
+          [
+            "+10%",
+            "8,240.85",
+            "1,945.93",
+            "23.61%",
+            "1,695.93",
+            "1,121.95",
+            "6.27",
+            "188.09"
+          ],
+          [
+            "+20%",
+            "8,990.02",
+            "2,208.14",
+            "24.56%",
+            "1,958.14",
+            "1,318.60",
+            "7.37",
+            "221.06"
+          ],
+          [
+            "+30%",
+            "9,739.18",
+            "2,470.35",
+            "25.37%",
+            "2,220.35",
+            "1,515.26",
+            "8.47",
+            "254.03"
+          ]
+        ]
+      },
+      "marginShock": {
+        "title": "MARGIN SHOCK (revenue held at TTM)",
+        "columns": [
+          "EBITDA margin",
+          "EPS",
+          "Value @20x"
+        ],
+        "rows": [
+          [
+            "26.00%",
+            "6.28",
+            "₹125.55"
+          ],
+          [
+            "25.00%",
+            "5.96",
+            "₹119.27"
+          ],
+          [
+            "22.47%",
+            "5.17",
+            "₹103.41"
+          ],
+          [
+            "18.00%",
+            "3.77",
+            "₹75.32"
+          ],
+          [
+            "15.00%",
+            "2.82",
+            "₹56.48"
+          ],
+          [
+            "10.00%",
+            "1.25",
+            "₹25.08"
+          ]
+        ]
+      }
+    },
+    "f13": {
+      "leadTitle": "Investors’ lens: 0 would buy / 4 watchlist / 3 pass",
+      "takeaways": [
+        "Framework exercise, not a claim about actual investor views, holdings or endorsements.",
+        "Growth-oriented lenses see runway; quality lenses need sustained cash and per-share economics.",
+        "Positive revisions conflict with circuit risk and downside scenarios; no automatic buy."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "S1 NSE FY26 annual report",
+          "S2 BSE audited consolidated FY26 XBRL",
+          "S3 CARE rating rationale",
+          "S4 Q2 FY27 transcript mirror",
+          "S5 Q1 FY27 transcript mirror",
+          "S7 Upstox NSE quote and financial tables",
+          "S8 Business Today on Nuvama"
+        ],
+        "estDefinition": "FACT=reported retrieved value; EST=analyst assumption/calculation; U=not verified.",
+        "gaps": [
+          "Retrieved 6 Nov 2026 IST. No actual investor recommendations inferred. Full primary framework texts and scuttlebutt U. Counts classify this report’s exercise only."
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "consensus": {
+        "wouldBuy": 0,
+        "watchlist": 4,
+        "pass": 3,
+        "note": "7 exercise lenses ·price ₹210.66 (6 Nov 2026). Not a survey."
+      },
+      "keyDisagreement": "U",
+      "tieBreaker": "U",
+      "investors": [
+        {
+          "name": "Buffett & Munger",
+          "stance": "PASS",
+          "criteriaLine": "Moat, high returns, owner earnings; incentives and in version",
+          "criteria": [
+            {
+              "mark": "◐",
+              "label": "ROE / ROCE",
+              "evidence": "FY26 reported ROCE11.04%; latest profit not full cycle incremental return."
+            },
+            {
+              "mark": "✗",
+              "label": "Owner earnings",
+              "evidence": "FY26 FCF−₹723.44 cr; weak multi-year cash conversion."
+            },
+            {
+              "mark": "◐",
+              "label": "Invert",
+              "evidence": "What if hyperscaler capex slows while expansion debt remains?"
+            },
+            {
+              "mark": "◐",
+              "label": "Incentives",
+              "evidence": "Promoter warrants align capital but dilute; full terms U."
+            },
+            {
+              "mark": "✗",
+              "label": "Price vs value",
+              "evidence": "No-growth ₹41.43 vs ₹210.66; franchise premium must be earned."
+            }
+          ],
+          "quote": "Exercise paraphrase, not a real quotation or endorsement: An industry runway does not replace owner cash earnings."
+        },
+        {
+          "name": "Terry Smith",
+          "stance": "PASS",
+          "criteriaLine": "ROCE, gross margin, cash conversion, FCF yield",
+          "criteria": [
+            {
+              "mark": "◐",
+              "label": "ROCE",
+              "evidence": "11.04% FY26; quarterly margins not same as incremental return."
+            },
+            {
+              "mark": "◐",
+              "label": "Gross margin",
+              "evidence": "U; adjusted EBITDA 25.89% is not gross margin."
+            },
+            {
+              "mark": "✗",
+              "label": "Cash conversion",
+              "evidence": "3-year CFO/PAT−0.032 x; H1 recovery incomplete."
+            },
+            {
+              "mark": "✗",
+              "label": "FCF yield",
+              "evidence": "FY26 negative; forward self-funding U."
+            }
+          ],
+          "quote": "Exercise paraphrase, not a real quotation or endorsement: Cash conversion must validate product quality."
+        },
+        {
+          "name": "Greenblatt",
+          "stance": "WATCHLIST",
+          "criteriaLine": "Magic Formula: ROIC, earnings yield",
+          "criteria": [
+            {
+              "mark": "◐",
+              "label": "ROIC",
+              "evidence": "Capital definition/latest averages need reconciliation."
+            },
+            {
+              "mark": "◐",
+              "label": "Earnings yield",
+              "evidence": "Broker P/E36.53 not accepted as a normal is ed yield; model uses explicit dilution/NCI."
+            },
+            {
+              "mark": "◐",
+              "label": "Special situation",
+              "evidence": "EPC restructuring not completed catalyst."
+            }
+          ],
+          "quote": "Exercise paraphrase, not a real quotation or endorsement: Use normal is ed enterprise earnings and correct capital."
+        },
+        {
+          "name": "Sleep & Zakaria",
+          "stance": "WATCHLIST",
+          "criteriaLine": "Scale economies shared, runway, destination",
+          "criteria": [
+            {
+              "mark": "✓",
+              "label": "Runway",
+              "evidence": "Real optical/connectivity book and demand in two calls."
+            },
+            {
+              "mark": "◐",
+              "label": "Scale economies shared",
+              "evidence": "Scarcity pricing versus durable benefit sharing U."
+            },
+            {
+              "mark": "◐",
+              "label": "Destination",
+              "evidence": "Qualifications help; capacity cycle can reset terms."
+            },
+            {
+              "mark": "◐",
+              "label": "Hold 10 yrs",
+              "evidence": "New preform/ammunition complexity not full cycle proven."
+            }
+          ],
+          "quote": "Exercise paraphrase, not a real quotation or endorsement: Scale should benefit customers and owners beyond scarcity rent."
+        },
+        {
+          "name": "Raamdeo Agrawal",
+          "stance": "WATCHLIST",
+          "criteriaLine": "QGLP: Quality, Growth, Longevity, Price",
+          "criteria": [
+            {
+              "mark": "◐",
+              "label": "Quality",
+              "evidence": "CARE upgrade good; cash conversion weak."
+            },
+            {
+              "mark": "✓",
+              "label": "Growth",
+              "evidence": "H1 sales 4456.77; FY27 aspiration≥80%."
+            },
+            {
+              "mark": "◐",
+              "label": "Longevity",
+              "evidence": "Multi yearbook but customers/resets partly opaque."
+            },
+            {
+              "mark": "◐",
+              "label": "Price",
+              "evidence": "Base ₹226.32 close to quote; wide downside."
+            }
+          ],
+          "quote": "Exercise paraphrase, not a real quotation or endorsement: Growth is visible; quality and price require discipline."
+        },
+        {
+          "name": "Fisher",
+          "stance": "WATCHLIST",
+          "criteriaLine": "Sales runway, R&D, margins, can dour",
+          "criteria": [
+            {
+              "mark": "✓",
+              "label": "Sales runway",
+              "evidence": "High density products and actual export orders."
+            },
+            {
+              "mark": "◐",
+              "label": "R&D",
+              "evidence": "New products discussed; verified R&D returns U."
+            },
+            {
+              "mark": "✓",
+              "label": "Margins",
+              "evidence": "23.25%→25.89% quarterly adjusted; durability unproven."
+            },
+            {
+              "mark": "◐",
+              "label": "Can dour",
+              "evidence": "Pricing uncertainty admitted; connectivity actual s mismatch."
+            }
+          ],
+          "quote": "Exercise paraphrase, not a real quotation or endorsement: Investigate product and customer depth, not just a transcript."
+        },
+        {
+          "name": "Druckenmiller",
+          "stance": "PASS",
+          "criteriaLine": "Liquidity, revisions, trend, asymmetry",
+          "criteria": [
+            {
+              "mark": "✓",
+              "label": "Revisions",
+              "evidence": "Growth aspiration and Nuvama target up."
+            },
+            {
+              "mark": "◐",
+              "label": "Flows",
+              "evidence": "F II holding rise, not daily flow evidence."
+            },
+            {
+              "mark": "✗",
+              "label": "Trend",
+              "evidence": "5% down circuit session; full DMA study U."
+            },
+            {
+              "mark": "✗",
+              "label": "Asymmetry",
+              "evidence": "Scenario ratio 0.47 x, unfavourable."
+            }
+          ],
+          "quote": "Exercise paraphrase, not a real quotation or endorsement: Upward revisions do not remove circuit and downside risk."
+        }
+      ],
+      "methodologyNote": "✓ pass ·◐ partial/unknown ·✗ fail. Criteria paraphrase commonly documented frameworks: Berkshire letters; Fundsmith letters/Investing for Growth; Greenblatt’s Little Book; Nomad letters; Motilal Oswal Wealth Creation/QGLP; Fisher’s Common Stocks; Druckenmiller interviews. Framework texts not freshly retrieved; no exact quotation claimed."
+    },
+    "f14": {
+      "leadTitle": "Execution: observe first; no invented technical entry bands",
+      "takeaways": [
+        "Quote page shows 5% down session, open=high=low ₹210.66 and 0 bid quantity at retrieval. A price limit can make a theoretical stop un executable.",
+        "Broker RSI41.81/ATR14.84 are indicative fields, not independently audited daily-price calculations.",
+        "Paper execution stays inactive until share/cash/price gaps reconcile. No actual order created."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "S4 Q2 FY27 transcript mirror",
+          "S7 Upstox NSE quote and financial tables"
+        ],
+        "estDefinition": "FACT=reported retrieved value; EST=analyst assumption/calculation; U=not verified.",
+        "gaps": [
+          "Retrieved 6 Nov 2026 IST. NoDMA/backtest/technical zone independently calculated. Tranche table uses explicit non-action gaps, not invented prices."
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "state": "U",
+      "priceLine": "U",
+      "todaysAction": "U",
+      "extensionMeter": {
+        "title": "EXTENSION METER",
+        "columns": [
+          "",
+          ""
+        ],
+        "rows": [
+          [
+            "vs 20 /50 /200-DMA",
+            "U — daily series not retrieved."
+          ],
+          [
+            "From 52-week high ₹282.25",
+            "-25.36% calculated; high date U."
+          ],
+          [
+            "RSI(14) ·ATR(14)",
+            "41.81 ·₹14.84 perS7; calculation time/method U."
+          ],
+          [
+            "Range daily /weekly /monthly",
+            "U — no 1-year sample."
+          ],
+          [
+            "Pullback analogs 1 mo /3 mo",
+            "U — no event study or backtest."
+          ],
+          [
+            "Liquidity /exit",
+            "14,49,229 shares indicated; lower circuit and 0 bid snapshot; not guaranteed executable liquidity."
+          ]
+        ]
+      },
+      "stagedEntry": {
+        "title": "STAGED ENTRY (3 TRANCHES)",
+        "columns": [
+          "",
+          "",
+          "",
+          ""
+        ],
+        "rows": [
+          [
+            "T1 0% now (paper)",
+            "U — not set",
+            "After share/cash reconciliation",
+            "No buy instruction with unresolved dilution/circuit risk."
+          ],
+          [
+            "T2 0% now",
+            "U",
+            "After verified price/volume recovery",
+            "Requires separate validated plan; no automatic averaging down."
+          ],
+          [
+            "T3 0% now",
+            "U",
+            "After cash confirmation",
+            "Evidence-led stage, not fabricated limit."
+          ]
+        ]
+      },
+      "size": "U",
+      "rules": [
+        {
+          "label": "Stop",
+          "text": "U price level; stops not guaranteed at circuits. No orders."
+        },
+        {
+          "label": "Time stop",
+          "text": "review after next results/verified capital update; no automatic buy deadline."
+        },
+        {
+          "label": "Runaway",
+          "text": "do not chase solely because broker target higher. Re-underwrite ownership and margin."
+        },
+        {
+          "label": "After entry(if separately approved)",
+          "text": "risk cap requires actual exit liquidity/invalidation; never move stop to justify broken thesis. Framework paraphrase, not advice."
+        }
+      ],
+      "frameworkNote": "U"
+    },
+    "f15": {
+      "leadTitle": "One verified headline is not a sell-side consensus",
+      "takeaways": [
+        "Nuvama Buy ₹410 raised from ₹380, reported 20 Oct 2026. Full broker PDF not read; valuation 18 x forward EV/EBITDA per article.",
+        "Company adjusted Q2 margin 25.89% versus broker operating 24.8%: reconciling definitions matters.",
+        "No unrelated broker targets or old technical calls presented as current consensus."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "S4 Q2 FY27 transcript mirror",
+          "S7 Upstox NSE quote and financial tables",
+          "S8 Business Today on Nuvama"
+        ],
+        "estDefinition": "FACT=reported retrieved value; EST=analyst assumption/calculation; U=not verified.",
+        "gaps": [
+          "Retrieved 6 Nov 2026 IST. Only one full dated article read; not broker PDF. No consensus EPS/primary target history; broker opinion not model input."
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "consensusStrip": {
+        "title": "CONSENSUS STRIP · HEADLINE-LEVEL, REPORTS NOT READ IN FULL · price ₹210.66 (6 Nov 2026)",
+        "columns": [
+          "Metric",
+          "Value",
+          "Note"
+        ],
+        "rows": [
+          [
+            "Fundamental ratings found",
+            "1 news-verified Buy",
+            "Nuvama vi aS8; not broad consensus."
+          ],
+          [
+            "Median target",
+            "₹410 (n=1)",
+            "94.63% vs dated price; original 53% used different CMP."
+          ],
+          [
+            "Range",
+            "₹410–410",
+            "Single observation."
+          ],
+          [
+            "Quant/screen",
+            "U",
+            "No verified fresh signal."
+          ],
+          [
+            "Freshness",
+            "20 Oct→6 Nov 2026",
+            "17 calendar days; full estimates U."
+          ]
+        ]
+      },
+      "calls": {
+        "title": "CALLS FOUND (upside vs ₹210.66)",
+        "columns": [
+          "Date",
+          "Broker",
+          "Type",
+          "Rating",
+          "Target",
+          "Upside",
+          "Thesis / estimates",
+          "Status",
+          "Source"
+        ],
+        "rows": [
+          [
+            "20 Oct 2026",
+            "Nuvama Institutional Equities",
+            "Fundamental",
+            "Buy",
+            "₹410",
+            "94.63%",
+            "18 xQ3FY28EEV/EBITDA; FY27/28E BITDA raised 9% each; A I capex/raw material risks.",
+            "Recent, headline only",
+            "S8 Business Today on Nuvama"
+          ],
+          [
+            "U",
+            "Other brokers",
+            "U",
+            "U",
+            "U",
+            "U",
+            "No second validated current call; not zero coverage.",
+            "Gap",
+            "Search not exhaustive."
+          ]
+        ]
+      },
+      "trend": {
+        "title": "TREND (NUVAMA TARGET HISTORY)",
+        "columns": [
+          "Date",
+          "Rating",
+          "Target",
+          "Move"
+        ],
+        "rows": [
+          [
+            "Before 20 Oct(exact date U)",
+            "Buy per comparison",
+            "₹380",
+            "Prior value quoted S8; original note not read."
+          ],
+          [
+            "20 Oct 2026",
+            "Buy",
+            "₹410",
+            "+7.89% from 380(calculated)."
+          ]
+        ]
+      },
+      "streetVsOurs": {
+        "title": "STREET VS OUR VIEW",
+        "columns": [
+          "Topic",
+          "Street",
+          "Ours"
+        ],
+        "rows": [
+          [
+            "Rating",
+            "Nuvama Buy",
+            "Paper HOLD; cash/dilution/asymmetry offset growth."
+          ],
+          [
+            "Target",
+            "₹410",
+            "₹216.68 weighted EST; different method/horizon."
+          ],
+          [
+            "FY27E EPS",
+            "U in article",
+            "7.54 owner EPS EST on 170 cr shares."
+          ],
+          [
+            "Order book",
+            "≈28,900 cr, exports 57% per article",
+            "Demand real; heterogeneous duration/NDA concentration."
+          ],
+          [
+            "Forensics",
+            "Stronger H1 working capital",
+            "Retain historical CFO deficit until recovery validated."
+          ]
+        ]
+      },
+      "whatTheyMayKnow": {
+        "title": "WHAT THEY MAY KNOW THAT WE DO NOT",
+        "columns": [
+          "Item",
+          "Why it matters"
+        ],
+        "rows": [
+          [
+            "Fully diluted capital bridge",
+            "Per-share value/EV conversion."
+          ],
+          [
+            "Customer release/qualifications",
+            "Book not annual unconditional revenue."
+          ],
+          [
+            "Raw material contract terms",
+            "Reset dates control margins."
+          ],
+          [
+            "EPC/AMC actual collections",
+            "Could improve cash; signed contract evidence U."
+          ]
+        ]
+      },
+      "searchNote": "U"
+    },
+    "f16": {
+      "leadTitle": "Stakeholders: 0 RED /6 AMBER /0 GREEN /2 NO DATA · adjusted P/E 15 x vs 30 x (EST)",
+      "takeaways": [
+        "Customer concentration, supplier resets and competitor capacity overlap; not three independent earnings crashes.",
+        "Government cash cycles and capex financing form a second cluster; rating upgrade constructive, not guarantee.",
+        "Employees/community are NO DATA, not GREEN. Unknowns remain without fabricated numerical penalties."
+      ],
+      "sourcesAndGaps": {
+        "sources": [
+          "S2 BSE audited consolidated FY26 XBRL",
+          "S3 CARE rating rationale",
+          "S4 Q2 FY27 transcript mirror",
+          "S5 Q1 FY27 transcript mirror"
+        ],
+        "estDefinition": "FACT=reported retrieved value; EST=analyst assumption/calculation; U=not verified.",
+        "gaps": [
+          "Retrieved 6 Nov 2026 IST. No exhaustive legal/permit review, worker data, customer credit schedule or supplier contracts. NODATA0 turns means unknown, not safety. Base 30 x is the F10 base assumption, not broker trailing P/E36.53.",
+          "At unchanged FY27E owner EPS 7.5441,15 x→₹113.16. Separate stakeholder sensitivity, NOT header/F10 weighted target and not another independent scenario."
+        ],
+        "disclaimer": "Paper analysis only, not advice."
+      },
+      "stripBanner": "STAKEHOLDER STRIP · base P/E ~30x · EST, not advice",
+      "adjustedMultiple": "Raw impacts−17 x; cap−15 x→30−15=15 x. Judgement rule:major commercial exposure 3–4 turns, capital/policy 2, qualification 1, unknown 0 without implying safety. Cap=50% of base P/E(15 turns)limits overlap; not empirically calibrated.",
+      "topHiddenRisks": [
+        "Timing mismatch:raw material and customer contract resets may not synchronise.",
+        "Economic ownership:defence/aerospace consolidation can increase revenue faster than listed-owner earnings.",
+        "Commissioning trap:capacity may arrive after industry supply catches up, depressing incremental ROIC."
+      ],
+      "lenses": [
+        {
+          "name": "Government / policy",
+          "flag": "AMBER",
+          "multiple": "multiple −2x (EST)",
+          "who": "DoT/BSNL, defence procurement and trade authorities",
+          "evidence": "FY26 turnkey ₹1,875 cr; Q2 call describes 25-step milestone verification/billing (S2/S4¶73–75).",
+          "hiddenRisk": "Government demand is not prompt collection. Tariff/local-content changes may alter export economics."
+        },
+        {
+          "name": "Regulator / safety",
+          "flag": "AMBER",
+          "multiple": "multiple −1x (EST)",
+          "who": "Telecom/defence certification, export-control and environmental authorities",
+          "evidence": "Defence radar qualification/trials pending for some products; expansion planned(S4¶39–42). No exhaustive legal order sweep.",
+          "hiddenRisk": "Approval delays affect new revenue; unknown legal issues not presented as proven penalties."
+        },
+        {
+          "name": "Customers",
+          "flag": "AMBER",
+          "multiple": "multiple −4x (EST)",
+          "who": "Hyperscalers, tel cos, BSNL/government/defence",
+          "evidence": "Q2≈18,500 cr optical/DC book discussion; large hyperscaler exposure under NDA. FY26 current receivables ₹2,212.18 cr(S2/S4).",
+          "hiddenRisk": "Build schedules/annual resets can change pricing despite backlog. Largest customer% not assumed."
+        },
+        {
+          "name": "Suppliers",
+          "flag": "AMBER",
+          "multiple": "multiple −4x (EST)",
+          "who": "Preform, speciality material and equipment vendors; germanium suppliers",
+          "evidence": "600M Town preform covers roughly half future need; annual/18–24 month contracts; germanium supply not yet contracted(S4¶55–56,115–117,151).",
+          "hiddenRisk": "Internal is ation incomplete; calendar Oct 2028 target future. Confidential midterm solution not banked ascertain."
+        },
+        {
+          "name": "Employees",
+          "flag": "NO DATA",
+          "multiple": "multiple −0x (EST)",
+          "who": "Engineering, manufacturing and field-service employees",
+          "evidence": "No full BRSR turnover/safety/training tables retrieved.",
+          "hiddenRisk": "Scarce engineering talent and production yields may limit growth; no fabricated attrition/culture rating."
+        },
+        {
+          "name": "Lenders / capital",
+          "flag": "AMBER",
+          "multiple": "multiple −2x (EST)",
+          "who": "Banks, warrant/QIP investors and CARE",
+          "evidence": "CAREA/Positive upgrade; FY26 CFO−378.13/ne tissue cash 543.62 cr; capex plan 1800 cr(S2/S3/S4).",
+          "hiddenRisk": "Rating does not remove funding/dilution risk. Track net debt after capex, not gross cash alone."
+        },
+        {
+          "name": "Community & environment",
+          "flag": "NO DATA",
+          "multiple": "multiple −0x (EST)",
+          "who": "Plant communities, water/power authorities and waste regulators",
+          "evidence": "Expansion/ammunition complex discussed; permits/water balances/assured ESG metrics not retrieved(S4/S5).",
+          "hiddenRisk": "Preform/ammunition may face safety/environment constraints; unverified risks, not allegations of breach."
+        },
+        {
+          "name": "Competitors / entrants",
+          "flag": "AMBER",
+          "multiple": "multiple −4x (EST)",
+          "who": "Global optical suppliers and domestic cable/telecom equipment peers",
+          "evidence": "Calls acknowledge capacity expansion; Q2 analyst asks about 40–50% peer expansion/scarcity pricing(S4¶215–219). Exact peer capacities U.",
+          "hiddenRisk": "Oversupply/technology shifts could lower realisation s before new capacity earns its cost."
+        }
+      ],
+      "wantsNote": "Stakeholder wants:policy-makers need secure low-cost networks; regulators need safe compliance; customers need supply/price; suppliers need volume/payment; employees need stability; lenders need collections; community needs safe plants; competitors need profitable share. These are analytical paraphrases, not surveyed statements."
+    },
+    "f17": {
+      "kind": "upload_placeholder"
+    }
+  }
+}
