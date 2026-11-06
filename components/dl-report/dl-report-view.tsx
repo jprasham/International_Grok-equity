@@ -1,23 +1,23 @@
 // React text children only: report strings are bot-supplied, so never dangerouslySetInnerHTML here.
 import { Fragment } from "react";
 import { ReportActions } from "@/app/reports/report-actions";
-import { Card, CardContent } from "@/components/ui/card";
 import { DL_HEADINGS, type DlTable } from "@/lib/dl-equity-report-v1";
 import type { DlEquityReport } from "@/lib/dl-equity-report-v1.1";
 import { dlPanels, dlSplitMarkers, dlTone, type DlBlock } from "@/lib/dl-report-blocks";
 import { dlReportHtml } from "@/lib/dl-report-html";
 import { cn } from "@/lib/utils";
 
+// Reference palette: solid tinted chips, text label kept so colour is never the only signal.
 const TONE_CLASS = {
-  good: "border-live/40 bg-live/10 text-live",
-  warn: "border-beta/40 bg-beta/10 text-beta", // no amber token in the theme, so AMBER uses beta and keeps its text label
-  bad: "border-destructive/40 text-destructive",
-  none: "border-border-soft bg-secondary text-muted-foreground",
+  good: "border-transparent bg-[#E7F6EC] text-live",
+  warn: "border-transparent bg-[#FEF3E2] text-beta",
+  bad: "border-transparent bg-[#FDECEA] text-destructive",
+  none: "border-transparent bg-secondary text-muted-foreground",
 };
 
 function Chip({ value }: { value: string }) {
   return (
-    <span className={cn("inline-block rounded-sm border px-1.5 py-0.5 font-mono text-xs tracking-[0.08em] whitespace-nowrap", TONE_CLASS[dlTone(value) ?? "none"])}>
+    <span className={cn("inline-block rounded-[3px] border px-1.5 py-px font-mono text-[11px] font-bold whitespace-nowrap", TONE_CLASS[dlTone(value) ?? "none"])}>
       {value}
     </span>
   );
@@ -40,40 +40,44 @@ const Label = ({ children }: { children: string }) => <h4 className="term-label 
 
 function Table({ table, hideTitle, rowMeta }: { table: DlTable; hideTitle?: boolean; rowMeta?: { note?: string }[] }) {
   const { title, columns, rows } = table;
+  const grid = (
+    <div className="overflow-x-auto">
+      <table className="w-full min-w-[560px] border-collapse text-left text-xs">
+        {columns.some(Boolean) && (
+          <thead>
+            <tr>
+              {columns.map((column, i) => (
+                <th key={i} scope="col" className="border-b border-border-soft bg-secondary px-2 py-1.5 align-top font-mono text-[11px] font-semibold text-foreground">
+                  {column}
+                </th>
+              ))}
+            </tr>
+          </thead>
+        )}
+        <tbody>
+          {rows.map((row, r) => (
+            <tr key={r} className="even:bg-[#FAFBFC]">
+              {row.map((cell, c) => (
+                <td key={c} className="border-b border-border-soft px-2 py-1.5 align-top">
+                  {dlTone(cell) ? <Chip value={cell} /> : <Marked text={cell} />}
+                  {c === row.length - 1 && rowMeta?.[r]?.note && (
+                    <small className="mt-1 block text-muted-foreground">
+                      <Marked text={rowMeta[r].note} />
+                    </small>
+                  )}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+  if (hideTitle) return grid;
   return (
-    <div>
-      {!hideTitle && <Label>{title}</Label>}
-      <div className="overflow-x-auto rounded-sm border border-border-soft">
-        <table className="w-full border-collapse text-left text-[13px]">
-          {columns.some(Boolean) && (
-            <thead className="bg-secondary">
-              <tr>
-                {columns.map((column, i) => (
-                  <th key={i} scope="col" className="px-2.5 py-1.5 font-mono text-xs font-medium tracking-[0.04em] whitespace-nowrap text-muted-foreground">
-                    {column}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-          )}
-          <tbody>
-            {rows.map((row, r) => (
-              <tr key={r} className="border-t border-border-soft align-top first:border-t-0">
-                {row.map((cell, c) => (
-                  <td key={c} className="min-w-16 px-2.5 py-1.5">
-                    {dlTone(cell) ? <Chip value={cell} /> : <Marked text={cell} />}
-                    {c === row.length - 1 && rowMeta?.[r]?.note && (
-                      <small className="mt-1 block text-muted-foreground">
-                        <Marked text={rowMeta[r].note} />
-                      </small>
-                    )}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+    <div className="rounded-md border border-border-soft bg-card">
+      <h4 className="border-b-2 border-primary px-3.5 pt-2.5 pb-1.5 text-xs font-bold tracking-[0.05em] text-primary">{title}</h4>
+      <div className="p-3.5">{grid}</div>
     </div>
   );
 }
@@ -94,7 +98,7 @@ function List({ items, ordered }: { items: string[]; ordered?: boolean }) {
 function Block({ block }: { block: DlBlock }) {
   switch (block.kind) {
     case "heading":
-      return <h3 className="mt-2 border-b border-border-soft pb-1.5 font-mono text-xs font-semibold tracking-[0.08em] text-primary">{block.text}</h3>;
+      return <h3 className="mt-2 border-b-2 border-primary pb-1.5 text-xs font-bold tracking-[0.05em] text-primary">{block.text}</h3>;
     case "text":
       return (
         <p className={cn(block.tone === "lead" ? "font-semibold" : block.tone === "note" ? "text-xs text-muted-foreground" : block.tone === "quote" ? "border-l-2 border-border pl-3 text-dim italic" : "text-dim")}>
@@ -103,7 +107,16 @@ function Block({ block }: { block: DlBlock }) {
         </p>
       );
     case "numbered":
-      return <List items={block.items} ordered />;
+      return (
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-2.5">
+          {block.items.map((item, i) => (
+            <div key={i} className="rounded-md border border-border-soft bg-card p-3 text-[13px] leading-normal">
+              <span className="font-bold text-primary">{i + 1}. </span>
+              <Marked text={item} />
+            </div>
+          ))}
+        </div>
+      );
     case "bullets":
       return (
         <div>
@@ -151,7 +164,7 @@ function Block({ block }: { block: DlBlock }) {
           ))}
         </div>
       );
-      const box = "rounded-sm border border-border-soft p-3";
+      const box = "rounded-md border border-border-soft bg-card p-3";
       return block.collapsible ? (
         <details className={box}>
           <summary className="flex cursor-pointer flex-wrap items-center gap-x-3 gap-y-1">{head}</summary>
@@ -167,7 +180,7 @@ function Block({ block }: { block: DlBlock }) {
     case "sources": {
       const { sources, estDefinition, gaps, disclaimer } = block.value;
       return (
-        <section className="mt-2 flex flex-col gap-2 rounded-sm border border-border-soft bg-secondary/50 p-3 text-xs">
+        <section className="mt-2 flex flex-col gap-2 rounded-md border border-border-soft bg-secondary/50 p-3 text-xs">
           <h4 className="term-label">{DL_HEADINGS.sourcesAndGaps}</h4>
           <List items={sources} />
           <p className="text-muted-foreground">
@@ -187,31 +200,30 @@ export function DlReportView({ report }: { report: DlEquityReport }) {
   const ticker = /\(NSE: ([^\s)]+)\)$/.exec(chrome.companyLine)?.[1] ?? "report";
 
   return (
-    <div className="flex min-w-0 flex-col gap-4">
-      <Card className="border-border-soft">
-        <CardContent className="flex flex-col gap-3">
-          <p className="font-mono text-xs tracking-[0.08em] text-primary">{chrome.kicker}</p>
-          <h2 className="text-xl font-bold tracking-tight">{chrome.companyLine}</h2>
-          <p className="text-[15px] text-dim">
-            <Marked text={chrome.thesis} />
-          </p>
-          <dl className="flex flex-wrap gap-x-7 gap-y-2">
-            {[
-              ["Rating (paper)", chrome.ratingPaper],
-              ["Target", chrome.target],
-              ["Price", chrome.price],
-            ].map(([label, value]) => (
-              <div key={label} className="flex flex-col gap-1">
-                <dt className="term-label">{label}</dt>
-                <dd className="font-mono font-semibold">{dlTone(value) ? <Chip value={value} /> : value}</dd>
-              </div>
-            ))}
-          </dl>
-          <div className="print:hidden">
-            <ReportActions html={dlReportHtml(report)} filename={`${ticker.replace(/[^\w-]/g, "_")}-equity-report.html`} />
-          </div>
-        </CardContent>
-      </Card>
+    <div className="olx flex min-w-0 flex-col gap-4">
+      <div className="rounded-md border-b-[3px] border-[#7399C6] bg-primary px-4.5 py-4 text-primary-foreground">
+        <p className="text-[11px] tracking-[0.1em] opacity-80">{chrome.kicker}</p>
+        <h2 className="mt-1 text-2xl font-bold">{chrome.companyLine}</h2>
+        <p className="mt-1 text-sm opacity-90">
+          <Marked text={chrome.thesis} />
+        </p>
+        <dl className="mt-2.5 flex flex-wrap items-center gap-x-4.5 gap-y-2 text-[13px]">
+          {[
+            ["Rating (paper)", chrome.ratingPaper],
+            ["Target", chrome.target],
+            ["Price", chrome.price],
+          ].map(([label, value]) => (
+            <div key={label} className="flex items-center gap-1.5">
+              <dt>{label}</dt>
+              <dd className="font-bold">{dlTone(value) ? <Chip value={value} /> : value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+
+      <div className="print:hidden">
+        <ReportActions html={dlReportHtml(report)} filename={`${ticker.replace(/[^\w-]/g, "_")}-equity-report.html`} />
+      </div>
 
       {/* CSS-only tabs (globals.css): native radios give keyboard support without any tab JS. */}
       <div className="dl-tabs">
@@ -219,10 +231,10 @@ export function DlReportView({ report }: { report: DlEquityReport }) {
           <Fragment key={panel.id}>
             <input type="radio" name="dl-tab" id={`dl-tab-${panel.id}`} defaultChecked={i === 0} />
             <label htmlFor={`dl-tab-${panel.id}`}>{panel.label}</label>
-            <section data-panel={panel.id} aria-label={panel.label} className="rounded-lg border border-border-soft bg-card p-4">
+            <section data-panel={panel.id} aria-label={panel.label} className="rounded-md bg-background py-1">
               <div className="flex flex-col gap-3.5">
                 {panel.leadTitle && (
-                  <h3 className="text-[15px] font-semibold tracking-tight">
+                  <h3 className="text-xl font-bold text-primary">
                     <Marked text={panel.leadTitle} />
                   </h3>
                 )}

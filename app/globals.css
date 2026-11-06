@@ -262,6 +262,52 @@
   display: block;
 }
 
+
+/* The equity report keeps the reference look (light, navy) in either app theme. Tokens are re-pointed here, so the
+   report's Tailwind classes recolour without a second set of class names. */
+.olx {
+  color-scheme: light;
+  --background: #fff;
+  --foreground: #1a1a1a;
+  --card: #fff;
+  --card-foreground: #1a1a1a;
+  --primary: #0b2a4a;
+  --primary-foreground: #fff;
+  --secondary: #f2f4f7;
+  --muted: #f2f4f7;
+  --muted-foreground: #5f6b7a;
+  --dim: #1a1a1a;
+  --border: #d9dee5;
+  --border-soft: #d9dee5;
+  --live: #067647;
+  --beta: #b54708;
+  --destructive: #b42318;
+  --ring: #0b2a4a;
+  font-family: Inter, var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  color: var(--foreground);
+}
+.olx .dl-tabs {
+  margin: 0.25rem 0;
+}
+.olx .dl-tabs > label {
+  border-color: var(--border-soft);
+  border-radius: 4px;
+  background: #fff;
+  padding: 6px 9px;
+  font-family: inherit;
+  font-size: 12px;
+  color: var(--foreground);
+}
+.olx .dl-tabs > label:hover {
+  background: var(--secondary);
+}
+.olx .dl-tabs > input:checked + label {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #fff;
+}
+
 /* Paper is always light, whichever theme is on screen. */
 @media print {
   /* Browser print shows every tab; the Print button uses the escaped document instead. */

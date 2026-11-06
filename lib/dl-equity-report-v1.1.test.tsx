@@ -26,11 +26,11 @@ const fragmentOf = (value: string) => escapeHtml(value).replaceAll("&#39;", "&#x
 const screenText = (html: string, panel: string) => (html.split('data-panel="').find((chunk) => chunk.startsWith(`${panel}"`)) ?? "").replace(/^[^>]*>/, "").replace(/<[^>]+>/g, "");
 
 describe("legacy v1 is untouched", () => {
-  // Hashes taken from the renderer before v1.1 existed: [view markup, export document].
+  // View hashes re-taken after the reference restyle; export hashes are from before v1.1 existed: [view markup, export document].
   it.each([
-    ["olectra-v1", "5534c23c8b82bc66f5db61762044a41627a0127b1b6abf7570a3952fbf56d55a", "fc4f9d9903529d11770393308dd5eec920a4bf53596ef802570e0976b0961704"],
-    ["hfcl-v1", "803fe8886c18d56ee4e546efdd1b7f8125174e9219b3999e137be9c1dfc53dd5", "a293a217d00c341c2b414c9eeb5335d42d009a2ba1f5e1bf7296746979beba0c"],
-    ["xss-probe-v1", "c517f207d54006c2c85808136d9ab786cfdb858f0006503f25d4a090e8006f9b", "fb906f14b2eba60b678e2ac4e83be1c6bc4abc66d092bb031a089636a5cc3ac3"],
+    ["olectra-v1", "64233a29b44db767d4380df755df768a9ac4923c5e18a7643a97946fe1ac02c4", "fc4f9d9903529d11770393308dd5eec920a4bf53596ef802570e0976b0961704"],
+    ["hfcl-v1", "e09ae1f88aa91c21f09bd9cded94d6ea2621053e000eb2806f5f8e454190f21f", "a293a217d00c341c2b414c9eeb5335d42d009a2ba1f5e1bf7296746979beba0c"],
+    ["xss-probe-v1", "297aff9b356175b9879e8b62d75386a772c94ffc359a0daf6221657eb8a0cc72", "fb906f14b2eba60b678e2ac4e83be1c6bc4abc66d092bb031a089636a5cc3ac3"],
   ])("%s renders byte-identically on screen and in the export", (name, screen, exported) => {
     const report = parsed(raw(name));
     expect(sha(view(report))).toBe(screen);
