@@ -305,7 +305,9 @@ function DlValidationErrors({ schema, errors }: { schema: string; errors: string
 
 function HtmlReport({ report }: { report: Report }) {
   // FORCE_BODY: a leading <style> would otherwise parse into <head> and be dropped.
-  const html = DOMPurify.sanitize(report.report_html!, {
+  // Bots sometimes leave a code fence behind ("```html" or a bare "html") around the document.
+  const raw = report.report_html!.replace(/^\s*(?:```+\s*)?html\s*(?=<)/i, "").replace(/```+\s*$/, "");
+  const html = DOMPurify.sanitize(raw, {
     FORCE_BODY: true,
     FORBID_TAGS: ["form"],
   });
@@ -359,7 +361,7 @@ function UrlReport({ report }: { report: Report }) {
 const DISCLAIMER = "Paper analysis only, not investment advice.";
 
 // title is safe unescaped: tickers are checked against TICKER_PATTERN, which allows no < or >.
-// ponytail: base target sends every link to a new tab, so in-page #anchors don't scroll.
+// base target sends every link to a new tab; fitToContent handles in-page #anchors itself.
 function htmlDocument(title: string, body: string) {
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><base target="_blank"><title>${title}</title></head><body>${body}</body></html>`;
 }
@@ -367,6 +369,14 @@ function htmlDocument(title: string, body: string) {
 function fitToContent({ currentTarget: frame }: SyntheticEvent<HTMLIFrameElement>) {
   const root = frame.contentDocument?.documentElement;
   if (!root) return;
+  // The frame is as tall as the report, so in-report #links scroll this page. base target would send them to a new tab.
+  root.addEventListener("click", (event) => {
+    const href = (event.target as Element).closest("a")?.getAttribute("href");
+    if (!href?.startsWith("#")) return;
+    event.preventDefault();
+    const target = frame.contentDocument?.getElementById(decodeURIComponent(href.slice(1)));
+    if (target) window.scrollTo({ top: frame.getBoundingClientRect().top + window.scrollY + target.getBoundingClientRect().top - 64, behavior: "smooth" });
+  });
   // Keeps fitting as the window narrows or fonts load. Goes away with the frame's document.
   new ResizeObserver(() => {
     // The difference is a horizontal scrollbar's height, if a wide table has one.
