@@ -16,6 +16,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { isDlEquityReportPayload, parseDlEquityReport } from "@/lib/dl-equity-report-v1.1";
 import type { Report } from "@/lib/reports";
 import { parseStructuredReport } from "@/lib/report-schema";
+import { expandTerminalTabs } from "@/lib/terminal-report";
 import { ReportActions } from "./report-actions";
 
 export function ReportView({
@@ -307,7 +308,7 @@ function HtmlReport({ report }: { report: Report }) {
   // FORCE_BODY: a leading <style> would otherwise parse into <head> and be dropped.
   // Bots sometimes leave a code fence behind ("```html" or a bare "html") around the document.
   const raw = report.report_html!.replace(/^\s*(?:```+\s*)?html\s*(?=<)/i, "").replace(/```+\s*$/, "");
-  const html = DOMPurify.sanitize(raw, {
+  const html = DOMPurify.sanitize(expandTerminalTabs(raw), {
     FORCE_BODY: true,
     FORBID_TAGS: ["form"],
   });
@@ -369,6 +370,39 @@ function htmlDocument(title: string, body: string) {
 function fitToContent({ currentTarget: frame }: SyntheticEvent<HTMLIFrameElement>) {
   const root = frame.contentDocument?.documentElement;
   if (!root) return;
+  // Terminal-style reports: one tab body visible at a time. The script that did this was stripped.
+  const buttons = [...root.querySelectorAll<HTMLButtonElement>(".tabs button")];
+  const panels = [...root.querySelectorAll<HTMLElement>("#tabbody > section[data-tab]")];
+  if (buttons.length && buttons.length === panels.length) {
+    const show = (active: number) => {
+      buttons.forEach((button, i) => (button.className = i === active ? "on" : ""));
+      panels.forEach((panel, i) => (panel.style.display = i === active ? "" : "none"));
+    };
+    buttons.forEach((button, i) => button.addEventListener("click", () => show(i)));
+    show(0);
+
+    // A tab with sub-tabs (F2) gets the template's second bar, again one body at a time.
+    for (const panel of panels) {
+      const subs = [...panel.querySelectorAll<HTMLElement>(":scope > [data-sub]")];
+      if (!subs.length) continue;
+      const bar = root.ownerDocument.createElement("div");
+      bar.className = "tabs subs";
+      const subButtons = subs.map((sub, i) => {
+        const button = root.ownerDocument.createElement("button");
+        button.textContent = sub.dataset.sub ?? "";
+        button.addEventListener("click", () => showSub(i));
+        sub.firstElementChild?.setAttribute("hidden", "");
+        bar.append(button);
+        return button;
+      });
+      const showSub = (active: number) => {
+        subButtons.forEach((button, i) => (button.className = i === active ? "on" : ""));
+        subs.forEach((sub, i) => (sub.style.display = i === active ? "" : "none"));
+      };
+      panel.prepend(bar);
+      showSub(0);
+    }
+  }
   // The frame is as tall as the report, so in-report #links scroll this page. base target would send them to a new tab.
   root.addEventListener("click", (event) => {
     const href = (event.target as Element).closest("a")?.getAttribute("href");
