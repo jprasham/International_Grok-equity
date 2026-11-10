@@ -20,7 +20,7 @@ export default function Home() {
         <GrokAttribution />
       </PageHero>
       <PageBody className="flex flex-col gap-8">
-        <Section code="01" name="New research" desc="Opens the report when you run it">
+        <Section code="01" name="New research" desc="Opens the report when you run it · a report takes 5 to 15 minutes to generate">
           <ResearchForm />
         </Section>
         <Section code="02" name="Accepted formats">

@@ -129,6 +129,7 @@ function Progress({
                 {queued ? " is queued" : " — research in process"}
               </p>
               <p className="mt-1.5 text-muted-foreground">{phaseDetail}</p>
+              <p className="mt-1.5 text-muted-foreground">A report takes 5 to 15 minutes to generate.</p>
               <p className="mt-2 font-mono text-xs tracking-[0.08em] text-muted-foreground uppercase">
                 Step 0{current + 1} / 03 · checks every 10s
               </p>
