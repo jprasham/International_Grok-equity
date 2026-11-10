@@ -244,6 +244,7 @@ function ReportBody({
     return (
       <div className="flex flex-col gap-4">
         <GrokAttribution tone="done" />
+        <ScoreLegend />
         {dl.warnings.length > 0 && <DlSemanticWarnings warnings={dl.warnings} />}
         <DlReportView report={dl.data} />
       </div>
@@ -255,6 +256,7 @@ function ReportBody({
   return (
     <div className="flex flex-col gap-4">
       <GrokAttribution tone="done" />
+      <ScoreLegend />
       {dl && <DlValidationErrors schema={String((report.report_json as { schema: unknown }).schema)} errors={dl.errors} />}
       {structured && <StructuredReportView report={structured} />}
 
@@ -268,6 +270,30 @@ function ReportBody({
         </pre>
       ) : null}
     </div>
+  );
+}
+
+// Fixed colours, as in the reports themselves, so the key reads the same in either app theme.
+const SCORES = [
+  ["R", "Red", "fails the check; a risk flag", "bg-[#FDECEA] text-[#B42318]"],
+  ["A", "Amber", "borderline; needs watching", "bg-[#FEF3E2] text-[#B54708]"],
+  ["G", "Green", "passes the check", "bg-[#E7F6EC] text-[#067647]"],
+  ["U", "Unknown", "not checked or data not available", "bg-[#F2F4F7] text-[#5F6B7A]"],
+];
+
+function ScoreLegend() {
+  return (
+    <dl className="flex flex-wrap items-center gap-x-5 gap-y-2 rounded-lg border border-border-soft bg-card px-4 py-3 print:hidden">
+      <dt className="term-label">Scoring key</dt>
+      {SCORES.map(([code, name, meaning, tone]) => (
+        <dd key={code} className="flex items-center gap-2 text-muted-foreground">
+          <span className={`rounded-[3px] px-1.5 py-px font-mono text-[11px] font-bold ${tone}`}>{code}</span>
+          <span>
+            <span className="font-semibold text-foreground">{name}</span>: {meaning}
+          </span>
+        </dd>
+      ))}
+    </dl>
   );
 }
 
