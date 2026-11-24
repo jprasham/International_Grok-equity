@@ -20,15 +20,15 @@ post() { # post <url> <secret-or-empty> <json>, prints "<http code> <body>"
   curl -s -w ' HTTP_%{http_code}' -X POST "$1" -H 'Content-Type: application/json' "${auth[@]}" -d "$3"
 }
 
-check "bad ticker rejected" HTTP_400 "$(post "$BASE/api/research" "" '{"ticker":"$$$","exchange":"NSE"}')"
+check "bad ticker rejected" HTTP_400 "$(post "$BASE/api/research" "" '{"ticker":"$$$","exchange":"NASDAQ"}')"
 
-created=$(post "$BASE/api/research" "" '{"ticker":"HFCL","exchange":"NSE"}')
+created=$(post "$BASE/api/research" "" '{"ticker":"AAPL","exchange":"NASDAQ"}')
 check "webhook unset -> failed" '"status":"failed"' "$created"
 check "webhook unset -> clear error" 'RESEARCH_WEBHOOK_URL is not configured' "$created"
 id=$(echo "$created" | sed -E 's/.*"id":"([^"]+)".*/\1/')
 url="$BASE/api/reports/$id"
 
-done='{"status":"done","report_html":"<h1>HFCL</h1><img src=x onerror=alert(1)><script>alert(2)</script><style>body{display:none}</style><p>SAFE_TEXT</p>"}'
+done='{"status":"done","report_html":"<h1>AAPL</h1><img src=x onerror=alert(1)><script>alert(2)</script><style>body{display:none}</style><p>SAFE_TEXT</p>"}'
 check "no secret -> 401" HTTP_401 "$(post "$url" "" "$done")"
 check "wrong secret -> 401" HTTP_401 "$(post "$url" "wrong-secret" "$done")"
 check "wrong secret left row alone" '"status":"failed"' "$(curl -s "$url")"
@@ -38,8 +38,8 @@ unknown="$BASE/api/reports/00000000-0000-4000-8000-000000000000"
 check "unknown id, no secret -> 401" HTTP_401 "$(post "$unknown" "" "$done")"
 upserted=$(post "$unknown" "$SECRET" '{"status":"researching"}')
 check "unknown id upserts" HTTP_200 "$upserted"
-check "upsert defaults" '"ticker":"Unknown","exchange":"NSE"' "$upserted"
-check "upsert takes labels" '"ticker":"TCS","exchange":"BSE"' "$(post "$unknown" "$SECRET" '{"status":"researching","ticker":"tcs","exchange":"BSE"}')"
+check "upsert defaults" '"ticker":"Unknown","exchange":"Unknown"' "$upserted"
+check "upsert takes labels" '"ticker":"SHEL","exchange":"LSE"' "$(post "$unknown" "$SECRET" '{"status":"researching","ticker":"shel","exchange":"LSE"}')"
 check "traversal id -> 404" HTTP_404 "$(curl -s -w ' HTTP_%{http_code}' "$BASE/api/reports/..%2F..%2Fpackage")"
 check "right secret -> 200" HTTP_200 "$(post "$url" "$SECRET" "$done")"
 
@@ -64,7 +64,7 @@ for bad in 'onerror=' 'alert(2)'; do
 done
 
 # Retention: a new completed report replaces the old one; a failed one doesn't.
-second=$(post "$BASE/api/research" "" '{"ticker":"TCS","exchange":"NSE"}' | sed -E 's/.*"id":"([^"]+)".*/\1/')
+second=$(post "$BASE/api/research" "" '{"ticker":"SHEL","exchange":"LSE"}' | sed -E 's/.*"id":"([^"]+)".*/\1/')
 check "failed run keeps last done as latest" "$id" "$(curl -s "$BASE/api/reports")"
 post "$BASE/api/reports/$second" "$SECRET" '{"status":"done","report_html":"<p>SECOND</p>"}' > /dev/null
 check "new done becomes latest" "$second" "$(curl -s "$BASE/api/reports")"

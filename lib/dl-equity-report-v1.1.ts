@@ -27,6 +27,7 @@ import {
   F15Schema,
   F16Schema,
   FooterSchema,
+  parseAmount,
   parseDlEquityReportV1,
   SourcesAndGapsSchema,
   type DlEquityReportV1,
@@ -287,15 +288,10 @@ function f2Warnings({ stress, categories, dataGaps }: DlEquityReport["panels"]["
   return warnings;
 }
 
-const rupees = (value: string) => {
-  const match = value.match(/₹\s*(\d[\d,]*(?:\.\d+)?)/);
-  return match ? Number(match[1].replaceAll(",", "")) : null;
-};
-
 function targetWarnings({ chrome, panels }: DlEquityReport): string[] {
-  const header = rupees(chrome.target);
-  const weighted = rupees(panels.f10.weightedTarget);
-  return header !== null && weighted !== null && header !== weighted ? [`Header target ${chrome.target} differs from the F10 weighted target ₹${weighted}`] : [];
+  const header = parseAmount(chrome.target);
+  const weighted = parseAmount(panels.f10.weightedTarget);
+  return header !== null && weighted !== null && header !== weighted ? [`Header target ${chrome.target} differs from the F10 weighted target ${weighted}`] : [];
 }
 
 function consensusWarnings({ consensus, investors, leadTitle }: DlEquityReport["panels"]["f13"]): string[] {

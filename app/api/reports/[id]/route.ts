@@ -1,6 +1,6 @@
 import { createHash, timingSafeEqual } from "node:crypto";
 import { getReport, upsertReport } from "@/lib/reports";
-import { TICKER_PATTERN } from "@/lib/ticker";
+import { isExchange, TICKER_PATTERN } from "@/lib/ticker";
 
 const TICKER = new RegExp(`^${TICKER_PATTERN}$`);
 const NOT_FOUND = () => Response.json({ error: "Report not found." }, { status: 404 });
@@ -54,7 +54,7 @@ export async function POST(request: Request, ctx: RouteContext<"/api/reports/[id
 
   // Labels only: a bad one falls back to the stored value rather than losing a report.
   const ticker = typeof body?.ticker === "string" ? body.ticker.trim().toUpperCase() : "";
-  const exchange = body?.exchange === "NSE" || body?.exchange === "BSE" ? body.exchange : undefined;
+  const exchange = isExchange(body?.exchange) ? body.exchange : undefined;
 
   const { id } = await ctx.params;
   try {

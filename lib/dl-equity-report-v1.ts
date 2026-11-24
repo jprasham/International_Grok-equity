@@ -1,12 +1,28 @@
 /**
- * FROZEN contract for `dl-equity-report/v1`, taken from the OLECTRA reference
+ * Contract for `dl-equity-report/v1`, taken from the OLECTRA reference
  * (_reference/equity-terminal-olectra-report-spec.md and _reference/olectra-panels).
- * Any taxonomy change needs a v2 schema, not an edit here.
+ * International edition: money fields take any currency (see CURRENCY) and the
+ * company line takes any exchange. Taxonomy changes need a v2 schema.
  *
  * Conventions: cells are plain strings. Estimates carry `EST` in the text and
  * unknowns are `U` or a gap note, never a blank.
  */
 import { z } from "zod";
+
+const SYMBOL = String.raw`[A-Z]{0,3}[$€£¥₹₩]`; // $, US$, HK$, €, £, ¥, ₹, ₩
+const CODE = "[A-Z]{3}"; // CHF, EUR, USD
+/** A currency on its own, as in column headers: `$`, `HK$`, `CHF`. */
+const CURRENCY_TOKEN = `(?:${SYMBOL}|${CODE})`;
+/** A currency before an amount: `$1,234`, `HK$98`, `CHF 85`. Codes need the space. */
+export const CURRENCY = `(?:${SYMBOL}|${CODE} )`;
+/** A money table unit such as `$ mn`, `€ mn`, `CHF mn` or `₹ cr`. The bot contract asks for `mn`. */
+const UNIT = `${CURRENCY_TOKEN} [a-z]+`;
+
+/** The first amount after a currency prefix, as a number: `$1,234.5` → 1234.5. */
+export function parseAmount(value: string): number | null {
+  const match = value.match(new RegExp(String.raw`${CURRENCY}\s*(\d[\d,]*(?:\.\d+)?)`));
+  return match ? Number(match[1].replaceAll(",", "")) : null;
+}
 
 export const DL_EQUITY_REPORT_SCHEMA = "dl-equity-report/v1" as const;
 export const DL_DISCLAIMER = "Paper analysis only, not advice." as const;
@@ -131,7 +147,8 @@ export const F10_SCENARIO_COLUMNS = ["Lens", "Scenario", "Price", "vs now", "Wha
 /** Template: `R {rates…}` is one or more issuer-specific columns such as `R 21%`. The double backslash is in the source. */
 export const F11_LEIBOWITZ_COLUMNS = ["k \\\\ R", "R {rates…}", "Today %"] as const;
 export const F12_COST_SPLIT_COLUMNS = ["Item", "Value", "Method"] as const;
-export const F12_REVENUE_SCENARIO_COLUMNS = ["Revenue Δ", "Revenue", "EBITDA", "Margin", "EBIT", "PAT", "EPS ₹", "Value ₹"] as const;
+/** Template: `{cur}` is the report currency, such as `EPS $` / `Value $`. */
+export const F12_REVENUE_SCENARIO_COLUMNS = ["Revenue Δ", "Revenue", "EBITDA", "Margin", "EBIT", "PAT", "EPS {cur}", "Value {cur}"] as const;
 /** Template: `{Nx}` is the issuer-specific multiple, such as `Value @30x`. */
 export const F12_MARGIN_SHOCK_COLUMNS = ["EBITDA margin", "EPS", "Value @{Nx}"] as const;
 /** Headerless in the source, so no names are invented. Positions: metric, reading. */
@@ -192,11 +209,11 @@ export const SourcesAndGapsSchema = z.strictObject({
 
 export const ChromeSchema = z.strictObject({
   kicker: z.string().regex(/^EQUITY RESEARCH · .+ · AS OF .+ · PAPER ANALYSIS ONLY, NOT ADVICE$/),
-  companyLine: z.string().regex(/^.+ \(NSE: [^\s)]+\)$/),
+  companyLine: z.string().regex(/^.+ \([A-Z][A-Z0-9 ]*: [^\s)]+\)$/),
   thesis: text,
   ratingPaper: z.enum(DL_RATINGS),
-  target: z.string().regex(/^(₹.+|U)$/),
-  price: z.string().regex(/^(₹.+ \(.+\)|U)$/),
+  target: z.string().regex(new RegExp(`^(${CURRENCY}.+|U)$`)),
+  price: z.string().regex(new RegExp(`^(${CURRENCY}.+ \\(.+\\)|U)$`)),
   tabs: exactStrings(DL_TAB_LABELS),
 });
 
@@ -266,12 +283,12 @@ export const F5Schema = z.strictObject({
 
 export const F6Schema = z.strictObject({
   ...panelBase,
-  bottomUp: table("FY27E BOTTOM-UP REVENUE (₹ cr, EST)", exactStrings(F6_BOTTOM_UP_COLUMNS)),
+  bottomUp: table(new RegExp(`^FY27E BOTTOM-UP REVENUE \\(${UNIT}, EST\\)$`), exactStrings(F6_BOTTOM_UP_COLUMNS)),
   orderBook: table(/^ORDER BOOK \(.+\)$/, exactStrings(F6_ORDER_BOOK_COLUMNS)),
   structure: table(/^.+ STRUCTURE$/, exactStrings(F6_STRUCTURE_COLUMNS)), // spec: `EVEY / MEIL STRUCTURE` or issuer-specific
 });
 
-export const F7Schema = z.strictObject({ ...panelBase, pl: table("P&L (₹ cr, consolidated)", exactStrings(F7_PL_COLUMNS)) });
+export const F7Schema = z.strictObject({ ...panelBase, pl: table(new RegExp(`^P&L \\(${UNIT}, consolidated\\)$`), exactStrings(F7_PL_COLUMNS)) });
 
 export const F8Schema = z.strictObject({ ...panelBase, returns: table("RETURNS", exactStrings(F8_RETURNS_COLUMNS)) });
 
@@ -324,7 +341,20 @@ export const F11Schema = z.strictObject({
 export const F12Schema = z.strictObject({
   ...panelBase,
   costSplit: table("COST SPLIT (EST)", exactStrings(F12_COST_SPLIT_COLUMNS)),
-  revenueScenarios: table(/^REVENUE SCENARIOS ON TTM COST STRUCTURE \(₹ cr, EST; value at .+x\)$/, exactStrings(F12_REVENUE_SCENARIO_COLUMNS)),
+  revenueScenarios: table(
+    new RegExp(`^REVENUE SCENARIOS ON TTM COST STRUCTURE \\(${UNIT}, EST; value at .+x\\)$`),
+    z
+      .array(z.string())
+      .refine(
+        (c) =>
+          c.length === 8 &&
+          sameStrings(c.slice(0, 6), F12_REVENUE_SCENARIO_COLUMNS.slice(0, 6)) &&
+          new RegExp(`^EPS ${CURRENCY_TOKEN}$`).test(c[6]) &&
+          new RegExp(`^Value ${CURRENCY_TOKEN}$`).test(c[7]),
+        { error: `must be: ${F12_REVENUE_SCENARIO_COLUMNS.join(" | ")}` },
+      )
+      .readonly(),
+  ),
   marginShock: table(
     "MARGIN SHOCK (revenue held at TTM)",
     z

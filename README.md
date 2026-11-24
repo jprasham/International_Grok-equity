@@ -1,8 +1,8 @@
 # Ticker Research (Market Pulse)
 
-Next.js front end for **DeLorean Partners · Ticker Research**: request Grok-generated equity research on Indian NSE/BSE tickers, track report status, and view structured Market Pulse reports (or sandboxed HTML from the research bot).
+Next.js front end for **DeLorean Partners · Ticker Research**: request Grok-generated equity research on international stock tickers (US, Europe, Asia-Pacific), track report status, and view structured Market Pulse reports (or sandboxed HTML from the research bot).
 
-GitHub repo: [jprasham/grok-equity](https://github.com/jprasham/grok-equity).
+GitHub repo: [jprasham/International_Grok-equity](https://github.com/jprasham/International_Grok-equity).
 
 ## What it does
 
@@ -21,7 +21,6 @@ Index: [docs/README.md](docs/README.md).
 | --- | --- |
 | [docs/BOT_CONTRACT.md](docs/BOT_CONTRACT.md) | Webhook + callback payload contract for the research bot |
 | [docs/DESIGN.md](docs/DESIGN.md) | Market Pulse design tokens (colour, type, motion) |
-| [data/README.md](data/README.md) | How to refresh NSE/BSE symbol dumps → `lib/symbols-data.json` |
 
 ## Setup
 
@@ -54,21 +53,20 @@ Copy from [`.env.local.example`](.env.local.example). Do not commit `.env` / `.e
 | Build | `npm run build` | Production build |
 | Start | `npm start` | Serve the production build |
 | Lint | `npm run lint` | ESLint |
-| Symbols | `npm run symbols:build` | Regenerate `lib/symbols-data.json` from CSVs in `data/` (see [data/README.md](data/README.md)) |
 | Smoke | `bash scripts/smoke.sh [base-url] [secret]` | Optional API/flow checks against a running server |
 
-Raw exchange CSVs under `data/` are gitignored; the shipped JSON is what the app uses at runtime. Do not delete `lib/symbols-data.json`.
+Tickers are typed free-form and format-checked only. The exchange list lives in `EXCHANGES` in `lib/ticker.ts`
 
 ## Report storage
 
 - **With Blob:** create a free Blob store with **private** access and connect it to the Vercel project so `BLOB_READ_WRITE_TOKEN` is set, then redeploy (Dashboard → Storage → Create → Blob).
 - **Without the token:** the app still runs, but reports stay per-instance until that instance goes away. Callbacks upsert, so a callback on an instance that never saw the request still creates the row.
-- Have the bot echo `ticker` and `exchange`, or the row may show `Unknown` / `NSE`.
+- Have the bot echo `ticker` and `exchange`, or the row may show `Unknown` / `Unknown`.
 - After a report finishes, the report page can download a client-side HTML copy that does not depend on the server once loaded.
 
 ## Deploy (Vercel)
 
-1. Import [jprasham/grok-equity](https://github.com/jprasham/grok-equity) (or connect this repo in the Vercel dashboard).
+1. Import [jprasham/International_Grok-equity](https://github.com/jprasham/International_Grok-equity) (or connect this repo in the Vercel dashboard).
 2. Set the env vars above for Production / Preview as needed. `APP_URL` should be the deployment URL (no trailing slash).
 3. Connect a private Blob store if you want cross-instance last-report sharing.
 4. Deploy. Framework preset: Next.js (default).
@@ -81,11 +79,10 @@ Raw exchange CSVs under `data/` are gitignored; the shipped JSON is what the app
 app/           Next.js App Router pages + API routes
 components/    UI (Market Pulse shell, report views, shadcn primitives)
 docs/          Bot contract + design tokens (see docs/README.md)
-lib/           Reports store, ticker helpers, symbols JSON
-scripts/       symbols:build (+ optional smoke.sh)
-data/          Symbol CSV dumps (gitignored) + README
+lib/           Reports store, ticker + exchange list, report schemas
+scripts/       Fixture builders (+ optional smoke.sh)
 public/        Static assets placeholder (favicon lives under app/)
 AGENTS.md      Next.js agent guidance — kept; `next dev` regenerates it
 ```
 
-Local-only / gitignored: `.env.local`, `.data/`, `.next/`, `.superpowers/`, `data/*.csv`, `node_modules/`.
+Local-only / gitignored: `.env.local`, `.data/`, `.next/`, `.superpowers/`, `node_modules/`.

@@ -40,9 +40,6 @@ yarn-error.log*
 # brainstorm companion sessions
 .superpowers/
 
-# raw exchange dumps (regenerate JSON with npm run symbols:build)
-/data/*.csv
-
 # vercel
 .vercel
 

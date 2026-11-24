@@ -266,7 +266,7 @@ describe.each(["hfcl-v1", V11])("semantic warnings on %s", (name) => {
     ["F2 false tally", (x) => (x.panels.f2.stress.tally = "999 checks: 999 RED · 0 AMBER · 0 GREEN · 0 not checked"), /^F2: tally/],
     ["F2 missing check", (x) => x.panels.f2.categories[0].checks.rows.pop(), /^F2: missing checks: 7\.10$/],
     ["F2 duplicate check", (x) => x.panels.f2.categories[0].checks.rows.push(structuredClone(x.panels.f2.categories[0].checks.rows[0])), /^F2: check 1\.1 is duplicated/],
-    ["wrong header target", (x) => (x.chrome.target = "₹99999"), /^Header target ₹99999 differs from the F10 weighted target ₹216\.68$/],
+    ["wrong header target", (x) => (x.chrome.target = "₹99999"), /^Header target ₹99999 differs from the F10 weighted target 216\.68$/],
     ["wrong investor consensus", (x) => (x.panels.f13.consensus.wouldBuy = 99), /^F13: consensus says 99 would buy/],
     ["wrong stakeholder cap", (x) => (x.panels.f16.adjustedMultiple = "30 minus17 capped15 equals999x (EST)"), /^F16: base 30x less 15x is 15x/],
     ["reward-risk label vs ratio", (x) => (x.panels.f10.rewardRisk.strip = "Reward : risk 0.47x · ASYMMETRIC FAVOURABLE"), /^F10: reward : risk 0\.47x reads ASYMMETRIC UNFAVOURABLE/],

@@ -3,10 +3,11 @@ import { PageBody, PageHero, Section } from "@/components/terminal";
 import { ResearchForm } from "./research-form";
 
 const SYNTAX = [
-  ["RELIANCE", "NSE symbol"],
-  ["BAJAJ-AUTO", "hyphens"],
-  ["M&M", "ampersands"],
-  ["500325", "BSE code"],
+  ["AAPL", "NASDAQ"],
+  ["BRK.B", "share class"],
+  ["SHEL", "LSE"],
+  ["7203", "Tokyo code"],
+  ["0700", "HKEX code"],
 ];
 
 export default function Home() {
@@ -15,7 +16,7 @@ export default function Home() {
       <PageHero
         eyebrow="Market desk"
         title="Find the next signal."
-        sub="Indian equities · NSE & BSE"
+        sub="International equities · US, Europe & Asia-Pacific"
       >
         <GrokAttribution />
       </PageHero>

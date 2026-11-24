@@ -1,7 +1,7 @@
 // React text children only: report strings are bot-supplied, so never dangerouslySetInnerHTML here.
 import { Fragment, type ReactNode } from "react";
 import { ReportActions } from "@/app/reports/report-actions";
-import { DL_HEADINGS, type DlTable } from "@/lib/dl-equity-report-v1";
+import { DL_HEADINGS, parseAmount, type DlTable } from "@/lib/dl-equity-report-v1";
 import type { DlEquityReport } from "@/lib/dl-equity-report-v1.1";
 import { dlPanels, dlSplitMarkers, dlTone, type DlBlock } from "@/lib/dl-report-blocks";
 import { dlReportHtml } from "@/lib/dl-report-html";
@@ -95,14 +95,9 @@ function List({ items, ordered }: { items: string[]; ordered?: boolean }) {
   );
 }
 
-const rupees = (value: string) => {
-  const match = value.match(/₹\s*(\d[\d,]*(?:\.\d+)?)/);
-  return match ? Number(match[1].replaceAll(",", "")) : null;
-};
-
 /** Reference F10: each rung is a bar scaled to the highest price, with a line at the current price. */
 function Ladder({ title, rungs }: { title: string; rungs: { label: string; value: string }[] }) {
-  const prices = rungs.map((rung) => rupees(rung.value));
+  const prices = rungs.map((rung) => parseAmount(rung.value));
   const current = prices[rungs.findIndex((rung) => rung.label === DL_HEADINGS.f10CurrentPrice)];
   const max = Math.max(...prices.map((price) => price ?? 0));
   const barred = prices.every((price) => price !== null) && current != null && max > 0;
@@ -301,7 +296,7 @@ function Block({ block }: { block: DlBlock }) {
 
 export function DlReportView({ report }: { report: DlEquityReport }) {
   const { chrome, footer } = report;
-  const ticker = /\(NSE: ([^\s)]+)\)$/.exec(chrome.companyLine)?.[1] ?? "report";
+  const ticker = /\([^:()]+: ([^\s)]+)\)$/.exec(chrome.companyLine)?.[1] ?? "report";
 
   return (
     <div className="olx flex min-w-0 flex-col gap-4">

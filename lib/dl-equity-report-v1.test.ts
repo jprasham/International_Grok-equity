@@ -26,7 +26,7 @@ const EXPECTED_COLUMNS: Record<string, string[]> = {
   F10_SCENARIO_COLUMNS: ["Lens", "Scenario", "Price", "vs now", "What it tells you"],
   F11_LEIBOWITZ_COLUMNS: ["k \\\\ R", "R {rates…}", "Today %"],
   F12_COST_SPLIT_COLUMNS: ["Item", "Value", "Method"],
-  F12_REVENUE_SCENARIO_COLUMNS: ["Revenue Δ", "Revenue", "EBITDA", "Margin", "EBIT", "PAT", "EPS ₹", "Value ₹"],
+  F12_REVENUE_SCENARIO_COLUMNS: ["Revenue Δ", "Revenue", "EBITDA", "Margin", "EBIT", "PAT", "EPS {cur}", "Value {cur}"],
   F12_MARGIN_SHOCK_COLUMNS: ["EBITDA margin", "EPS", "Value @{Nx}"],
   F14_EXTENSION_METER_COLUMNS: ["", ""],
   F14_STAGED_ENTRY_COLUMNS: ["", "", "", ""],
@@ -76,7 +76,7 @@ function stub() {
     schema: "dl-equity-report/v1",
     chrome: {
       kicker: "EQUITY RESEARCH · U · AS OF U · PAPER ANALYSIS ONLY, NOT ADVICE",
-      companyLine: "Stub Co (NSE: STUB)",
+      companyLine: "Stub Co (NASDAQ: STUB)",
       thesis: U,
       ratingPaper: U,
       target: U,
@@ -145,11 +145,11 @@ function stub() {
       },
       f6: {
         ...base(),
-        bottomUp: tbl("FY27E BOTTOM-UP REVENUE (₹ cr, EST)", c.F6_BOTTOM_UP_COLUMNS),
+        bottomUp: tbl("FY27E BOTTOM-UP REVENUE ($ mn, EST)", c.F6_BOTTOM_UP_COLUMNS),
         orderBook: tbl("ORDER BOOK (U)", c.F6_ORDER_BOOK_COLUMNS),
         structure: tbl("STUB STRUCTURE", c.F6_STRUCTURE_COLUMNS),
       },
-      f7: { ...base(), pl: tbl("P&L (₹ cr, consolidated)", c.F7_PL_COLUMNS) },
+      f7: { ...base(), pl: tbl("P&L ($ mn, consolidated)", c.F7_PL_COLUMNS) },
       f8: { ...base(), returns: tbl("RETURNS", c.F8_RETURNS_COLUMNS) },
       f9: {
         ...base(),
@@ -180,7 +180,7 @@ function stub() {
       f12: {
         ...base(),
         costSplit: tbl("COST SPLIT (EST)", c.F12_COST_SPLIT_COLUMNS),
-        revenueScenarios: tbl("REVENUE SCENARIOS ON TTM COST STRUCTURE (₹ cr, EST; value at 30x)", c.F12_REVENUE_SCENARIO_COLUMNS),
+        revenueScenarios: tbl("REVENUE SCENARIOS ON TTM COST STRUCTURE ($ mn, EST; value at 30x)", ["Revenue Δ", "Revenue", "EBITDA", "Margin", "EBIT", "PAT", "EPS $", "Value $"]),
         marginShock: tbl("MARGIN SHOCK (revenue held at TTM)", ["EBITDA margin", "EPS", "Value @30x"]),
       },
       f13: {
@@ -286,10 +286,31 @@ describe("parseDlEquityReportV1", () => {
     expect(parseDlEquityReportV1(report)).toMatchObject({ ok: true });
   });
 
+  it.each([
+    ["Apple Inc (NASDAQ: AAPL)", "$250", "$231.40 (21 Nov 2026)", "$ mn", "$"],
+    ["Nestlé SA (SIX: NESN)", "CHF 98", "CHF 85.10 (21 Nov 2026)", "CHF mn", "CHF"],
+    ["ASML Holding (EURONEXT: ASML)", "€820", "€701 (21 Nov 2026)", "€ mn", "€"],
+    ["Tencent (HKEX: 0700)", "HK$520", "HK$455 (21 Nov 2026)", "HK$ mn", "HK$"],
+    ["Toyota Motor (TSE: 7203)", "¥3,100", "¥2,840 (21 Nov 2026)", "¥ bn", "¥"],
+  ])("accepts an international report: %s", (companyLine, target, price, unit, cur) => {
+    const report = stub();
+    Object.assign(report.chrome, { companyLine, target, price });
+    report.panels.f6.bottomUp.title = `FY27E BOTTOM-UP REVENUE (${unit}, EST)`;
+    report.panels.f7.pl.title = `P&L (${unit}, consolidated)`;
+    report.panels.f12.revenueScenarios.title = `REVENUE SCENARIOS ON TTM COST STRUCTURE (${unit}, EST; value at 30x)`;
+    report.panels.f12.revenueScenarios.columns.splice(6, 2, `EPS ${cur}`, `Value ${cur}`);
+    const result = parseDlEquityReportV1(report);
+    expect(result.ok ? [] : result.errors).toEqual([]);
+  });
+
   it("rejects malformed chrome and F16 multiples", () => {
     expectRejected((r) => void (r.chrome.kicker = "EQUITY RESEARCH · AS OF today"), "chrome.kicker");
     expectRejected((r) => void (r.chrome.companyLine = "Stub Co"), "chrome.companyLine");
     expectRejected((r) => void (r.chrome.price = "₹951"), "chrome.price");
+    expectRejected((r) => void (r.chrome.price = "$951"), "chrome.price");
+    expectRejected((r) => void (r.chrome.target = "251"), "chrome.target");
+    expectRejected((r) => void (r.panels.f7.pl.title = "P&L (mn, consolidated)"), "panels.f7.pl.title");
+    expectRejected((r) => void (r.panels.f12.revenueScenarios.columns[6] = "EPS"), "panels.f12.revenueScenarios.columns");
     expectRejected((r) => void (r.panels.f16.lenses[0].multiple = "−3x"), "panels.f16.lenses.0.multiple");
   });
 

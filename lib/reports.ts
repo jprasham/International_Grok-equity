@@ -121,7 +121,7 @@ export async function upsertReport(
   { ticker, exchange, ...patch }: Patch & { ticker?: string; exchange?: string },
   onlyFrom?: ReportStatus[],
 ): Promise<Report> {
-  const base = (await getReport(id)) ?? newReport(id, "Unknown", "NSE");
+  const base = (await getReport(id)) ?? newReport(id, "Unknown", "Unknown");
   const row = { ...base, ticker: ticker ?? base.ticker, exchange: exchange ?? base.exchange };
   track(row);
   const updated = updateReport(id, patch, onlyFrom) ?? row;

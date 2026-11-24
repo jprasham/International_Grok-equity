@@ -1,4 +1,4 @@
-import { TICKER_PATTERN } from "@/lib/ticker";
+import { EXCHANGES, isExchange, TICKER_PATTERN } from "@/lib/ticker";
 import { createReport, getReport, updateReport } from "@/lib/reports";
 
 const TICKER = new RegExp(`^${TICKER_PATTERN}$`);
@@ -9,9 +9,9 @@ export async function POST(request: Request) {
     typeof body?.ticker === "string" ? body.ticker.trim().toUpperCase() : "";
   const exchange = body?.exchange;
 
-  if (!TICKER.test(ticker) || (exchange !== "NSE" && exchange !== "BSE")) {
+  if (!TICKER.test(ticker) || !isExchange(exchange)) {
     return Response.json(
-      { error: "Expected a valid ticker and an exchange of NSE or BSE." },
+      { error: `Expected a valid ticker and an exchange of ${EXCHANGES.join(", ")}.` },
       { status: 400 },
     );
   }

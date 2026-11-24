@@ -19,8 +19,8 @@ user -> POST /api/research -> app -> POST RESEARCH_WEBHOOK_URL -> bot
 ```json
 {
   "requestId": "3f0c1a9e-7a54-4f7e-9d0b-2c1e5b8a6d10",
-  "ticker": "HFCL",
-  "exchange": "NSE",
+  "ticker": "AAPL",
+  "exchange": "NASDAQ",
   "callbackUrl": "https://app.example.com/api/reports/3f0c1a9e-7a54-4f7e-9d0b-2c1e5b8a6d10"
 }
 ```
@@ -28,8 +28,8 @@ user -> POST /api/research -> app -> POST RESEARCH_WEBHOOK_URL -> bot
 | Field | Type | Notes |
 | --- | --- | --- |
 | `requestId` | UUID string | Report id. |
-| `ticker` | string | Uppercase. Matches `[A-Z0-9][A-Z0-9&.\-]{0,19}`, for example `M&M`, `BAJAJ-AUTO`, `500325`. The format is checked, but not whether the ticker is listed. |
-| `exchange` | string | `NSE` or `BSE`. |
+| `ticker` | string | Uppercase. Matches `[A-Z0-9][A-Z0-9&.\-]{0,19}`, for example `AAPL`, `BRK.B`, `7203`, `0700`. The format is checked, but not whether the ticker is listed. |
+| `exchange` | string | One of `NYSE`, `NASDAQ`, `LSE`, `TSX`, `XETRA`, `EURONEXT`, `SIX`, `TSE`, `HKEX`, `ASX`, `SGX`, `KRX` (see `EXCHANGES` in `lib/ticker.ts`). |
 | `callbackUrl` | URL string | Where to post the result. Use it as given. |
 
 **The bot must reply with a 2xx within 15 seconds and do the research after replying.** The app doesn't read the response body.
@@ -56,8 +56,8 @@ The app sends each webhook once and doesn't retry. A callback still applies afte
 ```json
 {
   "status": "done",
-  "report_html": "<h1>HFCL</h1><p>Summary</p>",
-  "report_url": "https://bot.example.com/reports/hfcl.html",
+  "report_html": "<h1>AAPL</h1><p>Summary</p>",
+  "report_url": "https://bot.example.com/reports/aapl.html",
   "report_json": { "rating": "hold" }
 }
 ```
@@ -70,7 +70,7 @@ The app sends each webhook once and doesn't retry. A callback still applies afte
 | `report_json` | any JSON | Stored as is. When it matches the optional structured schema below, the app renders a Market Pulse report view. Otherwise shown as raw JSON only if there's no HTML or URL. HTML (when present) remains the download/print artifact alongside the structured view. |
 | `error` | string | Shown when `status` is `failed`. |
 | `ticker` | string | Echo the webhook value. Used if the callback reaches an instance that doesn't hold the report; otherwise it shows as `Unknown`. An invalid value is ignored. |
-| `exchange` | string | `NSE` or `BSE`. Echo the webhook value. Same fallback, defaulting to `NSE`. |
+| `exchange` | string | One of the exchanges above. Echo the webhook value. Same fallback, defaulting to `Unknown`. |
 
 `done` must include at least one of `report_html`, `report_url` or `report_json`.
 
@@ -81,9 +81,9 @@ The app owns this shape. Send it in addition to `report_html` when you want the 
 ```json
 {
   "rating": "buy",
-  "summary": "HFCL remains a hold on execution risk despite order-book strength.",
+  "summary": "Apple remains a hold: services growth is priced in.",
   "metrics": [
-    { "label": "Target", "value": "₹118" },
+    { "label": "Target", "value": "$250" },
     { "label": "Upside", "value": "12%" }
   ],
   "sections": [
@@ -104,6 +104,22 @@ The app owns this shape. Send it in addition to `report_html` when you want the 
 
 v1 bots that only send `report_html` keep working unchanged.
 
+### `dl-equity-report/v1` and `v1.1`: currencies and exchanges
+
+The full terminal report (`"schema": "dl-equity-report/v1"` or `v1.1`, see `lib/dl-equity-report-v1.ts`) works in the stock's own trading currency. Use one currency throughout a report.
+
+| Field | Format | Examples |
+| --- | --- | --- |
+| `chrome.companyLine` | `Name (EXCHANGE: TICKER)` | `Apple Inc (NASDAQ: AAPL)`, `Toyota Motor (TSE: 7203)` |
+| `chrome.target` | currency + amount, or `U` | `$250`, `€820`, `HK$520`, `CHF 98` |
+| `chrome.price` | currency + amount + `(date)`, or `U` | `$231.40 (21 Nov 2026)` |
+| F6, F7, F12 table titles | `(<currency> mn, …)` | `P&L ($ mn, consolidated)`, `FY27E BOTTOM-UP REVENUE (€ mn, EST)` |
+| F12 revenue scenario columns | `EPS <currency>`, `Value <currency>` | `EPS $`, `Value HK$`, `EPS CHF` |
+
+A currency is a symbol, optionally with a letter prefix (`$`, `US$`, `HK$`, `€`, `£`, `¥`, `₩`, `₹`), or a three-letter ISO code (`CHF`, `EUR`). An ISO code needs a space before the amount (`CHF 98`). Report money tables in millions (`mn`). Use `bn` only where millions would be unreadable, such as yen.
+
+The footer field is still named `asOfIst` for compatibility. Put the as-of time in any time zone and name the zone, for example `21 Nov 2026 16:00 ET`.
+
 ### Update rules
 
 - Omitted or empty `report_html`, `report_url` and `report_json` keep their stored value. A JSON `null` counts as omitted.
@@ -117,7 +133,7 @@ v1 bots that only send `report_html` keep working unchanged.
 When a user presses Stop, the report becomes `failed` ("Stopped by user.") and, if `RESEARCH_CANCEL_URL` is set, the app sends one best-effort `POST` there (same `Authorization` header as the webhook, 5 second timeout, no retry):
 
 ```json
-{ "action": "cancel", "requestId": "3f0c1a9e-...", "ticker": "HFCL", "exchange": "NSE" }
+{ "action": "cancel", "requestId": "3f0c1a9e-...", "ticker": "AAPL", "exchange": "NASDAQ" }
 ```
 
 The bot should abort that run. Without a cancel URL, the bot can poll `GET {callbackUrl}` and stop when `status` is `failed`. A callback that arrives anyway still applies (`done` always wins), so the bot should not post after a cancel.
@@ -155,13 +171,13 @@ Reports in an iframe (`report_url` without `report_html`) run sandboxed with `al
 ```json
 {
   "id": "3f0c1a9e-7a54-4f7e-9d0b-2c1e5b8a6d10",
-  "ticker": "HFCL",
-  "exchange": "NSE",
+  "ticker": "AAPL",
+  "exchange": "NASDAQ",
   "status": "done",
   "requested_at": "2026-11-04T18:02:11.000Z",
   "completed_at": "2026-11-04T18:09:40.000Z",
   "report_url": null,
-  "report_html": "<h1>HFCL</h1>",
+  "report_html": "<h1>AAPL</h1>",
   "report_json": null,
   "error": null
 }
@@ -173,5 +189,5 @@ Reports in an iframe (`report_url` without `report_html`) run sandboxed with `al
 curl -X POST "$CALLBACK_URL" \
   -H "Authorization: Bearer $REPORT_CALLBACK_SECRET" \
   -H "Content-Type: application/json" \
-  -d '{"status":"done","report_html":"<h1>HFCL</h1><p>Summary</p>"}'
+  -d '{"status":"done","report_html":"<h1>AAPL</h1><p>Summary</p>"}'
 ```

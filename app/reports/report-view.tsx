@@ -68,12 +68,12 @@ function Stat({ label, children }: { label: string; children: ReactNode }) {
 }
 
 function formatTime(iso: string) {
-  const time = new Date(iso).toLocaleString("en-IN", {
-    timeZone: "Asia/Kolkata",
+  const time = new Date(iso).toLocaleString("en-GB", {
+    timeZone: "UTC",
     dateStyle: "medium",
     timeStyle: "short",
   });
-  return <time dateTime={iso}>{time} IST</time>;
+  return <time dateTime={iso}>{time} UTC</time>;
 }
 
 const STEPS = ["Queued", "Researching", "Report ready"];

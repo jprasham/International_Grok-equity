@@ -8,7 +8,7 @@ export function ReportActions({ html, filename }: { html: string; filename: stri
   const printable = useRef<HTMLIFrameElement>(null);
 
   function download() {
-    // The BOM keeps UTF-8 characters like ₹ intact when the file is opened from disk.
+    // The BOM keeps UTF-8 characters like €, £ and ¥ intact when the file is opened from disk.
     const blob = new Blob(["﻿", html], { type: "text/html;charset=utf-8" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
